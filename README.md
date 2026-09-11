@@ -43,6 +43,6 @@ G0内容余弦、G-ID ID余弦、G1多模态注意力、G2内容余弦+ID余弦�
 
 本项目：https://github.com/IJustWannaFindMyPeace/taobao-mm-muse-repro
 
-衔接项目：https://github.com/IJustWannaFindMyPeace/taobao-mm-cikm24-repro
+衔接项目：https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration
 
 两个仓库均为私有。首次推送已完成；正式数据训练尚未开始。
