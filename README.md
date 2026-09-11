@@ -1,48 +1,40 @@
-# TAOBAO-MM上的MUSE长历史机制复现
+# TAOBAO-MM · MUSE
 
-状态：规划中，未完成环境与训练。非官方复现项目，没有已验证运行命令或成绩。
+基于 TAOBAO-MM 的多模态长历史兴趣建模复现，对应 [A Simple Yet Effective Multimodal Search-Based Framework for Lifelong User Interest Modeling](https://arxiv.org/html/2512.07216v1)。本项目为非官方实现，参考[官方代码](https://github.com/alimama-tech/MUSE)。
 
-论文：[MUSE: A Simple Yet Effective Multimodal Search-Based Framework for Lifelong User Interest Modeling](https://arxiv.org/html/2512.07216v1)。参考：[官方实现](https://github.com/alimama-tech/MUSE)。
+研究主线：**长历史处理成本 → 目标相关检索 → 语义增强兴趣建模 → 检索与融合的独立贡献**。
 
-## 与前一项目的关系
+[实施路线](docs/roadmap.md) · [方法覆盖与适配边界](docs/reproduction-scope.md) · [前序内容融合项目](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration)
 
-CIKM2024项目研究内容怎样融合进推荐；本项目研究内容怎样帮助选择、使用长历史。共用冻结数据与评估协议，不默认继承MAKE。建议仓库名taobao-mm-muse-repro，远程仓库已创建并完成首次推送。
+## 当前状态
 
-## 方法
+本仓库已建立实验范围与工程路线，MUSE 模型及正式实验尚未实现。前序项目已完成 CUDA 合成训练检查及真实训练分片验证；这些结果不代表 MUSE 模型通过验证。
 
-GSU（General Search Unit，通用搜索单元）用固定内容余弦选择Top-K；ESU（Exact Search Unit，精细搜索单元）用SA-TA（Semantic-Aware Target Attention，语义感知目标注意力）与SimTier统计生成特征。
+## 方法与消融
 
-## 实验计划
+GSU（General Search Unit，通用搜索单元）按目标相关性选择 Top-K 历史；ESU（Exact Search Unit，精细搜索单元）对选中历史建模。SA-TA（Semantic-Aware Target Attention，语义感知目标注意力）融合语义与 ID 信息，SimTier 提供相似度分布特征。
 
-R0最近K+TA；R1内容TopK+TA；R2内容TopK+TA+SimTier；R3内容TopK+SA-TA；R4内容TopK+SA-TA+SimTier；R5内容TopK+SimTier-only（关闭研究长历史ID旁路）。公共分支一致。另列B0短历史DIN、SIM-hard/soft对照，不能把R0叫完整DIN。L扫描对照R1/R4；K扫描与低频/长度分组补充诊断。
+|编号|历史选择|长历史建模|检验目标|
+|---|---|---|---|
+|R0|最近 K 条|TA：目标注意力|提供近期历史对照|
+|R1|内容余弦 Top-K|TA|检验目标相关检索|
+|R2|内容余弦 Top-K|TA + SimTier|检验统计特征|
+|R3|内容余弦 Top-K|SA-TA|检验语义增强注意力|
+|R4|内容余弦 Top-K|SA-TA + SimTier|检验完整组合|
+|R5|内容余弦 Top-K|SimTier-only|隔离统计分支贡献|
 
-G0内容余弦、G-ID ID余弦、G1多模态注意力、G2内容余弦+ID余弦、G3内容余弦+ID注意力已纳入路线；G1/G3训练梯度规格未完成，不能直接运行随机检索器作证据。TWIN/MISS为条件项，MAKE组合为新增扩展。OpenCLIP/I2I及原文表示敏感性对照因数据受限暂不运行。所有结果未运行。详见[覆盖与开工审计](论文方案覆盖与开工审计.md)。
+公共分支保持一致；R5 关闭被研究长历史的 ID 注意力及均值旁路。R0 不等于独立 DIN 基线。所有配置均待实现和验证。
 
-## 共享协议和适配
+补充对照包括 DIN、SIM-hard、SIM-soft，以及 ID/内容检索评分方案；TWIN、MISS 和可学习检索器需完成专项规格后实施。历史长度扫描同时比较 R1 与 R4，避免将更长历史的影响归因于完整模型。详细方法映射与受限项见[范围说明](docs/reproduction-scope.md)。
 
-保留官方数据测试边界、共享子集清单/词表/内容版本、完整用户GAUC与统一mask。官方batch内GAUC、并列处理与本项目标准口径分别报告。修正实现需明确版本，不静默混入模型收益。公共代码从CIKM冻结版本带来源哈希迁入，两个项目独立可运行。
+## 共享协议与资源
 
-## 环境与资源
+计划继承前序项目验证后的数据清单、mask 规则及标准评估实现，并通过预测一致性检查验证迁移。正式协议尚未冻结。AUC 与 GAUC 统一使用完整评估记录；官方兼容口径如保留，将单列报告。
 
-目标RTX5070 12GB、32GB主存。固定内容向量、小词表、流式预处理；首跑B32/L200/K50为待验证起点。不得承诺官方全量配置直接装入12GB。共享环境版本，项目独立隔离；锁文件及真实命令待验证后添加。
+目标设备为 RTX 5070 12 GB、32 GB RAM。固定内容向量、流式预处理和受控词表用于限制资源开销。B=32、L=200、K=50 为待测起点，显存与吞吐以实际模型测量为准。独立依赖锁和训练入口将在验证后发布。
 
-## 局限与验收
+## 证据与局限
 
-公开最长1k的实验不能称10万历史复现。没有原始图文和私有配对，不重现SCL/OpenCLIP/I2I预训练比较或线上收益。验收为可复现运行、核心消融、多种子波动、资源记录和来源/适配清单。
+计划报告核心消融、多种子波动、用户历史长度与商品频次分组，以及显存和吞吐。论文描述、官方代码差异和本地适配分别记录。
 
-## 2026-09-11 实操进度更新
-
-本地Git骨架已建立。工作区Windows CUDA bootstrap训练检查已通过，实际Python3.11.15/PyTorch2.12.1+cu132；暂复用既有环境，最终独立依赖锁未完成。CIKM目录scripts/smoke_train.py是合成数据诊断，不是C0或论文结果。官方demo键关联不完整，真实训练等待提取一致子集。前文规划状态中的“环境未验证”已被本节更新：仅bootstrap验证完成，正式训练尚未完成。远程仓库已创建并完成首次推送。
-
-## 分阶段学习
-
-阅读[学习路线](docs/learning-path.md)。每阶段展示问题、关键代码、验证过的命令、产物与检查问题，通过Git提交记录进展。当前仅完成环境合成训练诊断与官方demo读取，真实数据基线尚未开始。
-
-
-## 仓库链接
-
-本项目：https://github.com/IJustWannaFindMyPeace/taobao-mm-muse-repro
-
-衔接项目：https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration
-
-两个仓库均为私有。首次推送已完成；正式数据训练尚未开始。
+公开 1,000 长度历史上的实验不等于工业 100,000 长度链路复现。缺少额外表示和原始图文时，不宣称完成 OpenCLIP、I2I 与 SCL 的原文表示对照，也不推断线上收益。前序 MAKE 与 MUSE 的组合仅作为可选扩展。
