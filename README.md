@@ -38,3 +38,7 @@ GSU（General Search Unit，通用搜索单元）按目标相关性选择 Top-K 
 计划报告核心消融、多种子波动、用户历史长度与商品频次分组，以及显存和吞吐。论文描述、官方代码差异和本地适配分别记录。
 
 公开 1,000 长度历史上的实验不等于工业 100,000 长度链路复现。缺少额外表示和原始图文时，不宣称完成 OpenCLIP、I2I 与 SCL 的原文表示对照，也不推断线上收益。前序 MAKE 与 MUSE 的组合仅作为可选扩展。
+
+## 数据来源与统计口径
+
+官方数据定义、p90 覆盖率口径和指定版本的差异核验见[数据集契约](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/dataset-contract.md)。
