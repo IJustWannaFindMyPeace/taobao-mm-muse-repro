@@ -1,0 +1,71 @@
+{
+  "scope": "training_resource_probe_not_effectiveness_evaluation",
+  "store_manifest_sha256": "eb8cac821d0991ef67769725928fe2aef8aff83d7fd7f3763635edac8d02799d",
+  "c0_prediction_parity": {
+    "rows": 32,
+    "max_abs_logit_error": 0.0
+  },
+  "profiles": [
+    {
+      "mode": "recent",
+      "history_length": 200,
+      "k": 50,
+      "batch_size": 32,
+      "steps": 20,
+      "rows": 640,
+      "seconds": 0.9408819999953266,
+      "peak_allocated_mib": 2835.92919921875,
+      "peak_reserved_mib": 2856.0,
+      "parameters_updated": true
+    },
+    {
+      "mode": "cosine",
+      "history_length": 200,
+      "k": 50,
+      "batch_size": 32,
+      "steps": 20,
+      "rows": 640,
+      "seconds": 0.4766029000165872,
+      "peak_allocated_mib": 2835.92919921875,
+      "peak_reserved_mib": 2856.0,
+      "parameters_updated": true
+    },
+    {
+      "mode": "recent",
+      "history_length": 1000,
+      "k": 50,
+      "batch_size": 32,
+      "steps": 20,
+      "rows": 640,
+      "seconds": 0.7765518000232987,
+      "peak_allocated_mib": 2874.73291015625,
+      "peak_reserved_mib": 2884.0,
+      "parameters_updated": true
+    },
+    {
+      "mode": "cosine",
+      "history_length": 1000,
+      "k": 50,
+      "batch_size": 32,
+      "steps": 20,
+      "rows": 640,
+      "seconds": 0.6137950000120327,
+      "peak_allocated_mib": 2874.73291015625,
+      "peak_reserved_mib": 2884.0,
+      "parameters_updated": true
+    }
+  ],
+  "implementation_sha256": {
+    "probe_search.py": "ff5a15a72e1bc08b74075deb184680fb549dd5b195fec9f9f5c7894934aedda6",
+    "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+    "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936"
+  },
+  "torch": "2.12.1+cu132",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "test_evaluated": false,
+  "limitations": [
+    "20-step probes include startup and CPU feature lookup; not steady-state benchmarks",
+    "R0/R1 only; SA-TA and learned SimTier not yet implemented",
+    "current 1% vocabulary; not a maximum-scale guarantee"
+  ]
+}

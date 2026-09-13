@@ -1,0 +1,10 @@
+{
+  "source_repository": "https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration",
+  "source_commit": "34ea909",
+  "files": {
+    "src/c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+    "src/feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+    "src/metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+    "tests/test_metrics.py": "ecd8efc44ef797622b5b6437fdb7fae4b4861ed239f7323495f00fab0dd895b0"
+  }
+}
