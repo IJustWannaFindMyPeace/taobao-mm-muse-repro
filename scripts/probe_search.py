@@ -7,6 +7,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from c0 import C0
 from feature_store import FeatureStore
 from search_model import SearchModel
+from muse_model import MUSEModel
 
 
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -22,6 +23,7 @@ def main():
     parser.add_argument('--store',type=Path,required=True)
     parser.add_argument('--c0-run',type=Path,required=True)
     parser.add_argument('--output-dir',type=Path,required=True)
+    parser.add_argument('--enhanced',action='store_true')
     args=parser.parse_args()
     if args.output_dir.exists() and any(args.output_dir.iterdir()):raise ValueError('Fresh output directory required')
     args.output_dir.mkdir(parents=True,exist_ok=True)
@@ -44,9 +46,10 @@ def main():
     rows=np.random.default_rng(42).permutation(len(train))[:640]
     results=[]
     for length in [200,1000]:
-        for mode in ['recent','cosine']:
+        for mode in (['cosine'] if args.enhanced else ['recent','cosine']):
             torch.manual_seed(42)
-            model=SearchModel(train.manifest['vocab_sizes'],k=50,mode=mode).cuda()
+            cls=MUSEModel if args.enhanced else SearchModel
+            model=cls(train.manifest['vocab_sizes'],k=50,mode=mode).cuda()
             sparse=list(model.embeddings.parameters());sparse_ids={id(p) for p in sparse}
             dense=[p for p in model.parameters() if id(p) not in sparse_ids]
             optimizers=[torch.optim.SparseAdam(sparse,lr=.001),torch.optim.AdamW(dense,lr=.001,weight_decay=0)]
@@ -65,7 +68,7 @@ def main():
                         if not torch.isfinite(gradient).all():raise RuntimeError('Nonfinite gradient')
                 for optimizer in optimizers:optimizer.step()
             torch.cuda.synchronize()
-            record={'mode':mode,'history_length':length,'k':50,'batch_size':32,'steps':20,'rows':640,
+            record={'model':'R4-enhanced' if args.enhanced else 'R0/R1-search-control','mode':mode,'history_length':length,'k':50,'batch_size':32,'steps':20,'rows':640,
                     'seconds':time.perf_counter()-start,'peak_allocated_mib':torch.cuda.max_memory_allocated()/2**20,
                     'peak_reserved_mib':torch.cuda.max_memory_reserved()/2**20,
                     'parameters_updated':not torch.equal(before,model.tower[-1].weight)}
@@ -74,10 +77,10 @@ def main():
             gc.collect();torch.cuda.empty_cache()
     report={'scope':'training_resource_probe_not_effectiveness_evaluation','store_manifest_sha256':digest(args.store/'manifest.json'),
             'c0_prediction_parity':{'rows':32,'max_abs_logit_error':parity},'profiles':results,
-            'implementation_sha256':{p.name:digest(p) for p in [Path(__file__),root/'src/retrieval.py',root/'src/search_model.py']},
+            'implementation_sha256':{p.name:digest(p) for p in [Path(__file__),root/'src/retrieval.py',root/'src/search_model.py',root/'src/muse_model.py',root/'src/enhanced_esu.py']},
             'torch':torch.__version__,'gpu':torch.cuda.get_device_name(),'test_evaluated':False,
             'limitations':['20-step probes include startup and CPU feature lookup; not steady-state benchmarks',
-                           'R0/R1 only; SA-TA and learned SimTier not yet implemented',
+                           'R4 resource check, not full-epoch validation' if args.enhanced else 'R0/R1 only; enhanced ESU not profiled',
                            'current 1% vocabulary; not a maximum-scale guarantee']}
     (args.output_dir/'report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
 

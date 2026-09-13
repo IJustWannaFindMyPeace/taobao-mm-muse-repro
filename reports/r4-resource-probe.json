@@ -1,0 +1,51 @@
+{
+  "scope": "training_resource_probe_not_effectiveness_evaluation",
+  "store_manifest_sha256": "eb8cac821d0991ef67769725928fe2aef8aff83d7fd7f3763635edac8d02799d",
+  "c0_prediction_parity": {
+    "rows": 32,
+    "max_abs_logit_error": 0.0
+  },
+  "profiles": [
+    {
+      "model": "R4-enhanced",
+      "mode": "cosine",
+      "history_length": 200,
+      "k": 50,
+      "batch_size": 32,
+      "steps": 20,
+      "rows": 640,
+      "seconds": 0.9242287999950349,
+      "peak_allocated_mib": 2835.986328125,
+      "peak_reserved_mib": 2858.0,
+      "parameters_updated": true
+    },
+    {
+      "model": "R4-enhanced",
+      "mode": "cosine",
+      "history_length": 1000,
+      "k": 50,
+      "batch_size": 32,
+      "steps": 20,
+      "rows": 640,
+      "seconds": 0.8508202999946661,
+      "peak_allocated_mib": 2874.7900390625,
+      "peak_reserved_mib": 2886.0,
+      "parameters_updated": true
+    }
+  ],
+  "implementation_sha256": {
+    "probe_search.py": "e9254bac6b73014796e403e15075d06f90776d5ee14577be7fae0589499ac450",
+    "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+    "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936",
+    "muse_model.py": "39072567cf5a66e9d25a3e1ecb70697a3efe37608a972fa8013fb971b7c846e3",
+    "enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec"
+  },
+  "torch": "2.12.1+cu132",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "test_evaluated": false,
+  "limitations": [
+    "20-step probes include startup and CPU feature lookup; not steady-state benchmarks",
+    "R4 resource check, not full-epoch validation",
+    "current 1% vocabulary; not a maximum-scale guarantee"
+  ]
+}
