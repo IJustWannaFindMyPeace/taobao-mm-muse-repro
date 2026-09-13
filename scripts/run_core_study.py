@@ -10,11 +10,15 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--store',type=Path,required=True)
     parser.add_argument('--output-dir',type=Path,required=True)
+    parser.add_argument('--configs',nargs='+',default=['r0','r1','r2','r3','r4','r5'])
     args=parser.parse_args()
     if args.output_dir.exists() and any(args.output_dir.iterdir()):raise ValueError('Fresh directory required')
     args.output_dir.mkdir(parents=True,exist_ok=True)
     root=Path(__file__).resolve().parents[1]
-    state={'planned':['r0','r1','r2','r3','r4','r5'],'completed':[],'active':None,'failed':None}
+    if len(set(args.configs))!=len(args.configs):raise ValueError('Duplicate configurations')
+    for name in args.configs:
+        if Path(name).name!=name or not (root/'configs'/(name+'.json')).is_file():raise ValueError('Unknown configuration: '+name)
+    state={'planned':args.configs,'completed':[],'active':None,'failed':None}
     def save():
         tmp=args.output_dir/'status.tmp'
         tmp.write_text(json.dumps(state,indent=2));tmp.replace(args.output_dir/'status.json')
