@@ -10,6 +10,20 @@ from muse_model import MUSEModel
 
 
 class ESUContracts(unittest.TestCase):
+    def test_statistics_only_has_no_long_id_path(self):
+        sizes={f:12 for f in FIELDS}
+        model=MUSEModel(sizes,k=3,short_length=2,semantic=False,histogram=True,long_id=False)
+        f=torch.full((2,10),2,dtype=torch.long);it=torch.tensor([[2,3,4,5,6],[3,4,5,6,7]])
+        valid=it!=0;q=torch.randn(2,128);h=torch.randn(2,5,128);target_valid=torch.ones(2,dtype=torch.bool)
+        with torch.no_grad():model.histogram_projection.weight.normal_(std=.1)
+        out=model(f,it,it,valid,q,h,target_valid,valid)
+        changed=it.clone();changed[:,:3]=10
+        torch.testing.assert_close(out,model(f,changed,changed,valid,q,h,target_valid,valid),rtol=0,atol=0)
+        out.sum().backward()
+        self.assertTrue(all(p.grad is None for p in model.long_attention.parameters()))
+        self.assertIsNone(model.value.weight.grad)
+        self.assertGreater(model.histogram_projection.weight.grad.abs().sum().item(),0)
+
     def test_enhanced_checkpoint_roundtrip(self):
         sizes={f:12 for f in FIELDS};model=MUSEModel(sizes,k=3)
         f=torch.full((2,10),2,dtype=torch.long);it=torch.tensor([[2,3,4],[3,4,5]])

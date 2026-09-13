@@ -8,11 +8,14 @@ from enhanced_esu import LearnedSimTier,semantic_scores,semantic_attention
 
 
 class MUSEModel(C0):
-    def __init__(self,sizes,width=16,short_length=50,k=50,mode='cosine',semantic=True,histogram=True):
+    def __init__(self,sizes,width=16,short_length=50,k=50,mode='cosine',semantic=True,histogram=True,long_id=True):
         super().__init__(sizes,width,short_length)
-        self.k=k;self.mode=mode
+        self.k=k;self.mode=mode;self.long_id=long_id
+        if not long_id and (semantic or not histogram):raise ValueError('Statistics-only requires histogram and no semantic attention')
         self.value=nn.Linear(width*2,width*2,bias=False)
         nn.init.eye_(self.value.weight)
+        if not long_id:
+            self.long_attention.requires_grad_(False);self.value.requires_grad_(False)
         self.gamma=nn.Parameter(torch.tensor([1.,0.,0.])) if semantic else None
         self.histogram=LearnedSimTier() if histogram else None
         if histogram:
@@ -26,12 +29,13 @@ class MUSEModel(C0):
         short_hist=torch.cat([self.embeddings['205'](item[:,-self.short_length:]),
                               self.embeddings['206'](category[:,-self.short_length:])],-1)
         short=self.short_attention(target,short_hist,valid[:,-self.short_length:])
-        long_hist=torch.cat([self.embeddings['205'](gather_history(item,indices,selected)),
-                             self.embeddings['206'](gather_history(category,indices,selected))],-1)
+        if self.long_id:
+            long_hist=torch.cat([self.embeddings['205'](gather_history(item,indices,selected)),
+                                 self.embeddings['206'](gather_history(category,indices,selected))],-1)
         content=gather_history(history_content,indices,selected)
         available=gather_history(history_available,indices,selected)
         similarity,semantic_valid=semantic_scores(target_content,content,selected,target_available,available)
-        long=semantic_attention(self.long_attention,self.value,target,long_hist,selected,similarity,self.gamma)
+        long=semantic_attention(self.long_attention,self.value,target,long_hist,selected,similarity,self.gamma) if self.long_id else torch.zeros_like(target)
         first=self.tower[0](torch.cat(scalar+[short,long],-1))
         if self.histogram is not None:first=first+self.histogram_projection(self.histogram(similarity,semantic_valid))
         return self.tower[1:](first).squeeze(-1)

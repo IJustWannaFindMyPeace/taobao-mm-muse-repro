@@ -23,7 +23,7 @@ GSU（General Search Unit，通用搜索单元）按目标相关性选择 Top-K 
 |R4|内容余弦 Top-K|SA-TA + SimTier|检验完整组合|
 |R5|内容余弦 Top-K|SimTier-only|隔离统计分支贡献|
 
-公共分支保持一致；R5 关闭被研究长历史的 ID 注意力及均值旁路。R0 不等于独立 DIN 基线。R0–R4 所需的模块已实现并完成正确性检查，R4 资源检查通过；R5 及全轮效果对照待完成。
+公共分支保持一致；R5 关闭被研究长历史的 ID 注意力及均值旁路。R0 不等于独立 DIN 基线。R0–R5 已实现并通过正确性检查，完整单种子效果队列已启动；当前尚未发布全轮比较结果。
 
 补充对照包括 DIN、SIM-hard、SIM-soft，以及 ID/内容检索评分方案；TWIN、MISS 和可学习检索器需完成专项规格后实施。历史长度扫描同时比较 R1 与 R4，避免将更长历史的影响归因于完整模型。详细方法映射与受限项见[范围说明](docs/reproduction-scope.md)。
 
@@ -48,3 +48,5 @@ GSU（General Search Unit，通用搜索单元）按目标相关性选择 Top-K 
 共享 C0 迁移、显式 mask 检索和 L=200/1000 的资源检查见[阶段 1](docs/stage-01-search-foundation.md)。本阶段未产生 MUSE 效果指标。
 
 SA-TA、可学习 SimTier 的公式、初始化差异与完整 R4 资源结果见[阶段 2](docs/stage-02-enhanced-esu.md)。
+
+R0–R5 的固定配置、R5 路径关闭验证及串行训练入口见[阶段 3](docs/stage-03-core-study.md)。
