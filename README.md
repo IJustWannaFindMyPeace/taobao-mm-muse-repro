@@ -54,3 +54,5 @@ R0–R5 的固定配置、R5 路径关闭验证及串行训练入口见[阶段 3
 首轮验证中 R2 的指标点估计最高；R4 对 R2、R1 对 R0 的 GAUC 增量区间跨零。结果与局限见阶段 3，不预设完整模型或内容检索必然胜出。
 
 R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度增加的稳定 GAUC 收益，控制变量及分析计划见[阶段 4](docs/stage-04-history-length.md)。
+
+两项目共享的下一档数据计划、训练预算及现有频次诊断见[资源与频次报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-15-frequency-and-budget.md)。5% 目前仅完成曝光筛选。
