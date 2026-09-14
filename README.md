@@ -55,4 +55,4 @@ R0–R5 的固定配置、R5 路径关闭验证及串行训练入口见[阶段 3
 
 R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度增加的稳定 GAUC 收益，控制变量及分析计划见[阶段 4](docs/stage-04-history-length.md)。
 
-两项目共享的现有频次诊断见[频次报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-15-frequency-and-budget.md)。5% 完整特征存储与 C6/R4 的 200 步资源检查已通过；R4（L=1000、K=50、batch size 32）峰值分配显存约 7.83 GiB。最新规模选择与预算限制见[阶段 16](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-16-scale-preparation.md)。5% 的 MUSE 全轮实验尚未运行。
+两项目共享的现有频次诊断见[频次报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-15-frequency-and-budget.md)。5% 完整特征存储与 C6/R4 的 200 步资源检查已通过；R4（L=1000、K=50、batch size 32）峰值分配显存约 7.83 GiB。最新规模选择与预算限制见[阶段 16](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-16-scale-preparation.md)。5% 的 R0–R5 全轮队列已启动，固定协议和跨项目比较边界见[阶段 5](docs/stage-05-five-percent-core-study.md)。
