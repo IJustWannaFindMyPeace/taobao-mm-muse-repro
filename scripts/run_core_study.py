@@ -11,6 +11,7 @@ def main():
     parser.add_argument('--store',type=Path,required=True)
     parser.add_argument('--output-dir',type=Path,required=True)
     parser.add_argument('--configs',nargs='+',default=['r0','r1','r2','r3','r4','r5'])
+    parser.add_argument('--seed',type=int,help='Override training seed only; data split remains fixed')
     args=parser.parse_args()
     if args.output_dir.exists() and any(args.output_dir.iterdir()):raise ValueError('Fresh directory required')
     args.output_dir.mkdir(parents=True,exist_ok=True)
@@ -18,6 +19,12 @@ def main():
     if len(set(args.configs))!=len(args.configs):raise ValueError('Duplicate configurations')
     for name in args.configs:
         if Path(name).name!=name or not (root/'configs'/(name+'.json')).is_file():raise ValueError('Unknown configuration: '+name)
+    if args.seed is not None and args.seed<0:raise ValueError('Nonnegative seed required')
+    snapshot=args.output_dir/'configs';snapshot.mkdir()
+    for name in args.configs:
+        cfg=json.loads((root/'configs'/(name+'.json')).read_text())
+        if args.seed is not None:cfg['seed']=args.seed
+        (snapshot/(name+'.json')).write_text(json.dumps(cfg,indent=2),encoding='utf-8')
     state={'planned':args.configs,'completed':[],'active':None,'failed':None}
     def save():
         tmp=args.output_dir/'status.tmp'
@@ -26,7 +33,7 @@ def main():
         state['active']=name;save();print('Starting '+name,flush=True)
         with (args.output_dir/(name+'.log')).open('w',encoding='utf-8') as log:
             result=subprocess.run([sys.executable,str(root/'scripts/train_muse.py'),
-                '--store',str(args.store.resolve()),'--config',str(root/'configs'/(name+'.json')),
+                '--store',str(args.store.resolve()),'--config',str((snapshot/(name+'.json')).resolve()),
                 '--output-dir',str((args.output_dir/name).resolve())],stdout=log,stderr=subprocess.STDOUT)
         if result.returncode:
             state['failed']=name;state['active']=None;save()
