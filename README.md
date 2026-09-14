@@ -57,4 +57,4 @@ R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度
 
 两项目共享的现有频次诊断见[频次报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-15-frequency-and-budget.md)。5% 数据与资源核验见[共享报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-16-scale-preparation.md)。该规模 R0–R5 全轮训练与保存预测审计已完成；R4 验证 GAUC 为 0.58922，但相对 R2 的增量区间跨零，结果与局限见[阶段 5](docs/stage-05-five-percent-core-study.md)。R1/R4 的历史长度 1000 全轮对照及审计也已完成，R4 GAUC 为 0.59231；两个长度增量区间均高于零，证据及多种子验证计划见[阶段 6](docs/stage-06-five-percent-history-length.md)。
 
-固定数据的 seed 2026 六组核心对照已启动，配置约束和三种子汇总规则见[阶段 7](docs/stage-07-training-seed-validation.md)。该阶段尚无多种子汇总结论。
+固定数据的 seed 2026 六组核心对照与审计已完成，seed 3407 队列已启动。两个已完成种子的 GAUC 排名一致，但部分模块增量区间仍跨零；配对证据及三种子汇总规则见[阶段 7](docs/stage-07-training-seed-validation.md)。该阶段尚无完整三种子结论。
