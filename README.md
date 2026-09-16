@@ -76,3 +76,5 @@ R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度
 当前 batch=32 是已验证的起点，尚非最优选择。扩容前须执行[批大小与超参数联合评估](docs/batch-and-hyperparameter-selection.md)，不得仅以能跑通作为最终配置依据。
 
 seed 42 四组适配基线已完成全轮训练，独立预测审计待完成；固定曝光预算的批大小资源扫描已启动，方案与边界见[阶段 10](docs/stage-10-batch-resource-scan.md)。
+
+C6、R4 与 ID 检索的 batch 32–256 首轮资源扫描全部通过，较大批次短测吞吐明显提高；加长复测与条件扩展已启动，尚未确定新训练协议。见[资源扫描证据](docs/stage-10-batch-resource-scan.md)。
