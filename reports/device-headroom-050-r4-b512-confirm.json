@@ -1,0 +1,694 @@
+{
+  "scope": "fixed_exposure_batch_resource_probe_not_effectiveness",
+  "model": "r4",
+  "batch_size": 512,
+  "warmup_rows": 4096,
+  "measured_rows": 262144,
+  "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+  "implementation_sha256": {
+    "src\\baseline_model.py": "351a8650722209658e75baa28a54e2e6e554fd5b505a5e025a950bdc34625f61",
+    "src\\baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+    "src\\c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+    "src\\enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+    "src\\feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+    "src\\metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+    "src\\muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+    "src\\retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+    "src\\search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936"
+  },
+  "probe_sha256": "c675ef413e3d0c3c9d72a3901c0054764f1a557f6d2245466918275cc14eca50",
+  "test_evaluated": false,
+  "validation_evaluated": false,
+  "seed": 42,
+  "dense_learning_rate": 0.001,
+  "sparse_learning_rate": 0.001,
+  "status": "passed",
+  "resource_policy": {
+    "warning_allocated_gib": 9.0,
+    "max_allocated_gib": 10.5,
+    "min_device_free_gib": 1.0,
+    "max_process_rss_gib": 24,
+    "min_system_available_gib": 4
+  },
+  "history_length": 1000,
+  "exposure_order_sha256": "5a21dae2bd6f5227d48d4b6f2ee898eeb9c43e83dd8e78f9413813fd1a5330fc",
+  "measured_seconds": 101.45240169999306,
+  "measured_rows_per_second": 2583.9112293781996,
+  "total_seconds": 104.28657300001942,
+  "measured_stage_seconds": {
+    "lookup": 79.13000379988807,
+    "transfer": 7.607995700032916,
+    "compute_and_update": 14.411795900232391
+  },
+  "enough_measurement_time": true,
+  "parameter_update_verified": true,
+  "device_telemetry": {
+    "cuda_sample_count": 2081,
+    "cuda_min_free_gib": 1.7520942687988281,
+    "cuda_total_gib": 11.91351318359375,
+    "nvidia_smi_samples": [
+      {
+        "time": 1789567263.7356877,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.12890625,
+        "free_gib": 10.53515625
+      },
+      {
+        "time": 1789567264.7809563,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.248046875,
+        "free_gib": 10.416015625
+      },
+      {
+        "time": 1789567265.829988,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.248046875,
+        "free_gib": 10.416015625
+      },
+      {
+        "time": 1789567266.8790066,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.248046875,
+        "free_gib": 10.416015625
+      },
+      {
+        "time": 1789567267.927986,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.248046875,
+        "free_gib": 10.416015625
+      },
+      {
+        "time": 1789567269.0045323,
+        "total_gib": 11.9404296875,
+        "used_gib": 3.822265625,
+        "free_gib": 7.841796875
+      },
+      {
+        "time": 1789567270.0514328,
+        "total_gib": 11.9404296875,
+        "used_gib": 3.841796875,
+        "free_gib": 7.822265625
+      },
+      {
+        "time": 1789567271.0988781,
+        "total_gib": 11.9404296875,
+        "used_gib": 9.88671875,
+        "free_gib": 1.77734375
+      },
+      {
+        "time": 1789567272.1485674,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567273.2073956,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567274.2598155,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567275.3233292,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567276.374145,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567277.4289894,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567278.4798143,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567279.539268,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567280.5895147,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567281.64307,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567282.7034285,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567283.7582724,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567284.808595,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567285.8670375,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567286.9160328,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567287.9654617,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567289.0167825,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567290.0769222,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567291.1290076,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567292.1801903,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567293.2340732,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567294.2884758,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567295.3390038,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567296.3922238,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567297.443647,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567298.4925003,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567299.5477257,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567300.6051664,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567301.6541376,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567302.706561,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567303.766182,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567304.830372,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567305.879909,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567306.932316,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567307.9872694,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567309.037304,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567310.0911572,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567311.1550384,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567312.2042723,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567313.258236,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567314.3091178,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567315.3606675,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567316.4211183,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567317.4707143,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567318.5220172,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567319.5783575,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567320.6422403,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567321.6908398,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567322.750922,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567323.8088055,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567324.858168,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567325.9098024,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.130859375,
+        "free_gib": 1.533203125
+      },
+      {
+        "time": 1789567326.9678795,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567328.018523,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567329.0704515,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567330.122697,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567331.1743872,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567332.2328854,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567333.2853434,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567334.3366957,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567335.3948565,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567336.4480367,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567337.5002155,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567338.554327,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567339.6163075,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567340.6643813,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567341.7281537,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567342.790202,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567343.841624,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567344.8991063,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567345.9496412,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567347.001338,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567348.0558784,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567349.1081715,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567350.1624825,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567351.2156813,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567352.263117,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567353.3152568,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567354.3746078,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567355.4270043,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567356.47642,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567357.5477037,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567358.5980716,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567359.653493,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567360.7027526,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567361.752551,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567362.8083289,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567363.860132,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567364.9119298,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567365.9729116,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567367.0219538,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567368.0731816,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567369.1280146,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567370.1796017,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567371.2333267,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567372.2895856,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      },
+      {
+        "time": 1789567373.3407414,
+        "total_gib": 11.9404296875,
+        "used_gib": 10.1328125,
+        "free_gib": 1.53125
+      }
+    ],
+    "nvidia_smi_errors": [],
+    "warning_exceeded": false,
+    "limitations": "CUDA sampled at phase boundaries; nvidia-smi ~1 second; transient peaks may be missed and Windows driver accounting differs"
+  },
+  "peak_allocated_gib": 8.530548572540283,
+  "peak_reserved_gib": 8.71875,
+  "sampled_peak_rss_gib": 8.163497924804688,
+  "sampled_min_available_ram_gib": 12.73685073852539,
+  "limitations": [
+    "fixed order, single timing run; repeat finalists in reverse order",
+    "synchronized timing includes instrumentation; not full-epoch guarantee",
+    "different batch sizes imply different optimizer step counts; no quality conclusion"
+  ]
+}

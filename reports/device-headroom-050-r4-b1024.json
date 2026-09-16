@@ -1,0 +1,103 @@
+{
+  "scope": "fixed_exposure_batch_resource_probe_not_effectiveness",
+  "model": "r4",
+  "batch_size": 1024,
+  "warmup_rows": 4096,
+  "measured_rows": 262144,
+  "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+  "implementation_sha256": {
+    "src\\baseline_model.py": "351a8650722209658e75baa28a54e2e6e554fd5b505a5e025a950bdc34625f61",
+    "src\\baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+    "src\\c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+    "src\\enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+    "src\\feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+    "src\\metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+    "src\\muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+    "src\\retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+    "src\\search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936"
+  },
+  "probe_sha256": "c675ef413e3d0c3c9d72a3901c0054764f1a557f6d2245466918275cc14eca50",
+  "test_evaluated": false,
+  "validation_evaluated": false,
+  "seed": 42,
+  "dense_learning_rate": 0.001,
+  "sparse_learning_rate": 0.001,
+  "status": "resource_rejected",
+  "resource_policy": {
+    "warning_allocated_gib": 9.0,
+    "max_allocated_gib": 10.5,
+    "min_device_free_gib": 1.0,
+    "max_process_rss_gib": 24,
+    "min_system_available_gib": 4
+  },
+  "history_length": 1000,
+  "exposure_order_sha256": "5a21dae2bd6f5227d48d4b6f2ee898eeb9c43e83dd8e78f9413813fd1a5330fc",
+  "reason": "CUDA-reported device free memory below configured reserve",
+  "device_telemetry": {
+    "cuda_sample_count": 5,
+    "cuda_min_free_gib": 0.5275764465332031,
+    "cuda_total_gib": 11.91351318359375,
+    "nvidia_smi_samples": [
+      {
+        "time": 1789567062.568324,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.84375,
+        "free_gib": 9.8203125
+      },
+      {
+        "time": 1789567063.6171756,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.9609375,
+        "free_gib": 9.703125
+      },
+      {
+        "time": 1789567064.669473,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.9453125,
+        "free_gib": 9.71875
+      },
+      {
+        "time": 1789567065.722631,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.9453125,
+        "free_gib": 9.71875
+      },
+      {
+        "time": 1789567066.777681,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.9453125,
+        "free_gib": 9.71875
+      },
+      {
+        "time": 1789567067.830001,
+        "total_gib": 11.9404296875,
+        "used_gib": 1.9453125,
+        "free_gib": 9.71875
+      },
+      {
+        "time": 1789567068.8768291,
+        "total_gib": 11.9404296875,
+        "used_gib": 4.5390625,
+        "free_gib": 7.125
+      },
+      {
+        "time": 1789567069.9286377,
+        "total_gib": 11.9404296875,
+        "used_gib": 5.181640625,
+        "free_gib": 6.482421875
+      }
+    ],
+    "nvidia_smi_errors": [],
+    "warning_exceeded": false,
+    "limitations": "CUDA sampled at phase boundaries; nvidia-smi ~1 second; transient peaks may be missed and Windows driver accounting differs"
+  },
+  "peak_allocated_gib": 8.323792457580566,
+  "peak_reserved_gib": 9.248046875,
+  "sampled_peak_rss_gib": 3.9529037475585938,
+  "sampled_min_available_ram_gib": 14.94991683959961,
+  "limitations": [
+    "fixed order, single timing run; repeat finalists in reverse order",
+    "synchronized timing includes instrumentation; not full-epoch guarantee",
+    "different batch sizes imply different optimizer step counts; no quality conclusion"
+  ]
+}

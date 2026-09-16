@@ -4,6 +4,8 @@ import hashlib
 import json
 import sys
 import time
+import subprocess
+import threading
 from pathlib import Path
 
 
@@ -27,6 +29,10 @@ def main():
     p.add_argument('--c6-config', type=Path, required=True)
     p.add_argument('--warmup-rows', type=int, default=4096)
     p.add_argument('--measured-rows', type=int, default=65536)
+    p.add_argument('--max-allocated-gib', type=float, default=9.)
+    p.add_argument('--warning-allocated-gib', type=float, default=9.)
+    p.add_argument('--min-device-free-gib', type=float, default=0.)
+    p.add_argument('--device-telemetry', action='store_true')
     args = p.parse_args()
     if args.report.exists() or args.batch_size < 1:
         raise ValueError('Fresh report and positive batch size required')
@@ -50,13 +56,40 @@ def main():
               'dense_learning_rate':.001,'sparse_learning_rate':.001,'status':'running'}
     process = psutil.Process()
     max_rss, min_ram, max_reserved = 0., float('inf'), 0.
+    device_samples=[]
+    smi_samples=[]
+    smi_errors=[]
+    stop_monitor=threading.Event()
+    def monitor_device():
+        while not stop_monitor.is_set():
+            try:
+                output=subprocess.check_output(['nvidia-smi','--id=0','--query-gpu=memory.total,memory.used,memory.free',
+                    '--format=csv,noheader,nounits'],text=True,timeout=5)
+                total,used,free=[float(x.strip())/1024 for x in output.strip().split(',')]
+                smi_samples.append({'time':time.time(),'total_gib':total,'used_gib':used,'free_gib':free})
+            except Exception as exc:
+                smi_errors.append(str(exc))
+            stop_monitor.wait(1.)
+    monitor=None
+    if args.device_telemetry:
+        monitor=threading.Thread(target=monitor_device,daemon=True);monitor.start()
+    report['resource_policy']={'warning_allocated_gib':args.warning_allocated_gib,
+        'max_allocated_gib':args.max_allocated_gib,'min_device_free_gib':args.min_device_free_gib,
+        'max_process_rss_gib':24,'min_system_available_gib':4}
 
     def guard():
         nonlocal max_rss, min_ram, max_reserved
         max_rss = max(max_rss, process.memory_info().rss/2**30)
         min_ram = min(min_ram, psutil.virtual_memory().available/2**30)
         max_reserved = max(max_reserved, torch.cuda.memory_reserved()/2**30)
-        if torch.cuda.max_memory_allocated()/2**30 > 9 or max_rss > 24 or min_ram < 4:
+        if args.device_telemetry or args.min_device_free_gib:
+            free,total=torch.cuda.mem_get_info()
+            device_samples.append({'free_gib':free/2**30,'total_gib':total/2**30,
+                                   'allocated_gib':torch.cuda.memory_allocated()/2**30,
+                                   'reserved_gib':torch.cuda.memory_reserved()/2**30})
+            if free/2**30 < args.min_device_free_gib:
+                raise MemoryError('CUDA-reported device free memory below configured reserve')
+        if torch.cuda.max_memory_allocated()/2**30 > args.max_allocated_gib or max_rss > 24 or min_ram < 4:
             raise MemoryError('Resource gate exceeded; no automatic batch reduction')
 
     try:
@@ -113,11 +146,14 @@ def main():
             inputs = [torch.as_tensor(batch[k],device='cuda',dtype=torch.long if k in names[:3] else None) for k in names]
             labels = torch.as_tensor(batch['labels'],device='cuda')
             torch.cuda.synchronize(); t2 = time.perf_counter()
+            if args.device_telemetry:guard()
             for opt in optimizers: opt.zero_grad(set_to_none=True)
             logits = model(*inputs)
+            if args.device_telemetry:guard()
             loss = torch.nn.functional.binary_cross_entropy_with_logits(logits, labels)
             if not torch.isfinite(loss): raise RuntimeError('Nonfinite loss')
             loss.backward()
+            if args.device_telemetry:guard()
             for param in model.parameters():
                 if param.grad is not None:
                     gradient = param.grad.coalesce().values() if param.grad.is_sparse else param.grad
@@ -139,6 +175,16 @@ def main():
                       enough_measurement_time=elapsed>=30, parameter_update_verified=True)
     except (torch.cuda.OutOfMemoryError, MemoryError) as exc:
         report.update(status='resource_rejected',reason=str(exc))
+    finally:
+        stop_monitor.set()
+        if monitor is not None:monitor.join(timeout=6)
+    if args.device_telemetry:
+        report['device_telemetry']={'cuda_sample_count':len(device_samples),
+            'cuda_min_free_gib':min((x['free_gib'] for x in device_samples),default=None),
+            'cuda_total_gib':device_samples[-1]['total_gib'] if device_samples else None,
+            'nvidia_smi_samples':smi_samples,'nvidia_smi_errors':smi_errors,
+            'warning_exceeded':torch.cuda.max_memory_allocated()/2**30 > args.warning_allocated_gib,
+            'limitations':'CUDA sampled at phase boundaries; nvidia-smi ~1 second; transient peaks may be missed and Windows driver accounting differs'}
     report.update(peak_allocated_gib=torch.cuda.max_memory_allocated()/2**30,
                   peak_reserved_gib=max_reserved, sampled_peak_rss_gib=max_rss,
                   sampled_min_available_ram_gib=min_ram,
