@@ -1,0 +1,15 @@
+{
+  "scope": "baseline_selector_contract_tests_and_static_memory_budget",
+  "tests_passed": 21,
+  "new_tests": 6,
+  "full_baseline_training_completed": false,
+  "test_evaluated": false,
+  "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+  "vocabulary_rows_all_fields": 43152867,
+  "embedding_width": 16,
+  "fp32_embedding_and_two_adam_states_gib": 7.7163339257240295,
+  "sources": {
+    "src\\baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+    "tests\\test_baseline_retrieval.py": "0094e2f1f34a5cfe95771b20066d62ecbdfd1cb0c6a55fce793409c3491d83d2"
+  }
+}
