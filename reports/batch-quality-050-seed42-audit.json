@@ -1,0 +1,521 @@
+{
+  "scope": "audited_validation_hyperparameter_screen",
+  "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+  "protocol_sha256": "9abae175ff7db6f156f4f23a4c8d51bdc04d43428c3423e18948b7ef887bb387",
+  "audit_source_sha256": "b919c8b5a91d3cf1482f64cd6de180da5d76f15cad784e0649d1071c14355053",
+  "implementation_sha256": {
+    "train_muse.py": "42a8125689b11c33120cadf97baedd92af9f04fa0ceb3f186800d3eb09b07e91",
+    "probe_search.py": "e9254bac6b73014796e403e15075d06f90776d5ee14577be7fae0589499ac450",
+    "baseline_model.py": "351a8650722209658e75baa28a54e2e6e554fd5b505a5e025a950bdc34625f61",
+    "baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+    "c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+    "enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+    "feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+    "metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+    "muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+    "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+    "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936"
+  },
+  "runs": {
+    "tune-r4-b256-s1-d1": {
+      "config": {
+        "experiment": "tune-r4-b256-s1-d1",
+        "seed": 42,
+        "embedding_width": 16,
+        "history_length": 1000,
+        "short_length": 50,
+        "batch_size": 256,
+        "epochs": 1,
+        "dense_learning_rate": 0.001,
+        "sparse_learning_rate": 0.001,
+        "weight_decay": 0.0,
+        "k": 50,
+        "mode": "cosine",
+        "semantic": true,
+        "histogram": true,
+        "long_id": true,
+        "resource_limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        }
+      },
+      "metrics": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6185068046635885,
+        "logloss": 0.3869345200846301,
+        "gauc": 0.5922016024535437,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "report_sha256": "1e105e7e62853d3239408822401d7c136ebc712d47ae941b5a1df4783e693977",
+      "predictions_sha256": "b8d4efa8b2212468a52e63fd01935551d261bd01f8a999740b0a8039dfd599bc",
+      "all_rows_and_metrics_equal": true,
+      "training_seconds": 1276.7552970999968,
+      "run_seconds_since_training_start": 1500.6519909000199,
+      "peak_allocated_mib": 8350.892578125,
+      "resource_monitor": {
+        "limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        },
+        "sample_count": 152,
+        "max_process_rss_gib": 14.04296875,
+        "min_system_available_gib": 10.640571594238281,
+        "min_device_free_gib": 1.5242538452148438,
+        "warning_allocated_exceeded": false,
+        "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+      }
+    },
+    "tune-r4-b256-s1-d02": {
+      "config": {
+        "experiment": "tune-r4-b256-s1-d02",
+        "seed": 42,
+        "embedding_width": 16,
+        "history_length": 1000,
+        "short_length": 50,
+        "batch_size": 256,
+        "epochs": 1,
+        "dense_learning_rate": 0.0002,
+        "sparse_learning_rate": 0.001,
+        "weight_decay": 0.0,
+        "k": 50,
+        "mode": "cosine",
+        "semantic": true,
+        "histogram": true,
+        "long_id": true,
+        "resource_limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        }
+      },
+      "metrics": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6172262805097091,
+        "logloss": 0.38710194101083434,
+        "gauc": 0.593598907300702,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "report_sha256": "5df370853fe00288bb0facff65eb241810f45b2589c1160913e8bf5a85cfbb9a",
+      "predictions_sha256": "de55ade74d14dac1e4c5e2fd0815312354d9dcf833feb89e368480b0a26aef3f",
+      "all_rows_and_metrics_equal": true,
+      "training_seconds": 1256.9635415000084,
+      "run_seconds_since_training_start": 1479.0353754999815,
+      "peak_allocated_mib": 8350.892578125,
+      "resource_monitor": {
+        "limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        },
+        "sample_count": 152,
+        "max_process_rss_gib": 14.043045043945312,
+        "min_system_available_gib": 11.016094207763672,
+        "min_device_free_gib": 2.1634674072265625,
+        "warning_allocated_exceeded": false,
+        "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+      }
+    },
+    "tune-r4-b256-s2-d1": {
+      "config": {
+        "experiment": "tune-r4-b256-s2-d1",
+        "seed": 42,
+        "embedding_width": 16,
+        "history_length": 1000,
+        "short_length": 50,
+        "batch_size": 256,
+        "epochs": 1,
+        "dense_learning_rate": 0.001,
+        "sparse_learning_rate": 0.002,
+        "weight_decay": 0.0,
+        "k": 50,
+        "mode": "cosine",
+        "semantic": true,
+        "histogram": true,
+        "long_id": true,
+        "resource_limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        }
+      },
+      "metrics": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.618747851677124,
+        "logloss": 0.3868524079484697,
+        "gauc": 0.5929427211724442,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "report_sha256": "0dfb8b591aba40f0632d3878aacda931816c27192badee65fb0d121bf6c3bc75",
+      "predictions_sha256": "d3b158172e677e5a75cc972c59f35c2d9946d0d95c7ddefe7cd4fe4f51235348",
+      "all_rows_and_metrics_equal": true,
+      "training_seconds": 1263.8199448000232,
+      "run_seconds_since_training_start": 1484.320086199994,
+      "peak_allocated_mib": 8350.892578125,
+      "resource_monitor": {
+        "limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        },
+        "sample_count": 152,
+        "max_process_rss_gib": 14.042964935302734,
+        "min_system_available_gib": 11.354660034179688,
+        "min_device_free_gib": 2.1459808349609375,
+        "warning_allocated_exceeded": false,
+        "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+      }
+    },
+    "tune-r4-b256-s2-d02": {
+      "config": {
+        "experiment": "tune-r4-b256-s2-d02",
+        "seed": 42,
+        "embedding_width": 16,
+        "history_length": 1000,
+        "short_length": 50,
+        "batch_size": 256,
+        "epochs": 1,
+        "dense_learning_rate": 0.0002,
+        "sparse_learning_rate": 0.002,
+        "weight_decay": 0.0,
+        "k": 50,
+        "mode": "cosine",
+        "semantic": true,
+        "histogram": true,
+        "long_id": true,
+        "resource_limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        }
+      },
+      "metrics": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.617597894560094,
+        "logloss": 0.38701629441335444,
+        "gauc": 0.5931788120560946,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "report_sha256": "a3d99e6f154ce5ee58a25f63f5237aa806cc8fc73fe7662e6aa2fa0bfa7fe374",
+      "predictions_sha256": "7bbb034a0a4faf0241e6670bbd3ddf0556aba799ca996b07a878a9bacf4365d3",
+      "all_rows_and_metrics_equal": true,
+      "training_seconds": 1258.9352715999994,
+      "run_seconds_since_training_start": 1480.2365685999976,
+      "peak_allocated_mib": 8350.892578125,
+      "resource_monitor": {
+        "limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        },
+        "sample_count": 152,
+        "max_process_rss_gib": 14.042678833007812,
+        "min_system_available_gib": 11.284439086914062,
+        "min_device_free_gib": 2.1459808349609375,
+        "warning_allocated_exceeded": false,
+        "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+      }
+    },
+    "tune-r4-b512-s1-d1": {
+      "config": {
+        "experiment": "tune-r4-b512-s1-d1",
+        "seed": 42,
+        "embedding_width": 16,
+        "history_length": 1000,
+        "short_length": 50,
+        "batch_size": 512,
+        "epochs": 1,
+        "dense_learning_rate": 0.001,
+        "sparse_learning_rate": 0.001,
+        "weight_decay": 0.0,
+        "k": 50,
+        "mode": "cosine",
+        "semantic": true,
+        "histogram": true,
+        "long_id": true,
+        "resource_limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        }
+      },
+      "metrics": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6186727650205147,
+        "logloss": 0.3867749280577233,
+        "gauc": 0.5926989462468117,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "report_sha256": "6569310ef4472d19264611311b979562a8c61954edb2e50e4a2a5934d980fd40",
+      "predictions_sha256": "b6d78ef108f5c0e3f2575f3c222c0510a415165e0ba953fa406d648f16b746a3",
+      "all_rows_and_metrics_equal": true,
+      "training_seconds": 1136.750407799991,
+      "run_seconds_since_training_start": 1358.4394654000062,
+      "peak_allocated_mib": 8727.794921875,
+      "resource_monitor": {
+        "limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        },
+        "sample_count": 77,
+        "max_process_rss_gib": 14.290351867675781,
+        "min_system_available_gib": 10.956153869628906,
+        "min_device_free_gib": 1.5585479736328125,
+        "warning_allocated_exceeded": false,
+        "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+      }
+    },
+    "tune-r4-b512-s1-d02": {
+      "config": {
+        "experiment": "tune-r4-b512-s1-d02",
+        "seed": 42,
+        "embedding_width": 16,
+        "history_length": 1000,
+        "short_length": 50,
+        "batch_size": 512,
+        "epochs": 1,
+        "dense_learning_rate": 0.0002,
+        "sparse_learning_rate": 0.001,
+        "weight_decay": 0.0,
+        "k": 50,
+        "mode": "cosine",
+        "semantic": true,
+        "histogram": true,
+        "long_id": true,
+        "resource_limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        }
+      },
+      "metrics": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6168577711171808,
+        "logloss": 0.3874742309538568,
+        "gauc": 0.5932705595665503,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "report_sha256": "7aca92746ef4eb6c5434167189966698e9918f19f44ff8522f9f514a77ba7e8c",
+      "predictions_sha256": "39962610ef92f99eb0e4910d7d46694826b678049d0869aa2c8dac8ea3ce3307",
+      "all_rows_and_metrics_equal": true,
+      "training_seconds": 1132.6589983000013,
+      "run_seconds_since_training_start": 1354.8867361999874,
+      "peak_allocated_mib": 8727.794921875,
+      "resource_monitor": {
+        "limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        },
+        "sample_count": 77,
+        "max_process_rss_gib": 14.29116439819336,
+        "min_system_available_gib": 11.051830291748047,
+        "min_device_free_gib": 1.5585479736328125,
+        "warning_allocated_exceeded": false,
+        "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+      }
+    },
+    "tune-r4-b512-s2-d1": {
+      "config": {
+        "experiment": "tune-r4-b512-s2-d1",
+        "seed": 42,
+        "embedding_width": 16,
+        "history_length": 1000,
+        "short_length": 50,
+        "batch_size": 512,
+        "epochs": 1,
+        "dense_learning_rate": 0.001,
+        "sparse_learning_rate": 0.002,
+        "weight_decay": 0.0,
+        "k": 50,
+        "mode": "cosine",
+        "semantic": true,
+        "histogram": true,
+        "long_id": true,
+        "resource_limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        }
+      },
+      "metrics": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6191063198167323,
+        "logloss": 0.38669267720003464,
+        "gauc": 0.5931076399383705,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "report_sha256": "086fffa690693dd21030424354c1cd59cf291239f4d26db962c0d897b7e1be1a",
+      "predictions_sha256": "650ccae46375a5d35a149640e1527b23fe22fac9c13603035a90fd979c0b9b72",
+      "all_rows_and_metrics_equal": true,
+      "training_seconds": 1133.253601000004,
+      "run_seconds_since_training_start": 1354.7238111000042,
+      "peak_allocated_mib": 8727.794921875,
+      "resource_monitor": {
+        "limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        },
+        "sample_count": 77,
+        "max_process_rss_gib": 14.291393280029297,
+        "min_system_available_gib": 10.928936004638672,
+        "min_device_free_gib": 1.5444183349609375,
+        "warning_allocated_exceeded": false,
+        "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+      }
+    },
+    "tune-r4-b512-s2-d02": {
+      "config": {
+        "experiment": "tune-r4-b512-s2-d02",
+        "seed": 42,
+        "embedding_width": 16,
+        "history_length": 1000,
+        "short_length": 50,
+        "batch_size": 512,
+        "epochs": 1,
+        "dense_learning_rate": 0.0002,
+        "sparse_learning_rate": 0.002,
+        "weight_decay": 0.0,
+        "k": 50,
+        "mode": "cosine",
+        "semantic": true,
+        "histogram": true,
+        "long_id": true,
+        "resource_limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        }
+      },
+      "metrics": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6171779044057891,
+        "logloss": 0.3873491534845728,
+        "gauc": 0.5927422656519273,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "report_sha256": "a370a4e1cabeb37cfcee9dbb47e870a1200955ac1bcd997133908a483b624269",
+      "predictions_sha256": "da549fb62fef2f5ce8d1031b9f4da79e0b76e521741121cb8c736f561a88678b",
+      "all_rows_and_metrics_equal": true,
+      "training_seconds": 1135.5372992000193,
+      "run_seconds_since_training_start": 1360.0433537999925,
+      "peak_allocated_mib": 8727.794921875,
+      "resource_monitor": {
+        "limits": {
+          "warning_allocated_gib": 9,
+          "max_allocated_gib": 10.5,
+          "min_device_free_gib": 1,
+          "max_process_rss_gib": 24,
+          "min_system_available_gib": 4
+        },
+        "sample_count": 77,
+        "max_process_rss_gib": 14.290599822998047,
+        "min_system_available_gib": 10.919181823730469,
+        "min_device_free_gib": 1.5444183349609375,
+        "warning_allocated_exceeded": false,
+        "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+      }
+    }
+  },
+  "selected_for_confirmation": {
+    "256": "tune-r4-b256-s1-d02",
+    "512": "tune-r4-b512-s1-d02"
+  },
+  "selection_rule": "maximum GAUC within each batch; ties lower LogLoss then configuration name",
+  "test_evaluated": false,
+  "final_batch_selected": false,
+  "limitations": [
+    "validation reused for selection; best values have selection bias",
+    "single seed; independent seed and companion-model confirmation pending",
+    "checkpoint presence checked; weights not rehashed or replayed by this audit"
+  ]
+}

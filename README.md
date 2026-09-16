@@ -82,3 +82,5 @@ C6、R4 与 ID 检索的 batch 32–256 首轮资源扫描全部通过，较大�
 放宽 PyTorch 分配上限并监测设备实际余量后，R4 的 batch=512 完成测量，1024 两次因剩余低于 1 GiB 停止（非 OOM）；详见[阶段 11](docs/stage-11-device-headroom.md)。
 
 R4 的 batch 256/512 与两类学习率的 8 组质量筛选已启动，固定一轮曝光预算和完整验证集。方案与确认规则见[阶段 12](docs/stage-12-batch-quality-screen.md)。
+
+8 组批大小/学习率筛选已通过完整验证预测审计，两个候选的第二种子与 C6 确认队列已启动。指标权衡及确认边界见[质量审计与确认](docs/stage-13-quality-audit-and-confirmation.md)。
