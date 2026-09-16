@@ -6,6 +6,7 @@ import torch
 from torch import nn
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from muse_model import MUSEModel
+from baseline_model import BaselineModel
 from feature_store import FeatureStore
 from metrics import evaluate
 from probe_search import tensors,digest as sha256
@@ -23,12 +24,30 @@ def main():
     if args.output_dir.exists() and any(args.output_dir.iterdir()):raise ValueError('Fresh directory required')
     args.output_dir.mkdir(parents=True,exist_ok=True)
     cfg=json.loads(args.config.read_text())
+    limits=cfg.get('resource_limits')
+    resource_samples=[]
+    if limits:
+        import psutil
+        process=psutil.Process()
+        def check_resources(step):
+            sample={'step':step,'allocated_gib':torch.cuda.max_memory_allocated()/2**30,
+                    'process_rss_gib':process.memory_info().rss/2**30,
+                    'system_available_gib':psutil.virtual_memory().available/2**30}
+            resource_samples.append(sample)
+            if (sample['allocated_gib']>limits['max_allocated_gib'] or
+                sample['process_rss_gib']>limits['max_process_rss_gib'] or
+                sample['system_available_gib']<limits['min_system_available_gib']):
+                (args.output_dir/'resource_failure.json').write_text(json.dumps({'limits':limits,'sample':sample},indent=2))
+                raise RuntimeError('Resource gate exceeded; batch and data scale were not changed')
+        check_resources(0)
     if not 1<=cfg['k']<=cfg['history_length']<=1000:raise ValueError('Invalid history limits')
     root=Path(__file__).resolve().parents[1]
     implementation_hashes={p.name:sha256(p) for p in [Path(__file__),root/'scripts/probe_search.py',*sorted((root/'src').glob('*.py'))]}
     torch.manual_seed(cfg['seed']);rng=np.random.default_rng(cfg['seed'])
     train=FeatureStore(args.store,'train');validation=FeatureStore(args.store,'validation')
-    model=MUSEModel(train.manifest['vocab_sizes'],width=cfg['embedding_width'],short_length=cfg['short_length'],
+    cls=MUSEModel if cfg.get('model_variant','muse')=='muse' else BaselineModel
+    extra={} if cls is MUSEModel else {'variant':cfg['model_variant']}
+    model=cls(train.manifest['vocab_sizes'],**extra,width=cfg['embedding_width'],short_length=cfg['short_length'],
         k=cfg['k'],mode=cfg['mode'],semantic=cfg['semantic'],histogram=cfg['histogram'],long_id=cfg['long_id']).cuda()
     def get_batch(store,split,indices):
         return store.batch(indices,cfg['history_length'],with_content=True)
@@ -58,6 +77,7 @@ def main():
             for optimizer in optimizers:optimizer.step()
             if before is not None:update_verified=not torch.equal(before,model.tower[-1].weight)
             seen+=len(batch['labels']);loss_sum+=loss.item()*len(batch['labels']);steps+=1
+            if limits and (steps==1 or steps%100==0):check_resources(steps)
             if steps%100==0:
                 print(f'epoch={epoch+1} steps={steps} rows={seen} logloss={loss_sum/seen:.6f}',flush=True)
                 (args.output_dir/'progress.json').write_text(json.dumps({'epoch':epoch+1,'steps':steps,'rows':seen}))
@@ -70,6 +90,7 @@ def main():
         model.eval();epoch_predictions=[]
         with torch.no_grad():
             for start in range(0,len(validation),cfg['batch_size']):
+                if limits and start%(100*cfg['batch_size'])==0:check_resources(steps)
                 b=get_batch(validation,'validation',np.arange(start,min(start+cfg['batch_size'],len(validation))))
                 epoch_predictions.append(model(*tensors(b)).cpu().numpy())
         epoch_logits=np.concatenate(epoch_predictions)
@@ -103,6 +124,11 @@ def main():
         'training_seconds':training_seconds,'training_peak_allocated_mib':peak,'training_peak_reserved_mib':reserved,
         'parameters_updated':update_verified,'reload_max_abs_error':error,'validation':metrics,
         'test_evaluated':False,'limitations':['single seed; no comparative model result','user-disjoint validation','local architecture and optimizer adaptation']}
+    if limits:
+        result['resource_monitor']={'limits':limits,'sample_count':len(resource_samples),
+            'max_process_rss_gib':max(s['process_rss_gib'] for s in resource_samples),
+            'min_system_available_gib':min(s['system_available_gib'] for s in resource_samples),
+            'policy':'checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes'}
     (args.output_dir/'report.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print(json.dumps(result,indent=2),flush=True)
 

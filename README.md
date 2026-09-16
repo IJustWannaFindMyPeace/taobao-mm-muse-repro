@@ -70,3 +70,5 @@ R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度
 核心与长度实验的 42 组产物已核验；独立基线和敏感性补充尚未齐全，最终测试协议尚未冻结。缺口与准入条件见[故事线证据审计](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-22-storyline-readiness.md)。
 
 独立基线的版本区分、类目/ID 检索契约及词表显存预算见[阶段 8](docs/stage-08-baseline-contracts.md)。选择器测试通过，基线整模型与训练尚未完成。
+
+四组适配基线已接入完整训练入口，24 项测试、参考预测回放和真实批次资源检查通过；资源管理策略及 seed 42 执行协议见[阶段 9](docs/stage-09-baseline-resource-gate.md)。
