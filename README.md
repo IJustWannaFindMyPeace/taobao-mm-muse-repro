@@ -72,3 +72,5 @@ R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度
 独立基线的版本区分、类目/ID 检索契约及词表显存预算见[阶段 8](docs/stage-08-baseline-contracts.md)。选择器测试通过，基线整模型与训练尚未完成。
 
 四组适配基线已接入完整训练入口，24 项测试、参考预测回放和真实批次资源检查通过；资源管理策略及 seed 42 执行协议见[阶段 9](docs/stage-09-baseline-resource-gate.md)。
+
+当前 batch=32 是已验证的起点，尚非最优选择。扩容前须执行[批大小与超参数联合评估](docs/batch-and-hyperparameter-selection.md)，不得仅以能跑通作为最终配置依据。

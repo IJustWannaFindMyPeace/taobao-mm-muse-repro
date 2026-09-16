@@ -37,3 +37,5 @@ python scripts/run_core_study.py --store <store-050> --output-dir <fresh-directo
 ```
 
 新训练脚本及新增源文件会改变实现摘要。与旧 R4 比较时须审核实际执行依赖、配置及迁移预测，不能跳过源码不一致告警或把全部摘要不同简单解释为同一个实现。B0 是短历史适配基线；其余三个检索对照与 R4-L1000 比较时固定增强 ESU。原始 DIN 局部激活版及原始 SIM 完整训练机制仍需单列范围。
+
+当前 batch=32 是已验证的起点，尚非最优选择。扩容前须执行[批大小与超参数联合评估](batch-and-hyperparameter-selection.md)，不得仅以能跑通作为最终配置依据。
