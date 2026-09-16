@@ -1,0 +1,40 @@
+{
+  "scope": "validation_hyperparameter_screen_not_final_model_selection",
+  "model": "R4",
+  "store": "shared-feature-store-050",
+  "batch_sizes": [
+    256,
+    512
+  ],
+  "sparse_learning_rates": [
+    0.001,
+    0.002
+  ],
+  "dense_learning_rates": [
+    0.001,
+    0.0002
+  ],
+  "epochs": 1,
+  "history_length": 1000,
+  "k": 50,
+  "seed": 42,
+  "configs": [
+    "tune-r4-b256-s1-d1",
+    "tune-r4-b256-s1-d02",
+    "tune-r4-b256-s2-d1",
+    "tune-r4-b256-s2-d02",
+    "tune-r4-b512-s1-d1",
+    "tune-r4-b512-s1-d02",
+    "tune-r4-b512-s2-d1",
+    "tune-r4-b512-s2-d02"
+  ],
+  "training_rows_per_run": 3052475,
+  "validation_rows_per_run": 768773,
+  "test_evaluated": false,
+  "selection": "audit all runs; prioritize GAUC with AUC/LogLoss and total time reported; confirm best candidate per batch on another seed and companion C6 before final freeze",
+  "limitations": [
+    "small predefined grid; not exhaustive optimum",
+    "validation reused for hyperparameter selection; bootstrap is not independent confirmation",
+    "different batches imply different optimizer update counts at equal exposures"
+  ]
+}

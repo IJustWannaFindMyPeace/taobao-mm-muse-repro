@@ -33,10 +33,15 @@ def main():
             sample={'step':step,'allocated_gib':torch.cuda.max_memory_allocated()/2**30,
                     'process_rss_gib':process.memory_info().rss/2**30,
                     'system_available_gib':psutil.virtual_memory().available/2**30}
+            if 'min_device_free_gib' in limits:
+                free,total=torch.cuda.mem_get_info()
+                sample.update(device_free_gib=free/2**30,device_total_gib=total/2**30,
+                              reserved_gib=torch.cuda.memory_reserved()/2**30)
             resource_samples.append(sample)
             if (sample['allocated_gib']>limits['max_allocated_gib'] or
                 sample['process_rss_gib']>limits['max_process_rss_gib'] or
-                sample['system_available_gib']<limits['min_system_available_gib']):
+                sample['system_available_gib']<limits['min_system_available_gib'] or
+                sample.get('device_free_gib',float('inf'))<limits.get('min_device_free_gib',0)):
                 (args.output_dir/'resource_failure.json').write_text(json.dumps({'limits':limits,'sample':sample},indent=2))
                 raise RuntimeError('Resource gate exceeded; batch and data scale were not changed')
         check_resources(0)
@@ -87,6 +92,7 @@ def main():
                 'training_seconds':time.perf_counter()-epoch_started,
                 'training_peak_allocated_mib':torch.cuda.max_memory_allocated()/2**20,
                 'training_peak_reserved_mib':torch.cuda.max_memory_reserved()/2**20}
+        validation_started=time.perf_counter()
         model.eval();epoch_predictions=[]
         with torch.no_grad():
             for start in range(0,len(validation),cfg['batch_size']):
@@ -97,6 +103,7 @@ def main():
         record['validation']=evaluate(validation.labels,epoch_logits,validation.user_rows)
         np.savez(args.output_dir/f'validation-epoch-{epoch+1}.npz',logits=epoch_logits,labels=validation.labels,
                  source_rows=validation.source_rows,user_rows=validation.user_rows)
+        record['validation_and_prediction_save_seconds']=time.perf_counter()-validation_started
         curves.append(record)
         (args.output_dir/'epoch_metrics.json').write_text(json.dumps(curves,indent=2))
         print(json.dumps(record),flush=True)
@@ -123,11 +130,14 @@ def main():
         'torch':torch.__version__,'gpu':torch.cuda.get_device_name(),'steps':steps,'epochs':curves,
         'training_seconds':training_seconds,'training_peak_allocated_mib':peak,'training_peak_reserved_mib':reserved,
         'parameters_updated':update_verified,'reload_max_abs_error':error,'validation':metrics,
+        'run_seconds_since_training_start':time.perf_counter()-started,
         'test_evaluated':False,'limitations':['single seed; no comparative model result','user-disjoint validation','local architecture and optimizer adaptation']}
     if limits:
         result['resource_monitor']={'limits':limits,'sample_count':len(resource_samples),
             'max_process_rss_gib':max(s['process_rss_gib'] for s in resource_samples),
             'min_system_available_gib':min(s['system_available_gib'] for s in resource_samples),
+            'min_device_free_gib':min((s['device_free_gib'] for s in resource_samples if 'device_free_gib' in s),default=None),
+            'warning_allocated_exceeded':any(s['allocated_gib']>limits.get('warning_allocated_gib',float('inf')) for s in resource_samples),
             'policy':'checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes'}
     (args.output_dir/'report.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print(json.dumps(result,indent=2),flush=True)
