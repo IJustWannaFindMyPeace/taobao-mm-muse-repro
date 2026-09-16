@@ -57,6 +57,8 @@ R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度
 
 两项目共享的现有频次诊断见[频次报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-15-frequency-and-budget.md)。5% 数据与资源核验见[共享报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-16-scale-preparation.md)。该规模 R0–R5 全轮训练与保存预测审计已完成；R4 验证 GAUC 为 0.58922，但相对 R2 的增量区间跨零，结果与局限见[阶段 5](docs/stage-05-five-percent-core-study.md)。R1/R4 的历史长度 1000 全轮对照及审计也已完成，R4 GAUC 为 0.59231；两个长度增量区间均高于零，证据及多种子验证计划见[阶段 6](docs/stage-06-five-percent-history-length.md)。
 
-固定数据的三个种子（42、2026、3407）核心对照与审计均已完成。R4 的 GAUC 均值为 0.589776，样本标准差为 0.000688；三个种子排名一致，但部分模块额外收益较小且用户配对区间仍跨零。均值、标准差、同种子增量及局限见[阶段 7](docs/stage-07-training-seed-validation.md)。长历史端点尚未完成多种子验证。
+固定数据的三个种子（42、2026、3407）核心对照与审计均已完成。R4 的 GAUC 均值为 0.589776，样本标准差为 0.000688；三个种子排名一致，但部分模块额外收益较小且用户配对区间仍跨零。均值、标准差、同种子增量及局限见[阶段 7](docs/stage-07-training-seed-validation.md)。长历史端点三种子验证已完成，详见阶段 6。
 
-5% 长历史端点的 seed 2026 训练与审计已完成：R4 的长度增益区间高于零，R1 区间包含零且 LogLoss 恶化；seed 3407 对照正在运行。分种子证据见[阶段 6](docs/stage-06-five-percent-history-length.md)。
+5% 长历史端点的 seed 2026 训练与审计已完成：R4 的长度增益区间高于零，R1 区间包含零且 LogLoss 恶化；seed 3407 对照也已完成。分种子证据见[阶段 6](docs/stage-06-five-percent-history-length.md)。
+
+三个种子的 R4 长度增益均为正且各自用户配对区间高于零；R1 的 seed 2026 区间包含零。完整长度端点证据与解释边界见[阶段 6](docs/stage-06-five-percent-history-length.md)。
