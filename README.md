@@ -64,3 +64,5 @@ R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度
 三个种子的 R4 长度增益均为正且各自用户配对区间高于零；R1 的 seed 2026 区间包含零。完整长度端点证据与解释边界见[阶段 6](docs/stage-06-five-percent-history-length.md)。
 
 5% 数据上三个种子共 27 组预测的商品频次与内容覆盖率诊断已完成，分组差异与小样本局限见[共享分组分析](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-21-frequency-and-coverage.md)。
+
+核心与长度实验的 42 组产物已核验；独立基线和敏感性补充尚未齐全，最终测试协议尚未冻结。缺口与准入条件见[故事线证据审计](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-22-storyline-readiness.md)。
