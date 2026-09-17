@@ -12,6 +12,8 @@
 
 本轮两个项目共同主规模已选定为 **5% 用户队列**，见[规模决策与证据边界](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/shared-scale-decision.md)；共同下游协议已选定为 batch=256、两类学习率均为 0.001，核心对照待统一运行。下述阶段记录保留各自时点的状态。
 
+共同协议核心矩阵已完成三个种子、36 组预测审计，见[核心结果与局限](docs/shared-core-three-seed-results.md)。
+
 ## 当前状态
 
 5% 数据上的 R0–R5 核心消融、R1/R4 的 L200/L1000 长度端点均已完成三个种子的训练与预测审计，共享频次/覆盖率诊断已完成。类目/ID 检索等适配基线已完成单种子训练和独立审计（见[检索对照证据](docs/stage-14-retrieval-baseline-evidence.md)），仍需多种子与部分敏感性补充；共同训练及测试协议尚未冻结，保留测试集未评估。
