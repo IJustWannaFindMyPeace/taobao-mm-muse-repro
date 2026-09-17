@@ -11,8 +11,8 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--store',type=Path,required=True)
     parser.add_argument('--output-dir',type=Path,required=True)
-    parser.add_argument('--reuse',type=Path,required=True)
-    parser.add_argument('--reuse-audit',type=Path,required=True)
+    parser.add_argument('--reuse',type=Path)
+    parser.add_argument('--reuse-audit',type=Path)
     parser.add_argument('--seed',type=int,help='Override training seed only; data split remains fixed')
     args=parser.parse_args()
     args.configs=['r1-l1000','r4-l1000','b1-hard-enhanced','b2-soft-enhanced','g-id-item']
@@ -33,24 +33,26 @@ def main():
         cfg['seed']=args.seed
         configs[name]=cfg
         (snapshot/(name+'.json')).write_text(json.dumps(cfg,indent=2),encoding='utf-8')
-    previous=read(args.reuse/'report.json');audit=read(args.reuse_audit)
-    normalize=lambda c:{k:v for k,v in c.items() if k!='experiment'}
-    if normalize(previous['config'])!=normalize(configs['r4-l1000']):raise ValueError('Reuse config mismatch')
-    entries=[v for v in audit['runs'].values() if v['report_sha256']==digest(args.reuse/'report.json')]
-    if len(entries)!=1 or not entries[0]['all_rows_and_metrics_equal'] or entries[0].get('prediction_sha256',entries[0].get('predictions_sha256'))!=digest(args.reuse/'validation_predictions.npz'):
-        raise ValueError('Reuse audit mismatch')
-    if audit['test_evaluated'] or audit['store_manifest_sha256']!=protocol['store_manifest_sha256'] or not (args.reuse/'model.pt').exists():raise ValueError('Reuse provenance mismatch')
-    for name,value in previous['implementation_sha256'].items():
-        path=root/('scripts' if name in ['train_muse.py','probe_search.py'] else 'src')/name
-        if digest(path)!=value:raise ValueError('Implementation changed: '+name)
-    (args.output_dir/'plan.json').write_text(json.dumps({'protocol':protocol,'seed':args.seed,'reuse':{'r4-l1000':str(args.reuse.resolve())},'reuse_audit_sha256':digest(args.reuse_audit),'configs':configs},indent=2),encoding='utf-8')
+    if bool(args.reuse)!=bool(args.reuse_audit):raise ValueError('Reuse requires audit')
+    if args.reuse:
+        previous=read(args.reuse/'report.json');audit=read(args.reuse_audit)
+        normalize=lambda c:{k:v for k,v in c.items() if k!='experiment'}
+        if normalize(previous['config'])!=normalize(configs['r4-l1000']):raise ValueError('Reuse config mismatch')
+        entries=[v for v in audit['runs'].values() if v['report_sha256']==digest(args.reuse/'report.json')]
+        if len(entries)!=1 or not entries[0]['all_rows_and_metrics_equal'] or entries[0].get('prediction_sha256',entries[0].get('predictions_sha256'))!=digest(args.reuse/'validation_predictions.npz'):
+            raise ValueError('Reuse audit mismatch')
+        if audit['test_evaluated'] or audit['store_manifest_sha256']!=protocol['store_manifest_sha256'] or not (args.reuse/'model.pt').exists():raise ValueError('Reuse provenance mismatch')
+        for name,value in previous['implementation_sha256'].items():
+            path=root/('scripts' if name in ['train_muse.py','probe_search.py'] else 'src')/name
+            if digest(path)!=value:raise ValueError('Implementation changed: '+name)
+    (args.output_dir/'plan.json').write_text(json.dumps({'protocol':protocol,'seed':args.seed,'reuse':{'r4-l1000':str(args.reuse.resolve())} if args.reuse else {},'reuse_audit_sha256':digest(args.reuse_audit) if args.reuse_audit else None,'configs':configs},indent=2),encoding='utf-8')
     state={'reused':[], 'planned':args.configs,'completed':[],'active':None,'failed':None}
     def save():
         tmp=args.output_dir/'status.tmp'
         tmp.write_text(json.dumps(state,indent=2));tmp.replace(args.output_dir/'status.json')
     for name in state['planned']:
         state['active']=name;save();print('Starting '+name,flush=True)
-        if name=='r4-l1000':
+        if name=='r4-l1000' and args.reuse:
             state['reused'].append(name);state['completed'].append(name);state['active']=None;save();continue
         with (args.output_dir/(name+'.log')).open('w',encoding='utf-8') as log:
             result=subprocess.run([sys.executable,str(root/'scripts/train_muse.py'),
