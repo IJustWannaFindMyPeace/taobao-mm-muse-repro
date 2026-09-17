@@ -10,9 +10,11 @@
 
 阅读入口：[实验导读：研究问题、方法名称与当前阶段](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/experiment-guide.md)。配置编号仅用于索引，方法效果与资源调参分别报告。
 
+本轮两个项目共同主规模已选定为 **5% 用户队列**，见[规模决策与证据边界](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/shared-scale-decision.md)；共同训练超参数尚未冻结。下述阶段记录保留各自时点的状态。
+
 ## 当前状态
 
-5% 数据上的 R0–R5 核心消融、R1/R4 的 L200/L1000 长度端点均已完成三个种子的训练与预测审计，共享频次/覆盖率诊断已完成。类目/ID 检索等适配基线已完成单种子训练和独立审计（见[检索对照证据](docs/stage-14-retrieval-baseline-evidence.md)），仍需多种子与部分敏感性补充；最终数据规模及测试协议尚未冻结，保留测试集未评估。
+5% 数据上的 R0–R5 核心消融、R1/R4 的 L200/L1000 长度端点均已完成三个种子的训练与预测审计，共享频次/覆盖率诊断已完成。类目/ID 检索等适配基线已完成单种子训练和独立审计（见[检索对照证据](docs/stage-14-retrieval-baseline-evidence.md)），仍需多种子与部分敏感性补充；共同训练及测试协议尚未冻结，保留测试集未评估。
 
 ## 方法与消融
 
