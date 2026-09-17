@@ -8,6 +8,8 @@
 
 共同研究主线、原文与补充消融的区别、跨项目比较边界见[两项目研究主线](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/research-storyline.md)。
 
+阅读入口：[实验导读：研究问题、方法名称与当前阶段](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/experiment-guide.md)。配置编号仅用于索引，方法效果与资源调参分别报告。
+
 ## 当前状态
 
 5% 数据上的 R0–R5 核心消融、R1/R4 的 L200/L1000 长度端点均已完成三个种子的训练与预测审计，共享频次/覆盖率诊断已完成。独立基线和部分敏感性实验待补齐；最终数据规模及测试协议尚未冻结，保留测试集未评估。
