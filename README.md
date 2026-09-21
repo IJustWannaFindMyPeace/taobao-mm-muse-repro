@@ -10,15 +10,17 @@
 
 阅读入口：[实验导读：研究问题、方法名称与当前阶段](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/experiment-guide.md)。配置编号仅用于索引，方法效果与资源调参分别报告。
 
-本轮两个项目共同主规模已选定为 **5% 用户队列**，见[规模决策与证据边界](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/shared-scale-decision.md)；共同下游协议已选定为 batch=256、两类学习率均为 0.001，核心对照待统一运行。下述阶段记录保留各自时点的状态。
+本轮两个项目共同主规模已选定为 **5% 用户队列**，见[规模决策与证据边界](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/shared-scale-decision.md)；共同下游协议已选定为 batch=256、两类学习率均为 0.001，共同核心与检索对照已完成三个种子。下述阶段记录保留各自时点的状态。
 
 共同协议核心矩阵已完成三个种子、36 组预测审计，见[核心结果与局限](docs/shared-core-three-seed-results.md)。
 
 最新收尾状态见[证据清单](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/completion-checklist.md)。长历史与类目/ID 检索三种子已全部完成并审计。
 
+最新范围核验：[两项目故事线审计](docs/storyline-audit-2026-09-22.md)。当前结果是下游适配复现的验证证据，复杂检索比较尚缺，保留测试集未评估。
+
 ## 当前状态
 
-5% 数据上的 R0–R5 核心消融、R1/R4 的 L200/L1000 长度端点均已完成三个种子的训练与预测审计，共享频次/覆盖率诊断已完成。类目/ID 检索等适配基线已完成单种子训练和独立审计（见[检索对照证据](docs/stage-14-retrieval-baseline-evidence.md)），仍需多种子与部分敏感性补充；共同训练及测试协议尚未冻结，保留测试集未评估。
+共同协议核心、L200/L1000 和类目/ID 检索对照均完成三个种子。L50/L500 单种子敏感性与共同分组分析完成。复杂检索及原始 DIN/TWIN/MISS 尚未覆盖；最终只读测试评估尚未执行。
 
 ## 方法与消融
 
@@ -41,7 +43,7 @@ GSU（General Search Unit，通用搜索单元）按目标相关性选择 Top-K 
 
 已继承前序项目验证后的数据清单、mask 规则及标准评估实现，并完成特定配置的迁移预测一致性检查；最终模型差异仍需单列。正式协议尚未冻结。AUC 与 GAUC 统一使用完整评估记录；官方兼容口径如保留，将单列报告。
 
-目标设备为 RTX 5070 12 GB、32 GB RAM。固定内容向量、流式预处理和受控词表用于限制资源开销。B=32、L=200、K=50 为待测起点，显存与吞吐以实际模型测量为准。独立依赖锁和训练入口将在验证后发布。
+目标设备为 RTX 5070 12 GB、32 GB RAM。固定内容向量、流式预处理和受控词表用于限制资源开销。共同下游 batch=256、K=50，主对照使用 L200/L1000；资源实测和配置见共同协议及阶段报告。
 
 ## 证据与局限
 
@@ -52,6 +54,10 @@ GSU（General Search Unit，通用搜索单元）按目标相关性选择 Top-K 
 ## 数据来源与统计口径
 
 官方数据定义、p90 覆盖率口径和指定版本的差异核验见[数据集契约](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/dataset-contract.md)。
+
+## 历史阶段记录
+
+以下为各阶段当时的协议与状态，含旧 batch=32 结果；不替代上方共同协议最新结论。
 
 ## 检索实现与资源检查
 
