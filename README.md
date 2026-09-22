@@ -12,6 +12,10 @@
 - [方法覆盖与适配边界](docs/reproduction-scope.md)
 - [前序内容融合项目](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration)
 
+## 后续补充研究
+
+第一轮冻结实验完成后，已补[测试集低频分组](docs/posthoc-test-frequency-v1.md)，明确标为事后描述性分析。MAKE 训练策略正在追加两个种子；DIN/TWIN/MISS 的基线补充正在核对结构规格，不宣称已完成。
+
 ## 完成状态与结论
 
 两项目共同的 54 个模型、三个训练种子、66 项冻结比较已全部完成保留测试评估。每组完整评估 923,211 条曝光；测试前验证预测逐元素回放一致，未利用测试结果调参。
