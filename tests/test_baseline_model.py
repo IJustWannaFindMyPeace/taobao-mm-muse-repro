@@ -43,7 +43,7 @@ class BaselineModels(unittest.TestCase):
         self.assertIsNone(model.long_attention.query.weight.grad)
 
     def test_id_paths_update_shared_embeddings_and_handle_empty(self):
-        for variant in ['id_item', 'id_item_category', 'category']:
+        for variant in ['id_item', 'id_item_category', 'category', 'content_id_cosine']:
             model = BaselineModel(self.sizes, variant, k=3, short_length=2)
             logits = model(*self.inputs)
             logits.sum().backward()

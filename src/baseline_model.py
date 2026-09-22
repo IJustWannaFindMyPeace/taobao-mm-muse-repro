@@ -5,11 +5,12 @@ from feature_store import FIELDS
 from retrieval import select_history, gather_history
 from baseline_retrieval import category_history, id_cosine_history
 from enhanced_esu import semantic_scores, semantic_attention
+from fused_retrieval import fused_cosine_history
 
 
 class BaselineModel(MUSEModel):
     def __init__(self, sizes, variant, **kwargs):
-        if variant not in ['short', 'category', 'id_item', 'id_item_category', 'content_reference']:
+        if variant not in ['short', 'category', 'id_item', 'id_item_category', 'content_reference', 'content_id_cosine']:
             raise ValueError('Unknown baseline variant')
         super().__init__(sizes, **kwargs)
         self.variant = variant
@@ -25,6 +26,10 @@ class BaselineModel(MUSEModel):
                target_available, history_available):
         if self.variant == 'category':
             return category_history(features[:, 7], category, valid, self.k)
+        if self.variant == 'content_id_cosine':
+            return fused_cosine_history(target_content, history_content, valid,
+                target_available, history_available, self.embeddings['205'](features[:, 6]),
+                self.embeddings['205'](item), features[:, 6], item, self.k)
         if self.variant in ['id_item', 'id_item_category']:
             tid = features[:, 6]
             q = self.embeddings['205'](tid) * (tid > 1)[:, None]

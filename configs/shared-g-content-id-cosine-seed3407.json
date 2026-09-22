@@ -1,0 +1,25 @@
+{
+  "experiment": "g-content-id-cosine-adapted",
+  "seed": 3407,
+  "embedding_width": 16,
+  "history_length": 1000,
+  "short_length": 50,
+  "batch_size": 256,
+  "epochs": 1,
+  "dense_learning_rate": 0.001,
+  "sparse_learning_rate": 0.001,
+  "weight_decay": 0.0,
+  "k": 50,
+  "mode": "cosine",
+  "semantic": true,
+  "histogram": true,
+  "long_id": true,
+  "model_variant": "content_id_cosine",
+  "resource_limits": {
+    "warning_allocated_gib": 9,
+    "max_allocated_gib": 10.5,
+    "min_device_free_gib": 1,
+    "max_process_rss_gib": 24,
+    "min_system_available_gib": 4
+  }
+}

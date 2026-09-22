@@ -20,7 +20,7 @@ def digest(path):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--store', type=Path, required=True)
-    p.add_argument('--model', choices=['c6', 'r4', 'id_item_category'], required=True)
+    p.add_argument('--model', choices=['c6', 'r4', 'id_item_category', 'content_id_cosine'], required=True)
     p.add_argument('--batch-size', type=int, required=True)
     p.add_argument('--report', type=Path, required=True)
     p.add_argument('--content-project', type=Path, required=True)
