@@ -22,6 +22,6 @@
 
 ## 当前边界
 
-DIN 局部激活机制与短历史点积对照的六次训练及三组配对统计已完成，见[结果](post-main-din-results.md)。TWIN 四头适配及内容检索对照已实现并通过机制测试，按[固定协议](post-main-twin-protocol.md)进行资源准入，尚无完整效果结果。MISS 仍处于结构规格阶段，见[来源歧义与实施约束](post-main-retrieval-source-audit.md)。数据仍为 5% 队列，本阶段不扩全量、不重新搜索学习率，也不将第一轮测试中的赢家作为新增模型的调参目标。
+DIN 与 TWIN 适配均已完成六次训练和三组配对统计，见 [DIN 结果](post-main-din-results.md)及 [TWIN 结果](post-main-twin-results.md)。MISS 双路模型、同结构内容对照与参数共享敏感性版本已实现并通过机制测试，按[固定协议](post-main-miss-protocol.md)进入资源准入，尚无完整效果结果。数据仍为 5% 队列，本阶段不扩全量、不重新搜索学习率，也不将第一轮测试中的赢家作为新增模型的调参目标。
 
 来源：[DIN §3.2](https://arxiv.org/html/1706.06978v4)、[TWIN §3.3](https://arxiv.org/html/2302.02352v2)、[MISS §3](https://arxiv.org/html/2508.14515v1)、[MUSE §7.1](https://arxiv.org/html/2512.07216v1)。
