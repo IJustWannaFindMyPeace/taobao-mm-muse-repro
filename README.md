@@ -1,105 +1,47 @@
 # TAOBAO-MM · MUSE
 
-基于 TAOBAO-MM 的多模态长历史兴趣建模复现，对应 [A Simple Yet Effective Multimodal Search-Based Framework for Lifelong User Interest Modeling](https://arxiv.org/html/2512.07216v1)。本项目为非官方实现，参考[官方代码](https://github.com/alimama-tech/MUSE)。
+基于 TAOBAO-MM 固定内容向量，研究内容如何用于长历史选择和兴趣聚合。对应 [A Simple Yet Effective Multimodal Search-Based Framework for Lifelong User Interest Modeling](https://arxiv.org/html/2512.07216v1)，为非官方适配实现，参考[官方代码](https://github.com/alimama-tech/MUSE)。
 
-研究主线：**长历史处理成本 → 目标相关检索 → 语义增强兴趣建模 → 检索与融合的独立贡献**。
+**研究主线：长历史处理成本 → 目标相关检索 → 统计与语义聚合 → 检索复杂度和历史长度的受控验证。**
 
-[实施路线](docs/roadmap.md) · [方法覆盖与适配边界](docs/reproduction-scope.md) · [前序内容融合项目](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration)
+## 阅读入口
 
-共同研究主线、原文与补充消融的区别、跨项目比较边界见[两项目研究主线](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/research-storyline.md)。
+- [两项目最终故事线](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/final-storyline.md)
+- [本项目最终测试结果](docs/final-test-results.md)
+- [等权内容＋ID 检索的设计与验证证据](docs/shared-fused-retrieval-v1.md)
+- [方法覆盖与适配边界](docs/reproduction-scope.md)
+- [前序内容融合项目](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration)
 
-阅读入口：[实验导读：研究问题、方法名称与当前阶段](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/experiment-guide.md)。配置编号仅用于索引，方法效果与资源调参分别报告。
+## 完成状态与结论
 
-本轮两个项目共同主规模已选定为 **5% 用户队列**，见[规模决策与证据边界](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/shared-scale-decision.md)；共同下游协议已选定为 batch=256、两类学习率均为 0.001，共同核心与检索对照已完成三个种子。下述阶段记录保留各自时点的状态。
+两项目共同的 54 个模型、三个训练种子、66 项冻结比较已全部完成保留测试评估。每组完整评估 923,211 条曝光；测试前验证预测逐元素回放一致，未利用测试结果调参。
 
-共同协议核心矩阵已完成三个种子、36 组预测审计，见[核心结果与局限](docs/shared-core-three-seed-results.md)。
+统计特征、单独加入语义注意力、两种聚合方式下增加历史长度，以及 L1000 内容检索相对类目／ID 检索的 GAUC 区间，均在三个种子为正。已有统计后再加语义注意力的增量区间仍均跨零。内容＋商品 ID 等权检索反而弱于纯内容检索，不能据此推断所有复杂检索无用。
 
-最新收尾状态见[证据清单](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/completion-checklist.md)。长历史与类目/ID 检索三种子已全部完成并审计。
+|L1000 检索方式，固定完整聚合|三种子平均测试 GAUC|
+|---|---:|
+|内容余弦|0.595488|
+|类目检索|0.589523|
+|商品与类目 ID 余弦|0.590532|
+|商品 ID 余弦|0.587225|
+|内容＋商品 ID 等权余弦|0.590843|
 
-最新范围核验：[两项目故事线审计](docs/storyline-audit-2026-09-22.md)。当前结果是下游适配复现的验证证据，等权余弦融合对照已完成，其余复杂检索仍未覆盖，保留测试集评估已启动，完整结果待汇总。
+全部十二种 MUSE 配置的 AUC、GAUC、LogLoss、波动和区间见[最终结果](docs/final-test-results.md)。不能把完整模型视为每个消融比较的必然赢家。
 
-## 当前状态
+## 方法与共同协议
 
-最终测试：54 个模型的验证回放全部通过，配置与权重已冻结，完整保留测试集评估队列已启动，尚待最终汇总。见[冻结清单](reports/final-test-freeze-v1.json)。
+GSU（General Search Unit，通用搜索单元）选出与目标有关的 Top-K 历史；ESU（Exact Search Unit，精细搜索单元）聚合选中行为。SimTier 提供相似度统计，SA-TA（Semantic-Aware Target Attention，语义感知目标注意力）融合内容与 ID 注意力分数。
 
+共同 5% 用户队列，固定内容向量，下游 batch=256、单轮、两类学习率 0.001，种子 42/2026/3407。K=50；主比较覆盖 L200 与 L1000。近期历史对照不等于原始 DIN，类目／ID 检索使用统一增强聚合，是明确的适配基线。
 
-内容＋ID 余弦检索三种子已完成并审计，等权融合在三个种子均弱于纯内容检索；公式、结果与结论边界见[受控检索规格](docs/shared-fused-retrieval-v1.md)。
+## 代码与产物
 
-共同协议核心、L200/L1000 和类目/ID 检索对照均完成三个种子。L50/L500 单种子敏感性与共同分组分析完成。已补等权余弦融合对照；可学习检索及原始 DIN/TWIN/MISS 尚未覆盖；最终只读测试评估已启动，结果待汇总。
+- 检索与聚合：`src/retrieval.py`、`src/baseline_retrieval.py`、`src/fused_retrieval.py`、`src/enhanced_esu.py`。
+- 模型与训练：`src/muse_model.py`、`src/baseline_model.py`、`scripts/train_muse.py`。
+- [冻结清单](reports/final-test-freeze-v1.json)、[逐模型测试指标](reports/final-test-model-metrics.csv)、[66 项配对结果](reports/final-test-paired-comparisons.csv)、[完整汇总](reports/final-results-summary.json)。
 
-## 方法与消融
+单卡 RTX 5070 12 GB、32 GB RAM 完成此范围。共同只读测试入口位于前序仓库，具体用法和准入条件见[评估协议](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/final-evaluation-protocol-v1.md)。[实施路线](docs/roadmap.md)保留分阶段配置与产物，早期探索结果不替代最终主表。
 
-GSU（General Search Unit，通用搜索单元）按目标相关性选择 Top-K 历史；ESU（Exact Search Unit，精细搜索单元）对选中历史建模。SA-TA（Semantic-Aware Target Attention，语义感知目标注意力）融合语义与 ID 信息，SimTier 提供相似度分布特征。
+## 复现边界
 
-|编号|历史选择|长历史建模|检验目标|
-|---|---|---|---|
-|R0|最近 K 条|TA：目标注意力|提供近期历史对照|
-|R1|内容余弦 Top-K|TA|检验目标相关检索|
-|R2|内容余弦 Top-K|TA + SimTier|检验统计特征|
-|R3|内容余弦 Top-K|SA-TA|检验语义增强注意力|
-|R4|内容余弦 Top-K|SA-TA + SimTier|检验完整组合|
-|R5|内容余弦 Top-K|SimTier-only|隔离统计分支贡献|
-
-公共分支保持一致；R5 关闭被研究长历史的 ID 注意力及均值旁路。R0 不等于独立 DIN 基线。R0–R5 已实现并通过正确性检查，L=200 三种子效果对照与配对分析已完成。
-
-补充对照包括 DIN、SIM-hard、SIM-soft，以及 ID/内容检索评分方案；TWIN、MISS 和可学习检索器需完成专项规格后实施。历史长度扫描同时比较 R1 与 R4，避免将更长历史的影响归因于完整模型。详细方法映射与受限项见[范围说明](docs/reproduction-scope.md)。
-
-## 共享协议与资源
-
-已继承前序项目验证后的数据清单、mask 规则及标准评估实现，并完成特定配置的迁移预测一致性检查；最终模型差异仍需单列。正式协议尚未冻结。AUC 与 GAUC 统一使用完整评估记录；官方兼容口径如保留，将单列报告。
-
-目标设备为 RTX 5070 12 GB、32 GB RAM。固定内容向量、流式预处理和受控词表用于限制资源开销。共同下游 batch=256、K=50，主对照使用 L200/L1000；资源实测和配置见共同协议及阶段报告。
-
-## 证据与局限
-
-计划报告核心消融、多种子波动、用户历史长度与商品频次分组，以及显存和吞吐。论文描述、官方代码差异和本地适配分别记录。
-
-公开 1,000 长度历史上的实验不等于工业 100,000 长度链路复现。缺少额外表示和原始图文时，不宣称完成 OpenCLIP、I2I 与 SCL 的原文表示对照，也不推断线上收益。前序 MAKE 与 MUSE 的组合仅作为可选扩展。
-
-## 数据来源与统计口径
-
-官方数据定义、p90 覆盖率口径和指定版本的差异核验见[数据集契约](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/dataset-contract.md)。
-
-## 历史阶段记录
-
-以下为各阶段当时的协议与状态，含旧 batch=32 结果；不替代上方共同协议最新结论。
-
-## 检索实现与资源检查
-
-共享 C0 迁移、显式 mask 检索和 L=200/1000 的资源检查见[阶段 1](docs/stage-01-search-foundation.md)。本阶段未产生 MUSE 效果指标。
-
-SA-TA、可学习 SimTier 的公式、初始化差异与完整 R4 资源结果见[阶段 2](docs/stage-02-enhanced-esu.md)。
-
-R0–R5 的固定配置、R5 路径关闭验证及串行训练入口见[阶段 3](docs/stage-03-core-study.md)。
-
-首轮验证中 R2 的指标点估计最高；R4 对 R2、R1 对 R0 的 GAUC 增量区间跨零。结果与局限见阶段 3，不预设完整模型或内容检索必然胜出。
-
-R1/R4 的 L=1000 全轮端点对照和配对分析已完成，尚未确认长度增加的稳定 GAUC 收益，控制变量及分析计划见[阶段 4](docs/stage-04-history-length.md)。
-
-两项目共享的现有频次诊断见[频次报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-15-frequency-and-budget.md)。5% 数据与资源核验见[共享报告](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-16-scale-preparation.md)。该规模 R0–R5 全轮训练与保存预测审计已完成；R4 验证 GAUC 为 0.58922，但相对 R2 的增量区间跨零，结果与局限见[阶段 5](docs/stage-05-five-percent-core-study.md)。R1/R4 的历史长度 1000 全轮对照及审计也已完成，R4 GAUC 为 0.59231；两个长度增量区间均高于零，证据及多种子验证计划见[阶段 6](docs/stage-06-five-percent-history-length.md)。
-
-固定数据的三个种子（42、2026、3407）核心对照与审计均已完成。R4 的 GAUC 均值为 0.589776，样本标准差为 0.000688；三个种子排名一致，但部分模块额外收益较小且用户配对区间仍跨零。均值、标准差、同种子增量及局限见[阶段 7](docs/stage-07-training-seed-validation.md)。长历史端点三种子验证已完成，详见阶段 6。
-
-5% 长历史端点的 seed 2026 训练与审计已完成：R4 的长度增益区间高于零，R1 区间包含零且 LogLoss 恶化；seed 3407 对照也已完成。分种子证据见[阶段 6](docs/stage-06-five-percent-history-length.md)。
-
-三个种子的 R4 长度增益均为正且各自用户配对区间高于零；R1 的 seed 2026 区间包含零。完整长度端点证据与解释边界见[阶段 6](docs/stage-06-five-percent-history-length.md)。
-
-5% 数据上三个种子共 27 组预测的商品频次与内容覆盖率诊断已完成，分组差异与小样本局限见[共享分组分析](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-21-frequency-and-coverage.md)。
-
-核心与长度实验的 42 组产物已核验；独立基线和敏感性补充尚未齐全，最终测试协议尚未冻结。缺口与准入条件见[故事线证据审计](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/stage-22-storyline-readiness.md)。
-
-独立基线的版本区分、类目/ID 检索契约及词表显存预算见[阶段 8](docs/stage-08-baseline-contracts.md)。选择器测试通过，基线整模型与训练尚未完成。
-
-四组适配基线已接入完整训练入口，24 项测试、参考预测回放和真实批次资源检查通过；资源管理策略及 seed 42 执行协议见[阶段 9](docs/stage-09-baseline-resource-gate.md)。
-
-当前 batch=32 是已验证的起点，尚非最优选择。扩容前须执行[批大小与超参数联合评估](docs/batch-and-hyperparameter-selection.md)，不得仅以能跑通作为最终配置依据。
-
-seed 42 四组适配基线已完成全轮训练，独立预测审计待完成；固定曝光预算的批大小资源扫描已启动，方案与边界见[阶段 10](docs/stage-10-batch-resource-scan.md)。
-
-C6、R4 与 ID 检索的 batch 32–256 首轮资源扫描全部通过，较大批次短测吞吐明显提高；加长复测与条件扩展已启动，尚未确定新训练协议。见[资源扫描证据](docs/stage-10-batch-resource-scan.md)。
-
-放宽 PyTorch 分配上限并监测设备实际余量后，R4 的 batch=512 完成测量，1024 两次因剩余低于 1 GiB 停止（非 OOM）；详见[阶段 11](docs/stage-11-device-headroom.md)。
-
-R4 的 batch 256/512 与两类学习率的 8 组质量筛选已启动，固定一轮曝光预算和完整验证集。方案与确认规则见[阶段 12](docs/stage-12-batch-quality-screen.md)。
-
-8 组批大小/学习率筛选已通过完整验证预测审计，两个候选的第二种子与 C6 确认队列已启动。指标权衡及确认边界见[质量审计与确认](docs/stage-13-quality-audit-and-confirmation.md)。
+5% 队列、L1000 不是全量数据和工业十万历史复现。SCL 编码器重训、OpenCLIP/I2I 对照、原始 DIN/TWIN/MISS、其他可学习检索器和线上收益未覆盖。前序 MAKE 不作为 MUSE 默认前置模块。保留跨零、负向和不同指标冲突的结果。
