@@ -1,0 +1,952 @@
+{
+  "scope": "post_main_validation_extension",
+  "test_evaluated": false,
+  "models": {
+    "scorer-seed42": {
+      "report": {
+        "scope": "one_seed_validation_run",
+        "config": {
+          "batch_size": 256,
+          "epochs": 1,
+          "dense_learning_rate": 0.001,
+          "weight_decay": 0.0,
+          "embedding_width": 16,
+          "resource_limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "seed": 42,
+          "experiment": "post-main-g1-scorer-pretraining",
+          "history_length": 1000,
+          "short_length": 50,
+          "k": 50,
+          "k_scope": "single_route",
+          "variant": "content_scorer"
+        },
+        "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+        "implementation_sha256": {
+          "train_g1_scorer.py": "14eeb3489e7359676ee968621612c9f44b520b81f9334156ef6e0b35bed0a442",
+          "probe_search.py": "e9254bac6b73014796e403e15075d06f90776d5ee14577be7fae0589499ac450",
+          "baseline_model.py": "1960031fd791cee17d6a6ae0ada983a70962e4cd045f632bf852fd4a0c608690",
+          "baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+          "c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+          "enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+          "feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+          "fused_retrieval.py": "1cecec66b948e919e9785c2001ac6833cfa0dadcd6d45cd2b49051383465c6f4",
+          "metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+          "muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+          "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+          "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936",
+          "din.py": "9e0d313e7195cd6a6c369017c03131f10eee632a09561b4fa7a099380f22ba91",
+          "fused_attention_search.py": "4ea56df7fc0cdc2beeae980892a072b14e1ec744d6785a6b6af346b8f7dc4089",
+          "learned_content_search.py": "511f12b9f450a0bc096705bb224e95df5706a718097cbaf9c4899c1761c53829",
+          "miss.py": "df42a816f1d0bd73b020a8a305e27ce93680887a1e6a38a1e84ede3ce1fcbae1",
+          "twin.py": "e1c3490dfedbcb5127538c34e71f3e7748526a39a05b71b85314265243748289"
+        },
+        "torch": "2.12.1+cu132",
+        "gpu": "NVIDIA GeForce RTX 5070",
+        "steps": 11924,
+        "epochs": [
+          {
+            "epoch": 1,
+            "rows": 3052475,
+            "online_train_logloss": 0.393486132400118,
+            "training_seconds": 1097.6580641999608,
+            "training_peak_allocated_mib": 704.5810546875,
+            "training_peak_reserved_mib": 728.0,
+            "validation_budget": {
+              "rows": 768773,
+              "mean_route_positions": 894.6708131008763,
+              "mean_overlap_positions": 0.0,
+              "mean_unique_positions": 894.6708131008763,
+              "max_route_positions": 1000
+            },
+            "validation": {
+              "rows": 768773,
+              "positives": 104443,
+              "auc": 0.6046989932207625,
+              "logloss": 0.38912686055386386,
+              "gauc": 0.5734086653927244,
+              "gauc_weighting": "exposure_count_among_users_with_both_labels",
+              "users": 69430,
+              "valid_users": 38125,
+              "valid_rows": 578851,
+              "excluded_users": 31305,
+              "excluded_rows": 189922,
+              "valid_row_fraction": 0.7529543831534146
+            },
+            "validation_and_prediction_save_seconds": 219.36815160000697
+          }
+        ],
+        "training_seconds": 1097.6580641999608,
+        "training_peak_allocated_mib": 704.5810546875,
+        "training_peak_reserved_mib": 728.0,
+        "projection_parameters_updated": true,
+        "parameters_updated": true,
+        "reload_max_abs_error": 0.0,
+        "validation": {
+          "rows": 768773,
+          "positives": 104443,
+          "auc": 0.6046989932207625,
+          "logloss": 0.38912686055386386,
+          "gauc": 0.5734086653927244,
+          "gauc_weighting": "exposure_count_among_users_with_both_labels",
+          "users": 69430,
+          "valid_users": 38125,
+          "valid_rows": 578851,
+          "excluded_users": 31305,
+          "excluded_rows": 189922,
+          "valid_row_fraction": 0.7529543831534146
+        },
+        "run_seconds_since_training_start": 1321.0645849999273,
+        "test_evaluated": false,
+        "limitations": [
+          "single seed; no comparative model result",
+          "user-disjoint validation",
+          "local architecture and optimizer adaptation"
+        ],
+        "resource_monitor": {
+          "limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "sample_count": 152,
+          "max_process_rss_gib": 13.760017395019531,
+          "min_system_available_gib": 10.22066879272461,
+          "min_device_free_gib": 9.8994140625,
+          "warning_allocated_exceeded": false,
+          "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+        }
+      },
+      "report_sha256": "9b1b67af82c40b3d3a59bb93373fd045b977f13b5e774901ebafc62f2b2eca6f"
+    },
+    "downstream-seed42": {
+      "report": {
+        "scope": "one_seed_validation_run",
+        "config": {
+          "batch_size": 256,
+          "epochs": 1,
+          "dense_learning_rate": 0.001,
+          "sparse_learning_rate": 0.001,
+          "weight_decay": 0.0,
+          "embedding_width": 16,
+          "resource_limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "seed": 42,
+          "experiment": "post-main-g1-frozen-learned-content",
+          "history_length": 1000,
+          "short_length": 50,
+          "k": 50,
+          "k_scope": "single_route",
+          "variant": "learned_content"
+        },
+        "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+        "implementation_sha256": {
+          "train_g1_downstream.py": "2a80c1bc568755365eb3bfaf155b15f772547bfe52d828a1d61052e086927721",
+          "probe_search.py": "e9254bac6b73014796e403e15075d06f90776d5ee14577be7fae0589499ac450",
+          "baseline_model.py": "1960031fd791cee17d6a6ae0ada983a70962e4cd045f632bf852fd4a0c608690",
+          "baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+          "c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+          "enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+          "feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+          "fused_retrieval.py": "1cecec66b948e919e9785c2001ac6833cfa0dadcd6d45cd2b49051383465c6f4",
+          "metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+          "muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+          "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+          "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936",
+          "din.py": "9e0d313e7195cd6a6c369017c03131f10eee632a09561b4fa7a099380f22ba91",
+          "fused_attention_search.py": "4ea56df7fc0cdc2beeae980892a072b14e1ec744d6785a6b6af346b8f7dc4089",
+          "learned_content_search.py": "511f12b9f450a0bc096705bb224e95df5706a718097cbaf9c4899c1761c53829",
+          "miss.py": "df42a816f1d0bd73b020a8a305e27ce93680887a1e6a38a1e84ede3ce1fcbae1",
+          "twin.py": "e1c3490dfedbcb5127538c34e71f3e7748526a39a05b71b85314265243748289"
+        },
+        "torch": "2.12.1+cu132",
+        "gpu": "NVIDIA GeForce RTX 5070",
+        "steps": 11924,
+        "epochs": [
+          {
+            "epoch": 1,
+            "rows": 3052475,
+            "online_train_logloss": 0.38191601307901046,
+            "training_seconds": 1268.660046499921,
+            "training_peak_allocated_mib": 8350.076171875,
+            "training_peak_reserved_mib": 8438.0,
+            "validation_budget": {
+              "rows": 768773,
+              "mean_route_positions": 49.89414430527607,
+              "mean_overlap_positions": 0.0,
+              "mean_unique_positions": 49.89414430527607,
+              "max_route_positions": 50
+            },
+            "validation": {
+              "rows": 768773,
+              "positives": 104443,
+              "auc": 0.6176771627630975,
+              "logloss": 0.38726421011936946,
+              "gauc": 0.5895955247679692,
+              "gauc_weighting": "exposure_count_among_users_with_both_labels",
+              "users": 69430,
+              "valid_users": 38125,
+              "valid_rows": 578851,
+              "excluded_users": 31305,
+              "excluded_rows": 189922,
+              "valid_row_fraction": 0.7529543831534146
+            },
+            "validation_and_prediction_save_seconds": 222.9689875000622
+          }
+        ],
+        "training_seconds": 1268.660046499921,
+        "training_peak_allocated_mib": 8350.076171875,
+        "training_peak_reserved_mib": 8438.0,
+        "scorer_provenance": {
+          "checkpoint_sha256": "f91d9787d91c559ee99ed61974f9014da8627b162780655da48237a683418ff8",
+          "report_sha256": "9b1b67af82c40b3d3a59bb93373fd045b977f13b5e774901ebafc62f2b2eca6f",
+          "pretraining_scope": "one_seed_validation_run",
+          "pretraining_seed": 42
+        },
+        "projection_unchanged": true,
+        "parameters_updated": true,
+        "reload_max_abs_error": 0.0,
+        "validation": {
+          "rows": 768773,
+          "positives": 104443,
+          "auc": 0.6176771627630975,
+          "logloss": 0.38726421011936946,
+          "gauc": 0.5895955247679692,
+          "gauc_weighting": "exposure_count_among_users_with_both_labels",
+          "users": 69430,
+          "valid_users": 38125,
+          "valid_rows": 578851,
+          "excluded_users": 31305,
+          "excluded_rows": 189922,
+          "valid_row_fraction": 0.7529543831534146
+        },
+        "run_seconds_since_training_start": 1499.6731692999601,
+        "test_evaluated": false,
+        "limitations": [
+          "single seed; no comparative model result",
+          "user-disjoint validation",
+          "local architecture and optimizer adaptation"
+        ],
+        "resource_monitor": {
+          "limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "sample_count": 152,
+          "max_process_rss_gib": 14.0433349609375,
+          "min_system_available_gib": 11.059696197509766,
+          "min_device_free_gib": 2.087860107421875,
+          "warning_allocated_exceeded": false,
+          "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+        }
+      },
+      "report_sha256": "3548cc754914a46183771fd8da960bf7a2e17d0b4d5d44a761fc79f95b981184"
+    },
+    "scorer-seed2026": {
+      "report": {
+        "scope": "one_seed_validation_run",
+        "config": {
+          "batch_size": 256,
+          "epochs": 1,
+          "dense_learning_rate": 0.001,
+          "weight_decay": 0.0,
+          "embedding_width": 16,
+          "resource_limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "seed": 2026,
+          "experiment": "post-main-g1-scorer-pretraining",
+          "history_length": 1000,
+          "short_length": 50,
+          "k": 50,
+          "k_scope": "single_route",
+          "variant": "content_scorer"
+        },
+        "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+        "implementation_sha256": {
+          "train_g1_scorer.py": "14eeb3489e7359676ee968621612c9f44b520b81f9334156ef6e0b35bed0a442",
+          "probe_search.py": "e9254bac6b73014796e403e15075d06f90776d5ee14577be7fae0589499ac450",
+          "baseline_model.py": "1960031fd791cee17d6a6ae0ada983a70962e4cd045f632bf852fd4a0c608690",
+          "baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+          "c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+          "enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+          "feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+          "fused_retrieval.py": "1cecec66b948e919e9785c2001ac6833cfa0dadcd6d45cd2b49051383465c6f4",
+          "metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+          "muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+          "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+          "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936",
+          "din.py": "9e0d313e7195cd6a6c369017c03131f10eee632a09561b4fa7a099380f22ba91",
+          "fused_attention_search.py": "4ea56df7fc0cdc2beeae980892a072b14e1ec744d6785a6b6af346b8f7dc4089",
+          "learned_content_search.py": "511f12b9f450a0bc096705bb224e95df5706a718097cbaf9c4899c1761c53829",
+          "miss.py": "df42a816f1d0bd73b020a8a305e27ce93680887a1e6a38a1e84ede3ce1fcbae1",
+          "twin.py": "e1c3490dfedbcb5127538c34e71f3e7748526a39a05b71b85314265243748289"
+        },
+        "torch": "2.12.1+cu132",
+        "gpu": "NVIDIA GeForce RTX 5070",
+        "steps": 11924,
+        "epochs": [
+          {
+            "epoch": 1,
+            "rows": 3052475,
+            "online_train_logloss": 0.3936311821613946,
+            "training_seconds": 1057.4320806000615,
+            "training_peak_allocated_mib": 704.5810546875,
+            "training_peak_reserved_mib": 728.0,
+            "validation_budget": {
+              "rows": 768773,
+              "mean_route_positions": 894.6708131008763,
+              "mean_overlap_positions": 0.0,
+              "mean_unique_positions": 894.6708131008763,
+              "max_route_positions": 1000
+            },
+            "validation": {
+              "rows": 768773,
+              "positives": 104443,
+              "auc": 0.6045697927115739,
+              "logloss": 0.38969661654128646,
+              "gauc": 0.5735001752141669,
+              "gauc_weighting": "exposure_count_among_users_with_both_labels",
+              "users": 69430,
+              "valid_users": 38125,
+              "valid_rows": 578851,
+              "excluded_users": 31305,
+              "excluded_rows": 189922,
+              "valid_row_fraction": 0.7529543831534146
+            },
+            "validation_and_prediction_save_seconds": 214.02712029998656
+          }
+        ],
+        "training_seconds": 1057.4320806000615,
+        "training_peak_allocated_mib": 704.5810546875,
+        "training_peak_reserved_mib": 728.0,
+        "projection_parameters_updated": true,
+        "parameters_updated": true,
+        "reload_max_abs_error": 0.0,
+        "validation": {
+          "rows": 768773,
+          "positives": 104443,
+          "auc": 0.6045697927115739,
+          "logloss": 0.38969661654128646,
+          "gauc": 0.5735001752141669,
+          "gauc_weighting": "exposure_count_among_users_with_both_labels",
+          "users": 69430,
+          "valid_users": 38125,
+          "valid_rows": 578851,
+          "excluded_users": 31305,
+          "excluded_rows": 189922,
+          "valid_row_fraction": 0.7529543831534146
+        },
+        "run_seconds_since_training_start": 1275.417177400086,
+        "test_evaluated": false,
+        "limitations": [
+          "single seed; no comparative model result",
+          "user-disjoint validation",
+          "local architecture and optimizer adaptation"
+        ],
+        "resource_monitor": {
+          "limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "sample_count": 152,
+          "max_process_rss_gib": 13.759464263916016,
+          "min_system_available_gib": 11.002117156982422,
+          "min_device_free_gib": 9.8994140625,
+          "warning_allocated_exceeded": false,
+          "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+        }
+      },
+      "report_sha256": "96f7c320abc25e750dfeee9b79feddd65ff2c9cec7a0c42924254fac54012244"
+    },
+    "downstream-seed2026": {
+      "report": {
+        "scope": "one_seed_validation_run",
+        "config": {
+          "batch_size": 256,
+          "epochs": 1,
+          "dense_learning_rate": 0.001,
+          "sparse_learning_rate": 0.001,
+          "weight_decay": 0.0,
+          "embedding_width": 16,
+          "resource_limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "seed": 2026,
+          "experiment": "post-main-g1-frozen-learned-content",
+          "history_length": 1000,
+          "short_length": 50,
+          "k": 50,
+          "k_scope": "single_route",
+          "variant": "learned_content"
+        },
+        "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+        "implementation_sha256": {
+          "train_g1_downstream.py": "2a80c1bc568755365eb3bfaf155b15f772547bfe52d828a1d61052e086927721",
+          "probe_search.py": "e9254bac6b73014796e403e15075d06f90776d5ee14577be7fae0589499ac450",
+          "baseline_model.py": "1960031fd791cee17d6a6ae0ada983a70962e4cd045f632bf852fd4a0c608690",
+          "baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+          "c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+          "enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+          "feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+          "fused_retrieval.py": "1cecec66b948e919e9785c2001ac6833cfa0dadcd6d45cd2b49051383465c6f4",
+          "metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+          "muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+          "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+          "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936",
+          "din.py": "9e0d313e7195cd6a6c369017c03131f10eee632a09561b4fa7a099380f22ba91",
+          "fused_attention_search.py": "4ea56df7fc0cdc2beeae980892a072b14e1ec744d6785a6b6af346b8f7dc4089",
+          "learned_content_search.py": "511f12b9f450a0bc096705bb224e95df5706a718097cbaf9c4899c1761c53829",
+          "miss.py": "df42a816f1d0bd73b020a8a305e27ce93680887a1e6a38a1e84ede3ce1fcbae1",
+          "twin.py": "e1c3490dfedbcb5127538c34e71f3e7748526a39a05b71b85314265243748289"
+        },
+        "torch": "2.12.1+cu132",
+        "gpu": "NVIDIA GeForce RTX 5070",
+        "steps": 11924,
+        "epochs": [
+          {
+            "epoch": 1,
+            "rows": 3052475,
+            "online_train_logloss": 0.3824291248048316,
+            "training_seconds": 1277.0217071999796,
+            "training_peak_allocated_mib": 8350.076171875,
+            "training_peak_reserved_mib": 8438.0,
+            "validation_budget": {
+              "rows": 768773,
+              "mean_route_positions": 49.89414430527607,
+              "mean_overlap_positions": 0.0,
+              "mean_unique_positions": 49.89414430527607,
+              "max_route_positions": 50
+            },
+            "validation": {
+              "rows": 768773,
+              "positives": 104443,
+              "auc": 0.6176477151268158,
+              "logloss": 0.388390819150428,
+              "gauc": 0.5904664964342452,
+              "gauc_weighting": "exposure_count_among_users_with_both_labels",
+              "users": 69430,
+              "valid_users": 38125,
+              "valid_rows": 578851,
+              "excluded_users": 31305,
+              "excluded_rows": 189922,
+              "valid_row_fraction": 0.7529543831534146
+            },
+            "validation_and_prediction_save_seconds": 214.5829866999993
+          }
+        ],
+        "training_seconds": 1277.0217071999796,
+        "training_peak_allocated_mib": 8350.076171875,
+        "training_peak_reserved_mib": 8438.0,
+        "scorer_provenance": {
+          "checkpoint_sha256": "e412839af12ff83777a700dcf24a6e5c3ac7592fa31d21b61370e6a798556e34",
+          "report_sha256": "96f7c320abc25e750dfeee9b79feddd65ff2c9cec7a0c42924254fac54012244",
+          "pretraining_scope": "one_seed_validation_run",
+          "pretraining_seed": 2026
+        },
+        "projection_unchanged": true,
+        "parameters_updated": true,
+        "reload_max_abs_error": 0.0,
+        "validation": {
+          "rows": 768773,
+          "positives": 104443,
+          "auc": 0.6176477151268158,
+          "logloss": 0.388390819150428,
+          "gauc": 0.5904664964342452,
+          "gauc_weighting": "exposure_count_among_users_with_both_labels",
+          "users": 69430,
+          "valid_users": 38125,
+          "valid_rows": 578851,
+          "excluded_users": 31305,
+          "excluded_rows": 189922,
+          "valid_row_fraction": 0.7529543831534146
+        },
+        "run_seconds_since_training_start": 1499.3508210000582,
+        "test_evaluated": false,
+        "limitations": [
+          "single seed; no comparative model result",
+          "user-disjoint validation",
+          "local architecture and optimizer adaptation"
+        ],
+        "resource_monitor": {
+          "limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "sample_count": 152,
+          "max_process_rss_gib": 14.043132781982422,
+          "min_system_available_gib": 10.854679107666016,
+          "min_device_free_gib": 2.0921173095703125,
+          "warning_allocated_exceeded": false,
+          "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+        }
+      },
+      "report_sha256": "90c412ff16c8e68cc8cdd3bfc15ee45c0303df2a1459dcce770b180372c7baa8"
+    },
+    "scorer-seed3407": {
+      "report": {
+        "scope": "one_seed_validation_run",
+        "config": {
+          "batch_size": 256,
+          "epochs": 1,
+          "dense_learning_rate": 0.001,
+          "weight_decay": 0.0,
+          "embedding_width": 16,
+          "resource_limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "seed": 3407,
+          "experiment": "post-main-g1-scorer-pretraining",
+          "history_length": 1000,
+          "short_length": 50,
+          "k": 50,
+          "k_scope": "single_route",
+          "variant": "content_scorer"
+        },
+        "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+        "implementation_sha256": {
+          "train_g1_scorer.py": "14eeb3489e7359676ee968621612c9f44b520b81f9334156ef6e0b35bed0a442",
+          "probe_search.py": "e9254bac6b73014796e403e15075d06f90776d5ee14577be7fae0589499ac450",
+          "baseline_model.py": "1960031fd791cee17d6a6ae0ada983a70962e4cd045f632bf852fd4a0c608690",
+          "baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+          "c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+          "enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+          "feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+          "fused_retrieval.py": "1cecec66b948e919e9785c2001ac6833cfa0dadcd6d45cd2b49051383465c6f4",
+          "metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+          "muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+          "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+          "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936",
+          "din.py": "9e0d313e7195cd6a6c369017c03131f10eee632a09561b4fa7a099380f22ba91",
+          "fused_attention_search.py": "4ea56df7fc0cdc2beeae980892a072b14e1ec744d6785a6b6af346b8f7dc4089",
+          "learned_content_search.py": "511f12b9f450a0bc096705bb224e95df5706a718097cbaf9c4899c1761c53829",
+          "miss.py": "df42a816f1d0bd73b020a8a305e27ce93680887a1e6a38a1e84ede3ce1fcbae1",
+          "twin.py": "e1c3490dfedbcb5127538c34e71f3e7748526a39a05b71b85314265243748289"
+        },
+        "torch": "2.12.1+cu132",
+        "gpu": "NVIDIA GeForce RTX 5070",
+        "steps": 11924,
+        "epochs": [
+          {
+            "epoch": 1,
+            "rows": 3052475,
+            "online_train_logloss": 0.39338469232096923,
+            "training_seconds": 1054.829458400025,
+            "training_peak_allocated_mib": 704.5810546875,
+            "training_peak_reserved_mib": 728.0,
+            "validation_budget": {
+              "rows": 768773,
+              "mean_route_positions": 894.6708131008763,
+              "mean_overlap_positions": 0.0,
+              "mean_unique_positions": 894.6708131008763,
+              "max_route_positions": 1000
+            },
+            "validation": {
+              "rows": 768773,
+              "positives": 104443,
+              "auc": 0.6032208049612386,
+              "logloss": 0.38984909682517915,
+              "gauc": 0.5727185523994051,
+              "gauc_weighting": "exposure_count_among_users_with_both_labels",
+              "users": 69430,
+              "valid_users": 38125,
+              "valid_rows": 578851,
+              "excluded_users": 31305,
+              "excluded_rows": 189922,
+              "valid_row_fraction": 0.7529543831534146
+            },
+            "validation_and_prediction_save_seconds": 214.13351539999712
+          }
+        ],
+        "training_seconds": 1054.829458400025,
+        "training_peak_allocated_mib": 704.5810546875,
+        "training_peak_reserved_mib": 728.0,
+        "projection_parameters_updated": true,
+        "parameters_updated": true,
+        "reload_max_abs_error": 0.0,
+        "validation": {
+          "rows": 768773,
+          "positives": 104443,
+          "auc": 0.6032208049612386,
+          "logloss": 0.38984909682517915,
+          "gauc": 0.5727185523994051,
+          "gauc_weighting": "exposure_count_among_users_with_both_labels",
+          "users": 69430,
+          "valid_users": 38125,
+          "valid_rows": 578851,
+          "excluded_users": 31305,
+          "excluded_rows": 189922,
+          "valid_row_fraction": 0.7529543831534146
+        },
+        "run_seconds_since_training_start": 1272.9167941000778,
+        "test_evaluated": false,
+        "limitations": [
+          "single seed; no comparative model result",
+          "user-disjoint validation",
+          "local architecture and optimizer adaptation"
+        ],
+        "resource_monitor": {
+          "limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "sample_count": 152,
+          "max_process_rss_gib": 13.759689331054688,
+          "min_system_available_gib": 11.15993881225586,
+          "min_device_free_gib": 9.8994140625,
+          "warning_allocated_exceeded": false,
+          "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+        }
+      },
+      "report_sha256": "fe296843beddd1e7bfa2984a229ff2ac80b41e80d940cc300f06f8a19a459323"
+    },
+    "downstream-seed3407": {
+      "report": {
+        "scope": "one_seed_validation_run",
+        "config": {
+          "batch_size": 256,
+          "epochs": 1,
+          "dense_learning_rate": 0.001,
+          "sparse_learning_rate": 0.001,
+          "weight_decay": 0.0,
+          "embedding_width": 16,
+          "resource_limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "seed": 3407,
+          "experiment": "post-main-g1-frozen-learned-content",
+          "history_length": 1000,
+          "short_length": 50,
+          "k": 50,
+          "k_scope": "single_route",
+          "variant": "learned_content"
+        },
+        "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+        "implementation_sha256": {
+          "train_g1_downstream.py": "2a80c1bc568755365eb3bfaf155b15f772547bfe52d828a1d61052e086927721",
+          "probe_search.py": "e9254bac6b73014796e403e15075d06f90776d5ee14577be7fae0589499ac450",
+          "baseline_model.py": "1960031fd791cee17d6a6ae0ada983a70962e4cd045f632bf852fd4a0c608690",
+          "baseline_retrieval.py": "5baa67619fd329874197b413be331bbacc349042aefa5f402fd2e087d0e1ef01",
+          "c0.py": "b411d1cc6088559adab91ca71bacc02b191a687870bd57a2ecce6e6658faf456",
+          "enhanced_esu.py": "90b9e7344847cf4d2679bdf7373861037c831bbd07c3a4411fb26df46c31d1ec",
+          "feature_store.py": "3c5f23688388a747b54f36a8e9870c7f51cd82ded05c09a20a99af8b96ad33a3",
+          "fused_retrieval.py": "1cecec66b948e919e9785c2001ac6833cfa0dadcd6d45cd2b49051383465c6f4",
+          "metrics.py": "a3d47e8ea28aa10010890f2633ff3a39a0e5ec582bd42a6fe408858f34378d56",
+          "muse_model.py": "e1212eab6119b984d0e9adae485299a1e7fee7cd0cb5eaee453f5450bf9e1544",
+          "retrieval.py": "87b8c4a1f752ac7a828e34b90ea040085583c713f253535b20c009c2f1687513",
+          "search_model.py": "3c06f42df82af3933ee7c690a8a82f8c60a867811b78bf28a28868ec55850936",
+          "din.py": "9e0d313e7195cd6a6c369017c03131f10eee632a09561b4fa7a099380f22ba91",
+          "fused_attention_search.py": "4ea56df7fc0cdc2beeae980892a072b14e1ec744d6785a6b6af346b8f7dc4089",
+          "learned_content_search.py": "511f12b9f450a0bc096705bb224e95df5706a718097cbaf9c4899c1761c53829",
+          "miss.py": "df42a816f1d0bd73b020a8a305e27ce93680887a1e6a38a1e84ede3ce1fcbae1",
+          "twin.py": "e1c3490dfedbcb5127538c34e71f3e7748526a39a05b71b85314265243748289"
+        },
+        "torch": "2.12.1+cu132",
+        "gpu": "NVIDIA GeForce RTX 5070",
+        "steps": 11924,
+        "epochs": [
+          {
+            "epoch": 1,
+            "rows": 3052475,
+            "online_train_logloss": 0.3822419923117614,
+            "training_seconds": 1212.1946548999986,
+            "training_peak_allocated_mib": 8350.076171875,
+            "training_peak_reserved_mib": 8438.0,
+            "validation_budget": {
+              "rows": 768773,
+              "mean_route_positions": 49.89414430527607,
+              "mean_overlap_positions": 0.0,
+              "mean_unique_positions": 49.89414430527607,
+              "max_route_positions": 50
+            },
+            "validation": {
+              "rows": 768773,
+              "positives": 104443,
+              "auc": 0.6160473704914107,
+              "logloss": 0.38726822033667935,
+              "gauc": 0.5909512082557269,
+              "gauc_weighting": "exposure_count_among_users_with_both_labels",
+              "users": 69430,
+              "valid_users": 38125,
+              "valid_rows": 578851,
+              "excluded_users": 31305,
+              "excluded_rows": 189922,
+              "valid_row_fraction": 0.7529543831534146
+            },
+            "validation_and_prediction_save_seconds": 198.0301701000426
+          }
+        ],
+        "training_seconds": 1212.1946548999986,
+        "training_peak_allocated_mib": 8350.076171875,
+        "training_peak_reserved_mib": 8438.0,
+        "scorer_provenance": {
+          "checkpoint_sha256": "35cacdcba6b1c6b788d4e7ea9067f2120bf0a8930580e6c0e7560c29e153d16d",
+          "report_sha256": "fe296843beddd1e7bfa2984a229ff2ac80b41e80d940cc300f06f8a19a459323",
+          "pretraining_scope": "one_seed_validation_run",
+          "pretraining_seed": 3407
+        },
+        "projection_unchanged": true,
+        "parameters_updated": true,
+        "reload_max_abs_error": 0.0,
+        "validation": {
+          "rows": 768773,
+          "positives": 104443,
+          "auc": 0.6160473704914107,
+          "logloss": 0.38726822033667935,
+          "gauc": 0.5909512082557269,
+          "gauc_weighting": "exposure_count_among_users_with_both_labels",
+          "users": 69430,
+          "valid_users": 38125,
+          "valid_rows": 578851,
+          "excluded_users": 31305,
+          "excluded_rows": 189922,
+          "valid_row_fraction": 0.7529543831534146
+        },
+        "run_seconds_since_training_start": 1417.5860902999993,
+        "test_evaluated": false,
+        "limitations": [
+          "single seed; no comparative model result",
+          "user-disjoint validation",
+          "local architecture and optimizer adaptation"
+        ],
+        "resource_monitor": {
+          "limits": {
+            "warning_allocated_gib": 9,
+            "max_allocated_gib": 10.5,
+            "min_device_free_gib": 1,
+            "max_process_rss_gib": 24,
+            "min_system_available_gib": 4
+          },
+          "sample_count": 152,
+          "max_process_rss_gib": 14.043472290039062,
+          "min_system_available_gib": 8.940624237060547,
+          "min_device_free_gib": 1.473724365234375,
+          "warning_allocated_exceeded": false,
+          "policy": "checked at first and every 100 training steps, every 100 validation batches; stop without automatic changes"
+        }
+      },
+      "report_sha256": "7c88e8ed9e3931097faa6efce881836c3ac2662c6f16ac615108b66dabe00b97"
+    }
+  },
+  "comparisons": {
+    "42": {
+      "scope": "paired_single_seed_validation",
+      "baseline_sha256": "b8d4efa8b2212468a52e63fd01935551d261bd01f8a999740b0a8039dfd599bc",
+      "candidate_sha256": "97e1b829d48e250bdb38aeee539180b0f5859c3cbce34ca988f048715a8fd98d",
+      "rows": 768773,
+      "baseline": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6185068046635885,
+        "logloss": 0.3869345200846301,
+        "gauc": 0.5922016024535437,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "candidate": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6176771627630975,
+        "logloss": 0.38726421011936946,
+        "gauc": 0.5895955247679692,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "candidate_minus_baseline": {
+        "auc": -0.0008296419004910627,
+        "gauc": -0.002606077685574526,
+        "logloss": 0.00032969003473937164
+      },
+      "gauc_delta_user_bootstrap_95_percentile": [
+        -0.004009142380061238,
+        -0.0011962597176280562
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 2026,
+      "limitations": [
+        "conditional on these trained models and this cohort",
+        "does not measure training-seed or cohort-selection variability",
+        "validation comparison, not test evidence"
+      ]
+    },
+    "2026": {
+      "scope": "paired_single_seed_validation",
+      "baseline_sha256": "63c1a39b41858f411e90ec2071863363cc956cd2b8f2db983a90df385bb6e6f3",
+      "candidate_sha256": "96e7c1adb599f2f891a4812b8038f27e7e5aaf3a696dc83fa50377f094e22866",
+      "rows": 768773,
+      "baseline": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.619020284061896,
+        "logloss": 0.38798232380686487,
+        "gauc": 0.5939284480147088,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "candidate": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6176477151268158,
+        "logloss": 0.388390819150428,
+        "gauc": 0.5904664964342452,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "candidate_minus_baseline": {
+        "auc": -0.0013725689350801984,
+        "gauc": -0.0034619515804635848,
+        "logloss": 0.0004084953435631311
+      },
+      "gauc_delta_user_bootstrap_95_percentile": [
+        -0.004907008181078314,
+        -0.0020481998734726403
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 2026,
+      "limitations": [
+        "conditional on these trained models and this cohort",
+        "does not measure training-seed or cohort-selection variability",
+        "validation comparison, not test evidence"
+      ]
+    },
+    "3407": {
+      "scope": "paired_single_seed_validation",
+      "baseline_sha256": "dcd9f12c926a2afd4ac92eae7049d46e0f259e7b158c8c5266c32eadc7c71c4f",
+      "candidate_sha256": "e4767ba2f5bf449e663869ef6d573f95a2c4c67504eb046409d5ce919d9c43aa",
+      "rows": 768773,
+      "baseline": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.617847866361517,
+        "logloss": 0.3869116679320826,
+        "gauc": 0.5939133000129686,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "candidate": {
+        "rows": 768773,
+        "positives": 104443,
+        "auc": 0.6160473704914107,
+        "logloss": 0.38726822033667935,
+        "gauc": 0.5909512082557269,
+        "gauc_weighting": "exposure_count_among_users_with_both_labels",
+        "users": 69430,
+        "valid_users": 38125,
+        "valid_rows": 578851,
+        "excluded_users": 31305,
+        "excluded_rows": 189922,
+        "valid_row_fraction": 0.7529543831534146
+      },
+      "candidate_minus_baseline": {
+        "auc": -0.0018004958701063334,
+        "gauc": -0.002962091757241714,
+        "logloss": 0.00035655240459675497
+      },
+      "gauc_delta_user_bootstrap_95_percentile": [
+        -0.004431141068868261,
+        -0.0013860721285814679
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 2026,
+      "limitations": [
+        "conditional on these trained models and this cohort",
+        "does not measure training-seed or cohort-selection variability",
+        "validation comparison, not test evidence"
+      ]
+    }
+  },
+  "three_seed_means": {
+    "baseline": {
+      "auc": 0.6184583183623339,
+      "gauc": 0.5933477834937404,
+      "logloss": 0.3872761706078592
+    },
+    "candidate": {
+      "auc": 0.6171240827937746,
+      "gauc": 0.5903377431526471,
+      "logloss": 0.38764108320215895
+    }
+  },
+  "reused_controls": {
+    "42": {
+      "run": "C:\\Users\\75469\\Documents\\Codex\\2026-09-09\\new-chat\\work\\post-main-g3-extension-v1\\content-seed42",
+      "report_sha256": "de7bd0bbc80dc85c15260c512f9bb42a321940726fcb57bf9f9492cf3aa1a2da",
+      "predictions_sha256": "b8d4efa8b2212468a52e63fd01935551d261bd01f8a999740b0a8039dfd599bc"
+    },
+    "2026": {
+      "run": "C:\\Users\\75469\\Documents\\Codex\\2026-09-09\\new-chat\\work\\post-main-g3-extension-v1\\content-seed2026",
+      "report_sha256": "cf4f27dc836910731b9a272a418cab089b96ece6ef9ab2115d364823295865a1",
+      "predictions_sha256": "63c1a39b41858f411e90ec2071863363cc956cd2b8f2db983a90df385bb6e6f3"
+    },
+    "3407": {
+      "run": "C:\\Users\\75469\\Documents\\Codex\\2026-09-09\\new-chat\\work\\post-main-g3-extension-v1\\content-seed3407",
+      "report_sha256": "14911cbc944cd7dcc6f597317f9d85e9fd5b23ce2d411a510a3dcee5358d2127",
+      "predictions_sha256": "dcd9f12c926a2afd4ac92eae7049d46e0f259e7b158c8c5266c32eadc7c71c4f"
+    }
+  }
+}

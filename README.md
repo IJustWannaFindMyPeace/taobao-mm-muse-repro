@@ -16,7 +16,7 @@
 
 ## 后续补充研究
 
-[G3 融合检索结果与诊断](docs/post-main-g3-results.md)已归档：未显示稳定 GAUC 优势，保留明显种子差异。[G1 两阶段适配](docs/post-main-g1-protocol.md)已通过两阶段资源验证，正在执行三个种子的完整训练，尚无完整结果。
+[G3 融合检索结果与诊断](docs/post-main-g3-results.md)已归档：未显示稳定 GAUC 优势，保留明显种子差异。[G1 三种子结果](docs/post-main-g1-results.md)已归档：学习后冻结的内容检索在三个种子上均低于原始内容余弦对照。
 
 已补充 [8/9 组事后诊断](docs/posthoc-paper-groups-v1.md)。商品分组保留同频并列限制；用户组大多同为截断长度 1000，不能据此判断真实长度趋势。
 
