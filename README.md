@@ -6,6 +6,8 @@
 
 ## 阅读入口
 
+- [最新论文覆盖审计：已做、适配与可补缺口](docs/paper-coverage-audit-2026-09-23.md)
+
 - [两项目最终故事线](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/final-storyline.md)
 - [本项目最终测试结果](docs/final-test-results.md)
 - [等权内容＋ID 检索的设计与验证证据](docs/shared-fused-retrieval-v1.md)
