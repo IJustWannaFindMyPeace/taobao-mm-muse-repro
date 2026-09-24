@@ -66,3 +66,5 @@ GSU（General Search Unit，通用搜索单元）选出与目标有关的 Top-K 
 [历史长度三种子结果](docs/post-main-length-seeds-results.md)已完成，保持 K=50 与共同下游协议。
 
 [本轮补充工作收尾核验](docs/reproduction-closeout.md)：96项产物一致性检查通过；完成范围与原论文限制分别说明。
+
+[两论文结果阅读指南](docs/storyline-reading-guide.md)：按问题、方法、证据与局限理解完整迭代路径，无需先记实验代号。
