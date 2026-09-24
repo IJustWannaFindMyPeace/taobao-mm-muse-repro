@@ -63,4 +63,6 @@ GSU（General Search Unit，通用搜索单元）选出与目标有关的 Top-K 
 
 [统一适配基线比较](docs/adapted-baseline-comparison.md)与[固定抽样匿名检索案例](docs/anonymous-retrieval-cases.md)已归档，分别说明整体验证证据与具体选择行为。
 
-[历史长度三种子扩展](docs/post-main-length-seeds-protocol.md)正在补齐 L50/L500 的另外两个种子，保持 K=50 与共同下游协议。
+[历史长度三种子结果](docs/post-main-length-seeds-results.md)已完成，保持 K=50 与共同下游协议。
+
+[本轮补充工作收尾核验](docs/reproduction-closeout.md)：96项产物一致性检查通过；完成范围与原论文限制分别说明。
