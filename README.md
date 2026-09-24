@@ -1,5 +1,8 @@
 # TAOBAO-MM · MUSE
 
+[当前复现状态与两项目故事线](docs/current-reproduction-status.md)汇总已完成证据、适配边界及剩余工作。
+
+
 基于 TAOBAO-MM 固定内容向量，研究内容如何用于长历史选择和兴趣聚合。对应 [A Simple Yet Effective Multimodal Search-Based Framework for Lifelong User Interest Modeling](https://arxiv.org/html/2512.07216v1)，为非官方适配实现，参考[官方代码](https://github.com/alimama-tech/MUSE)。
 
 **研究主线：长历史处理成本 → 目标相关检索 → 统计与语义聚合 → 检索复杂度和历史长度的受控验证。**
