@@ -62,3 +62,5 @@ GSU（General Search Unit，通用搜索单元）选出与目标有关的 Top-K 
 5% 队列、L1000 不是全量数据和工业十万历史复现。SCL 编码器重训、OpenCLIP/I2I 对照、原始 DIN/TWIN/MISS、其他可学习检索器和线上收益未覆盖。前序 MAKE 不作为 MUSE 默认前置模块。保留跨零、负向和不同指标冲突的结果。
 
 [统一适配基线比较](docs/adapted-baseline-comparison.md)与[固定抽样匿名检索案例](docs/anonymous-retrieval-cases.md)已归档，分别说明整体验证证据与具体选择行为。
+
+[历史长度三种子扩展](docs/post-main-length-seeds-protocol.md)正在补齐 L50/L500 的另外两个种子，保持 K=50 与共同下游协议。
