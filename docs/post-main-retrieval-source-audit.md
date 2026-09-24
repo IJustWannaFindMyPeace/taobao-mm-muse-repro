@@ -1,5 +1,8 @@
 # TWIN 与 MISS：来源歧义和实施约束
 
+> 本文保留原验证阶段分析；对应最终下游模型的追加测试已归档，参见[统一追加测试结果](supplementary-test-results.md)。过程诊断不自动变成测试证据。
+
+
 本记录区分论文事实与本地设计，服务于主实验结束后的补充阶段。此记录形成时尚无新增结果；当前适配结果见 [TWIN](post-main-twin-results.md) 和 [MISS](post-main-miss-results.md)。不能将既有 ID 余弦或余弦融合模型重命名为 TWIN/MISS。
 
 ## 已核实的机制

@@ -1,0 +1,650 @@
+{
+  "scope": "descriptive_adapted_baselines_common_test",
+  "test_evaluated": true,
+  "models": [
+    {
+      "label": "DIN 局部激活适配",
+      "budget": "短历史50；无长历史检索",
+      "reports": [
+        {
+          "model_id": "post-main-short-interest-v1--din_lau-seed42",
+          "phase": "supplement",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.60229796887752,
+            "logloss": 0.3918869087882583,
+            "gauc": 0.5729930740336072,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "04cb626282a9edcc446cf0ccd0ccbbbc9749c1bb08f4f942e8fcb9e98e32e295"
+        },
+        {
+          "model_id": "post-main-short-interest-v1--din_lau-seed2026",
+          "phase": "supplement",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6018700492294625,
+            "logloss": 0.3936231389415948,
+            "gauc": 0.5743611350832304,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "8b4998de4816dd149e43fb06e4d84b51ca27ca18f64992474d8d645c8be27544"
+        },
+        {
+          "model_id": "post-main-short-interest-v1--din_lau-seed3407",
+          "phase": "supplement",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6006129134912237,
+            "logloss": 0.39219567329987837,
+            "gauc": 0.57379878463562,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "2bef7ae548046c229bf5a8fa5c5dca37853e05974636e34ee1489de5358b3502"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.6015936438660687,
+        "gauc": 0.5737176645841525,
+        "logloss": 0.39256857367657716
+      }
+    },
+    {
+      "label": "短历史点积对照",
+      "budget": "短历史50；无长历史检索",
+      "reports": [
+        {
+          "model_id": "post-main-short-interest-v1--dot_softmax-seed42",
+          "phase": "supplement",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6017637693645058,
+            "logloss": 0.39208563526706025,
+            "gauc": 0.5731548617149677,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "74075bfd409533956d918a13f885367bb8fc40db84dec4da01ba309f3f1953bd"
+        },
+        {
+          "model_id": "post-main-short-interest-v1--dot_softmax-seed2026",
+          "phase": "supplement",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.602147921101702,
+            "logloss": 0.39353814871275,
+            "gauc": 0.5738015108867708,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "69b03b7590ddcc7c57b7e087f4a3db381307bd05fa58255f0bd6b943ab547e33"
+        },
+        {
+          "model_id": "post-main-short-interest-v1--dot_softmax-seed3407",
+          "phase": "supplement",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6012057487707234,
+            "logloss": 0.39209872501737564,
+            "gauc": 0.5734407637239815,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "a38b4629c2518a8233874fe1faf8079bf556bebd226835b2a0c795e74cbae8fa"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.6017058130789771,
+        "gauc": 0.5734657121085733,
+        "logloss": 0.3925741696657286
+      }
+    },
+    {
+      "label": "SIM-hard 类目检索适配",
+      "budget": "L1000→K50；增强 ESU",
+      "reports": [
+        {
+          "model_id": "b1-hard-enhanced-seed42",
+          "phase": "main",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6124081032613861,
+            "logloss": 0.3902093758096755,
+            "gauc": 0.5893113940572642,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "570beec358f39866573bfdef20caa7c80f5d3f5cee6bc51f3b919ab7ce00b27e"
+        },
+        {
+          "model_id": "b1-hard-enhanced-seed2026",
+          "phase": "main",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6133343452265505,
+            "logloss": 0.3914641830144142,
+            "gauc": 0.5894952173401663,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "5c1f630c6aeeed0581cdb75f118e80eb6ffeb841aaa046f874d64b1b75ce1c82"
+        },
+        {
+          "model_id": "b1-hard-enhanced-seed3407",
+          "phase": "main",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.612863341682964,
+            "logloss": 0.3900743418889721,
+            "gauc": 0.5897621309822524,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "7fb44339f9bb21dcb64b9f4584e2339d8114ac94c466eaf8357c4a9b6ee65f13"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.6128685967236335,
+        "gauc": 0.589522914126561,
+        "logloss": 0.39058263357102063
+      }
+    },
+    {
+      "label": "SIM-soft ID检索适配",
+      "budget": "L1000→K50；增强 ESU",
+      "reports": [
+        {
+          "model_id": "b2-soft-enhanced-seed42",
+          "phase": "main",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6137334280347742,
+            "logloss": 0.3900149373857226,
+            "gauc": 0.5896802147882089,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "8a90ffbe4bbfc92cfa3e39bed2aa8e19c3920c3bd5b565319ecd4fc03f11003f"
+        },
+        {
+          "model_id": "b2-soft-enhanced-seed2026",
+          "phase": "main",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.614305494089484,
+            "logloss": 0.3914002527115536,
+            "gauc": 0.5908755048460811,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "c8d863d97047a5d58001bf6f9695407a90b980b7ccad5ea991869419cb26e0f1"
+        },
+        {
+          "model_id": "b2-soft-enhanced-seed3407",
+          "phase": "main",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6137249811966643,
+            "logloss": 0.389934391460745,
+            "gauc": 0.5910412188147103,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "d549e4c3eff25dcdd2ddb07ce9d88b4b507a6a4424687fc0c6b8fd5b0e2b31aa"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.6139213011069742,
+        "gauc": 0.5905323128163334,
+        "logloss": 0.3904498605193404
+      }
+    },
+    {
+      "label": "TWIN 一致评分适配",
+      "budget": "L1000；4头各50，至多200个位置",
+      "reports": [
+        {
+          "model_id": "post-main-twin-extension-v1--consistent-seed42",
+          "phase": "supplement",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6108698464307041,
+            "logloss": 0.3905219104274168,
+            "gauc": 0.5802697856170838,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "0bf06f6ec3344121a0452bff1d8d14c6ed58231688b2ad264ee5a05f088e863b"
+        },
+        {
+          "model_id": "post-main-twin-extension-v1--consistent-seed2026",
+          "phase": "supplement",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6109900332484247,
+            "logloss": 0.3921398692628218,
+            "gauc": 0.5815433055340373,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "3135211dfc9a5b0301572de4d3d69601d81ff1dcac08e5b02196adde0560cf02"
+        },
+        {
+          "model_id": "post-main-twin-extension-v1--consistent-seed3407",
+          "phase": "supplement",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6127655338858052,
+            "logloss": 0.39008058191054434,
+            "gauc": 0.5806710836464111,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "9e62e692d82eb632d1d2d5c6dcbd4307ecd7a13a8e091ba1df1abef2d5624d5a"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.6115418045216446,
+        "gauc": 0.580828058265844,
+        "logloss": 0.3909141205335943
+      }
+    },
+    {
+      "label": "TWIN 内容检索对照",
+      "budget": "L1000；4头共用内容Top50",
+      "reports": [
+        {
+          "model_id": "post-main-twin-extension-v1--content-seed42",
+          "phase": "supplement",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6190727202989805,
+            "logloss": 0.3890852170145754,
+            "gauc": 0.595797625713293,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "87cb2cefb0fa5fe256b0e55fede65f29d3b9f6cd825097fe81686763311a85f4"
+        },
+        {
+          "model_id": "post-main-twin-extension-v1--content-seed2026",
+          "phase": "supplement",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6184449081811273,
+            "logloss": 0.3906815530163573,
+            "gauc": 0.5967344077907152,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "5c99439a3a6e26eb3d8812f0d1817a4a643851a639e9919d6197bd3a4a3dd93a"
+        },
+        {
+          "model_id": "post-main-twin-extension-v1--content-seed3407",
+          "phase": "supplement",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6188286449090283,
+            "logloss": 0.38907956307502045,
+            "gauc": 0.5966557699681855,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "a7a6a807a9ec79649b3eb565f02202b7ef6a6e59b68ca2ef86bcbc5cee06c3f0"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.618782091129712,
+        "gauc": 0.5963959344907312,
+        "logloss": 0.38961544436865103
+      }
+    },
+    {
+      "label": "MISS 双路分离适配",
+      "budget": "L1000；ID25＋内容25，可能重叠",
+      "reports": [
+        {
+          "model_id": "post-main-miss-extension-v1--hybrid_separate-seed42",
+          "phase": "supplement",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6059414055764377,
+            "logloss": 0.391400829117934,
+            "gauc": 0.5749083127321982,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "8a5617995ee3dd9d775c3e4d0610906ee47888222b192215bc33dd48ae62752e"
+        },
+        {
+          "model_id": "post-main-miss-extension-v1--hybrid_separate-seed2026",
+          "phase": "supplement",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.606889521002414,
+            "logloss": 0.39290249651797576,
+            "gauc": 0.5762490807778708,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "2152ae2eb4906d3c454dc34a64936ffc38ecde673270a0832631bedf1c92d03d"
+        },
+        {
+          "model_id": "post-main-miss-extension-v1--hybrid_separate-seed3407",
+          "phase": "supplement",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6067769452330393,
+            "logloss": 0.3912066577289694,
+            "gauc": 0.5769120554643175,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "0564cd71045a8e6cabc4baccbc47c18026c7c673e27458f5763e94ab45a4aaec"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.6065359572706304,
+        "gauc": 0.5760231496581288,
+        "logloss": 0.3918366611216264
+      }
+    },
+    {
+      "label": "MISS 内容双路对照",
+      "budget": "L1000；内容Top50分成两路各25",
+      "reports": [
+        {
+          "model_id": "post-main-miss-extension-v1--content_separate-seed42",
+          "phase": "supplement",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6050312441712579,
+            "logloss": 0.39159576992027695,
+            "gauc": 0.5752736458303679,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "1e00f81af63cd8cc757adbe0abb7acd2feb622ed7f1a5f7d3a17606734944c90"
+        },
+        {
+          "model_id": "post-main-miss-extension-v1--content_separate-seed2026",
+          "phase": "supplement",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6063305231235646,
+            "logloss": 0.39287916499808506,
+            "gauc": 0.5775451210708775,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "eca31bd0fbda1db61423af3d6b9c08ffdbec57b33a4925632ed384bfdc28136a"
+        },
+        {
+          "model_id": "post-main-miss-extension-v1--content_separate-seed3407",
+          "phase": "supplement",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6058307046557421,
+            "logloss": 0.3913624377578207,
+            "gauc": 0.5773593787119716,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "562e4b723346d714609086366133177107e57e3dc0ae78d589bb479163a36ce8"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.6057308239835215,
+        "gauc": 0.576726048537739,
+        "logloss": 0.3919457908920609
+      }
+    },
+    {
+      "label": "MUSE 完整适配",
+      "budget": "L1000→K50；SimTier＋SA-TA",
+      "reports": [
+        {
+          "model_id": "r4-l1000-seed42",
+          "phase": "main",
+          "seed": 42,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6187807533535369,
+            "logloss": 0.38915973713989715,
+            "gauc": 0.5942818135242868,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "1a8c87e7e06d034f780deff3d9dfd4af4c1ec50429279bffdf69227d09ae140e"
+        },
+        {
+          "model_id": "r4-l1000-seed2026",
+          "phase": "main",
+          "seed": 2026,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6189680025445461,
+            "logloss": 0.3902253129269602,
+            "gauc": 0.5962604885662282,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "4f1e0fa6f5289291bdc9e5aa1bc081fa236454f2ae8b3cf93564d87eead0c418"
+        },
+        {
+          "model_id": "r4-l1000-seed3407",
+          "phase": "main",
+          "seed": 3407,
+          "metrics": {
+            "rows": 923211,
+            "positives": 126722,
+            "auc": 0.6186062076249936,
+            "logloss": 0.389150053125961,
+            "gauc": 0.5959227104325819,
+            "gauc_weighting": "exposure_count_among_users_with_both_labels",
+            "users": 82542,
+            "valid_users": 45985,
+            "valid_rows": 700297,
+            "excluded_users": 36557,
+            "excluded_rows": 222914,
+            "valid_row_fraction": 0.7585449046859277
+          },
+          "report_sha256": "a6d88dd67ca33a67a93c929e36c24028d7b93813e80e63eb5d7638426c5333e0"
+        }
+      ],
+      "mean_metrics": {
+        "auc": 0.6187849878410255,
+        "gauc": 0.5954883375076989,
+        "logloss": 0.3895117010642728
+      }
+    }
+  ],
+  "limitations": [
+    "Main frozen tests and later supplemental tests are distinguished by phase.",
+    "Different architectures and history budgets; not a causal ranking or equal-compute benchmark.",
+    "Three seeds share the same 5% cohort; arithmetic means have no cross-seed confidence interval."
+  ]
+}
