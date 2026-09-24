@@ -60,3 +60,5 @@ GSU（General Search Unit，通用搜索单元）选出与目标有关的 Top-K 
 主实验后的 [DIN 局部激活机制补充](docs/post-main-din-results.md)已完成三种子验证，GAUC 配对区间均跨零，未观察到可靠改善。[TWIN 四头适配结果](docs/post-main-twin-results.md)中，内容检索在三个种子的配对比较中均更优，但去重历史覆盖数不同。[MISS 双路适配结果](docs/post-main-miss-results.md)已完成三种子验证，未显示稳定 GAUC 优势，共享参数也无跨种子一致收益。[来源核对](docs/post-main-retrieval-source-audit.md)记录了预算和参数共享歧义及本地适配边界。
 
 5% 队列、L1000 不是全量数据和工业十万历史复现。SCL 编码器重训、OpenCLIP/I2I 对照、原始 DIN/TWIN/MISS、其他可学习检索器和线上收益未覆盖。前序 MAKE 不作为 MUSE 默认前置模块。保留跨零、负向和不同指标冲突的结果。
+
+[统一适配基线比较](docs/adapted-baseline-comparison.md)与[固定抽样匿名检索案例](docs/anonymous-retrieval-cases.md)已归档，分别说明整体验证证据与具体选择行为。

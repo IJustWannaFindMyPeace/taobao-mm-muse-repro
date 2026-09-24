@@ -1,0 +1,3433 @@
+{
+  "scope": "posthoc_anonymous_retrieval_examples",
+  "split": "validation",
+  "seed": 42,
+  "sampling": "8 evenly spaced exposure indices fixed before score computation; no label or performance filtering",
+  "history_length": 1000,
+  "k": 50,
+  "store_manifest_sha256": "7dd761c48f61b3ae219922f8387f6026eb6eb011ef6ef8050bb1472a52593f59",
+  "checkpoint_sha256": {
+    "g1": "e0f4df25cf88364ed97b272fe449d521bb688197a197adf262a4dd0775bb8206",
+    "g3": "74a411109a91736c03fabed7c8de86ff65cb994cb77b3eae43270341eee5876c"
+  },
+  "implementation_sha256": "fcbb2c61c2cb2b53a66914558463b44cbf61ab356cbd035202684073200daae4",
+  "cases": [
+    {
+      "case": 1,
+      "selection_index": 0,
+      "valid_history_positions": 1000,
+      "content_eligible_positions": 972,
+      "status": "scored",
+      "routes": {
+        "content": {
+          "top50_positions": [
+            695,
+            396,
+            744,
+            579,
+            408,
+            762,
+            761,
+            747,
+            682,
+            489,
+            658,
+            405,
+            457,
+            448,
+            758,
+            757,
+            756,
+            755,
+            650,
+            885,
+            883,
+            882,
+            881,
+            880,
+            459,
+            745,
+            627,
+            626,
+            527,
+            526,
+            936,
+            680,
+            255,
+            254,
+            753,
+            752,
+            751,
+            962,
+            578,
+            692,
+            321,
+            528,
+            418,
+            436,
+            395,
+            261,
+            260,
+            259,
+            399,
+            235
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 695,
+              "item": "Item369",
+              "category": "Category088",
+              "retrieval_score": 0.6128903031349182,
+              "content_cosine": 0.6128903031349182
+            },
+            {
+              "rank": 2,
+              "position": 396,
+              "item": "Item222",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5296803712844849,
+              "content_cosine": 0.5296803712844849
+            },
+            {
+              "rank": 3,
+              "position": 744,
+              "item": "Item401",
+              "category": "Category093",
+              "retrieval_score": 0.505321204662323,
+              "content_cosine": 0.505321204662323
+            },
+            {
+              "rank": 4,
+              "position": 579,
+              "item": "Item306",
+              "category": "Category099",
+              "retrieval_score": 0.49960941076278687,
+              "content_cosine": 0.49960941076278687
+            },
+            {
+              "rank": 5,
+              "position": 408,
+              "item": "Item232",
+              "category": "TargetCategory",
+              "retrieval_score": 0.4793787896633148,
+              "content_cosine": 0.4793787896633148
+            },
+            {
+              "rank": 6,
+              "position": 762,
+              "item": "Item405",
+              "category": "Category099",
+              "retrieval_score": 0.47181177139282227,
+              "content_cosine": 0.47181177139282227
+            },
+            {
+              "rank": 7,
+              "position": 761,
+              "item": "Item405",
+              "category": "Category099",
+              "retrieval_score": 0.47181177139282227,
+              "content_cosine": 0.47181177139282227
+            },
+            {
+              "rank": 8,
+              "position": 747,
+              "item": "Item275",
+              "category": "Category090",
+              "retrieval_score": 0.4636077284812927,
+              "content_cosine": 0.4636077284812927
+            },
+            {
+              "rank": 9,
+              "position": 682,
+              "item": "Item275",
+              "category": "Category090",
+              "retrieval_score": 0.4636077284812927,
+              "content_cosine": 0.4636077284812927
+            },
+            {
+              "rank": 10,
+              "position": 489,
+              "item": "Item275",
+              "category": "Category090",
+              "retrieval_score": 0.4636077284812927,
+              "content_cosine": 0.4636077284812927
+            }
+          ]
+        },
+        "g1": {
+          "top50_positions": [
+            762,
+            761,
+            658,
+            321,
+            591,
+            255,
+            254,
+            936,
+            937,
+            265,
+            125,
+            397,
+            211,
+            750,
+            749,
+            748,
+            730,
+            325,
+            149,
+            148,
+            195,
+            126,
+            905,
+            899,
+            897,
+            653,
+            651,
+            949,
+            948,
+            947,
+            48,
+            935,
+            934,
+            933,
+            904,
+            893,
+            482,
+            481,
+            333,
+            161,
+            895,
+            594,
+            593,
+            488,
+            487,
+            141,
+            548,
+            472,
+            266,
+            193
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 762,
+              "item": "Item405",
+              "category": "Category099",
+              "retrieval_score": 0.9279471635818481,
+              "content_cosine": 0.47181177139282227
+            },
+            {
+              "rank": 2,
+              "position": 761,
+              "item": "Item405",
+              "category": "Category099",
+              "retrieval_score": 0.9279471635818481,
+              "content_cosine": 0.47181177139282227
+            },
+            {
+              "rank": 3,
+              "position": 658,
+              "item": "Item346",
+              "category": "Category010",
+              "retrieval_score": 0.9193388223648071,
+              "content_cosine": 0.4533417224884033
+            },
+            {
+              "rank": 4,
+              "position": 321,
+              "item": "Item173",
+              "category": "Category065",
+              "retrieval_score": 0.8932613730430603,
+              "content_cosine": 0.3902573585510254
+            },
+            {
+              "rank": 5,
+              "position": 591,
+              "item": "Item313",
+              "category": "Category008",
+              "retrieval_score": 0.8897625803947449,
+              "content_cosine": 0.3195248544216156
+            },
+            {
+              "rank": 6,
+              "position": 255,
+              "item": "Item135",
+              "category": "Category011",
+              "retrieval_score": 0.8863015174865723,
+              "content_cosine": 0.4096749424934387
+            },
+            {
+              "rank": 7,
+              "position": 254,
+              "item": "Item135",
+              "category": "Category011",
+              "retrieval_score": 0.8863015174865723,
+              "content_cosine": 0.4096749424934387
+            },
+            {
+              "rank": 8,
+              "position": 936,
+              "item": "Item484",
+              "category": "Category052",
+              "retrieval_score": 0.885873556137085,
+              "content_cosine": 0.4159352779388428
+            },
+            {
+              "rank": 9,
+              "position": 937,
+              "item": "Item485",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8856791853904724,
+              "content_cosine": 0.24653318524360657
+            },
+            {
+              "rank": 10,
+              "position": 265,
+              "item": "Item004",
+              "category": "Category004",
+              "retrieval_score": 0.882921576499939,
+              "content_cosine": 0.16671621799468994
+            }
+          ]
+        },
+        "g3": {
+          "top50_positions": [
+            695,
+            396,
+            744,
+            579,
+            747,
+            682,
+            489,
+            408,
+            762,
+            761,
+            405,
+            758,
+            757,
+            756,
+            755,
+            658,
+            650,
+            753,
+            752,
+            751,
+            457,
+            448,
+            885,
+            883,
+            882,
+            881,
+            880,
+            680,
+            936,
+            235,
+            234,
+            233,
+            255,
+            254,
+            868,
+            867,
+            866,
+            977,
+            960,
+            959,
+            528,
+            418,
+            459,
+            578,
+            321,
+            962,
+            745,
+            627,
+            626,
+            527
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 695,
+              "item": "Item369",
+              "category": "Category088",
+              "retrieval_score": 0.1250072717666626,
+              "content_cosine": 0.6128903031349182
+            },
+            {
+              "rank": 2,
+              "position": 396,
+              "item": "Item222",
+              "category": "TargetCategory",
+              "retrieval_score": 0.013159066438674927,
+              "content_cosine": 0.5296803712844849
+            },
+            {
+              "rank": 3,
+              "position": 744,
+              "item": "Item401",
+              "category": "Category093",
+              "retrieval_score": 0.004976183176040649,
+              "content_cosine": 0.505321204662323
+            },
+            {
+              "rank": 4,
+              "position": 579,
+              "item": "Item306",
+              "category": "Category099",
+              "retrieval_score": -0.01718616485595703,
+              "content_cosine": 0.49960941076278687
+            },
+            {
+              "rank": 5,
+              "position": 747,
+              "item": "Item275",
+              "category": "Category090",
+              "retrieval_score": -0.031632304191589355,
+              "content_cosine": 0.4636077284812927
+            },
+            {
+              "rank": 6,
+              "position": 682,
+              "item": "Item275",
+              "category": "Category090",
+              "retrieval_score": -0.031632304191589355,
+              "content_cosine": 0.4636077284812927
+            },
+            {
+              "rank": 7,
+              "position": 489,
+              "item": "Item275",
+              "category": "Category090",
+              "retrieval_score": -0.031632304191589355,
+              "content_cosine": 0.4636077284812927
+            },
+            {
+              "rank": 8,
+              "position": 408,
+              "item": "Item232",
+              "category": "TargetCategory",
+              "retrieval_score": -0.04372751712799072,
+              "content_cosine": 0.4793787896633148
+            },
+            {
+              "rank": 9,
+              "position": 762,
+              "item": "Item405",
+              "category": "Category099",
+              "retrieval_score": -0.07111740112304688,
+              "content_cosine": 0.47181177139282227
+            },
+            {
+              "rank": 10,
+              "position": 761,
+              "item": "Item405",
+              "category": "Category099",
+              "retrieval_score": -0.07111740112304688,
+              "content_cosine": 0.47181177139282227
+            }
+          ]
+        }
+      },
+      "overlap_with_content": {
+        "g1": {
+          "shared_positions": 7,
+          "selected_positions": 50
+        },
+        "g3": {
+          "shared_positions": 42,
+          "selected_positions": 50
+        }
+      }
+    },
+    {
+      "case": 2,
+      "selection_index": 109824,
+      "valid_history_positions": 1000,
+      "content_eligible_positions": 955,
+      "status": "scored",
+      "routes": {
+        "content": {
+          "top50_positions": [
+            996,
+            997,
+            161,
+            160,
+            159,
+            919,
+            646,
+            431,
+            140,
+            509,
+            593,
+            435,
+            350,
+            85,
+            976,
+            430,
+            924,
+            109,
+            108,
+            107,
+            632,
+            362,
+            53,
+            252,
+            784,
+            681,
+            922,
+            926,
+            918,
+            445,
+            339,
+            643,
+            558,
+            927,
+            920,
+            137,
+            948,
+            661,
+            136,
+            666,
+            190,
+            894,
+            893,
+            892,
+            713,
+            574,
+            573,
+            572,
+            434,
+            809
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 996,
+              "item": "Item556",
+              "category": "Category259",
+              "retrieval_score": 0.36019274592399597,
+              "content_cosine": 0.36019274592399597
+            },
+            {
+              "rank": 2,
+              "position": 997,
+              "item": "Item557",
+              "category": "Category260",
+              "retrieval_score": 0.27733147144317627,
+              "content_cosine": 0.27733147144317627
+            },
+            {
+              "rank": 3,
+              "position": 161,
+              "item": "Item088",
+              "category": "Category059",
+              "retrieval_score": 0.2398030310869217,
+              "content_cosine": 0.2398030310869217
+            },
+            {
+              "rank": 4,
+              "position": 160,
+              "item": "Item088",
+              "category": "Category059",
+              "retrieval_score": 0.2398030310869217,
+              "content_cosine": 0.2398030310869217
+            },
+            {
+              "rank": 5,
+              "position": 159,
+              "item": "Item088",
+              "category": "Category059",
+              "retrieval_score": 0.2398030310869217,
+              "content_cosine": 0.2398030310869217
+            },
+            {
+              "rank": 6,
+              "position": 919,
+              "item": "Item506",
+              "category": "Category114",
+              "retrieval_score": 0.22468015551567078,
+              "content_cosine": 0.22468015551567078
+            },
+            {
+              "rank": 7,
+              "position": 646,
+              "item": "Item338",
+              "category": "Category010",
+              "retrieval_score": 0.2206401228904724,
+              "content_cosine": 0.2206401228904724
+            },
+            {
+              "rank": 8,
+              "position": 431,
+              "item": "Item228",
+              "category": "Category112",
+              "retrieval_score": 0.21608799695968628,
+              "content_cosine": 0.21608799695968628
+            },
+            {
+              "rank": 9,
+              "position": 140,
+              "item": "Item075",
+              "category": "Category059",
+              "retrieval_score": 0.209732323884964,
+              "content_cosine": 0.209732323884964
+            },
+            {
+              "rank": 10,
+              "position": 509,
+              "item": "Item264",
+              "category": "Category135",
+              "retrieval_score": 0.2040749043226242,
+              "content_cosine": 0.2040749043226242
+            }
+          ]
+        },
+        "g1": {
+          "top50_positions": [
+            474,
+            473,
+            472,
+            471,
+            470,
+            469,
+            494,
+            492,
+            488,
+            437,
+            353,
+            352,
+            351,
+            934,
+            105,
+            103,
+            101,
+            704,
+            601,
+            600,
+            599,
+            525,
+            344,
+            97,
+            96,
+            95,
+            623,
+            177,
+            613,
+            609,
+            523,
+            522,
+            173,
+            172,
+            171,
+            169,
+            166,
+            163,
+            612,
+            635,
+            634,
+            624,
+            447,
+            610,
+            529,
+            528,
+            527,
+            428,
+            70,
+            803
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 474,
+              "item": "Item248",
+              "category": "Category127",
+              "retrieval_score": 0.8372698426246643,
+              "content_cosine": 0.11899882555007935
+            },
+            {
+              "rank": 2,
+              "position": 473,
+              "item": "Item248",
+              "category": "Category127",
+              "retrieval_score": 0.8372698426246643,
+              "content_cosine": 0.11899882555007935
+            },
+            {
+              "rank": 3,
+              "position": 472,
+              "item": "Item248",
+              "category": "Category127",
+              "retrieval_score": 0.8372698426246643,
+              "content_cosine": 0.11899882555007935
+            },
+            {
+              "rank": 4,
+              "position": 471,
+              "item": "Item248",
+              "category": "Category127",
+              "retrieval_score": 0.8372698426246643,
+              "content_cosine": 0.11899882555007935
+            },
+            {
+              "rank": 5,
+              "position": 470,
+              "item": "Item248",
+              "category": "Category127",
+              "retrieval_score": 0.8372698426246643,
+              "content_cosine": 0.11899882555007935
+            },
+            {
+              "rank": 6,
+              "position": 469,
+              "item": "Item248",
+              "category": "Category127",
+              "retrieval_score": 0.8372698426246643,
+              "content_cosine": 0.11899882555007935
+            },
+            {
+              "rank": 7,
+              "position": 494,
+              "item": "Item256",
+              "category": "Category009",
+              "retrieval_score": 0.8295116424560547,
+              "content_cosine": 0.00526667945086956
+            },
+            {
+              "rank": 8,
+              "position": 492,
+              "item": "Item256",
+              "category": "Category009",
+              "retrieval_score": 0.8295116424560547,
+              "content_cosine": 0.00526667945086956
+            },
+            {
+              "rank": 9,
+              "position": 488,
+              "item": "Item256",
+              "category": "Category009",
+              "retrieval_score": 0.8295116424560547,
+              "content_cosine": 0.00526667945086956
+            },
+            {
+              "rank": 10,
+              "position": 437,
+              "item": "Item193",
+              "category": "Category033",
+              "retrieval_score": 0.8125555515289307,
+              "content_cosine": 0.08514140546321869
+            }
+          ]
+        },
+        "g3": {
+          "top50_positions": [
+            996,
+            997,
+            646,
+            161,
+            160,
+            159,
+            924,
+            922,
+            509,
+            919,
+            593,
+            435,
+            809,
+            362,
+            666,
+            140,
+            976,
+            587,
+            31,
+            30,
+            53,
+            137,
+            632,
+            926,
+            350,
+            784,
+            681,
+            918,
+            339,
+            643,
+            696,
+            927,
+            920,
+            136,
+            431,
+            430,
+            948,
+            445,
+            586,
+            132,
+            252,
+            894,
+            893,
+            892,
+            428,
+            70,
+            585,
+            448,
+            928,
+            917
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 996,
+              "item": "Item556",
+              "category": "Category259",
+              "retrieval_score": -0.3790063261985779,
+              "content_cosine": 0.36019274592399597
+            },
+            {
+              "rank": 2,
+              "position": 997,
+              "item": "Item557",
+              "category": "Category260",
+              "retrieval_score": -0.5275020003318787,
+              "content_cosine": 0.27733147144317627
+            },
+            {
+              "rank": 3,
+              "position": 646,
+              "item": "Item338",
+              "category": "Category010",
+              "retrieval_score": -0.5651647448539734,
+              "content_cosine": 0.2206401228904724
+            },
+            {
+              "rank": 4,
+              "position": 161,
+              "item": "Item088",
+              "category": "Category059",
+              "retrieval_score": -0.5747124552726746,
+              "content_cosine": 0.2398030310869217
+            },
+            {
+              "rank": 5,
+              "position": 160,
+              "item": "Item088",
+              "category": "Category059",
+              "retrieval_score": -0.5747124552726746,
+              "content_cosine": 0.2398030310869217
+            },
+            {
+              "rank": 6,
+              "position": 159,
+              "item": "Item088",
+              "category": "Category059",
+              "retrieval_score": -0.5747124552726746,
+              "content_cosine": 0.2398030310869217
+            },
+            {
+              "rank": 7,
+              "position": 924,
+              "item": "Item511",
+              "category": "Category114",
+              "retrieval_score": -0.5889280438423157,
+              "content_cosine": 0.18367686867713928
+            },
+            {
+              "rank": 8,
+              "position": 922,
+              "item": "Item509",
+              "category": "Category114",
+              "retrieval_score": -0.6074070930480957,
+              "content_cosine": 0.17824816703796387
+            },
+            {
+              "rank": 9,
+              "position": 509,
+              "item": "Item264",
+              "category": "Category135",
+              "retrieval_score": -0.6077852845191956,
+              "content_cosine": 0.2040749043226242
+            },
+            {
+              "rank": 10,
+              "position": 919,
+              "item": "Item506",
+              "category": "Category114",
+              "retrieval_score": -0.6196032762527466,
+              "content_cosine": 0.22468015551567078
+            }
+          ]
+        }
+      },
+      "overlap_with_content": {
+        "g1": {
+          "shared_positions": 0,
+          "selected_positions": 50
+        },
+        "g3": {
+          "shared_positions": 38,
+          "selected_positions": 50
+        }
+      }
+    },
+    {
+      "case": 3,
+      "selection_index": 219649,
+      "valid_history_positions": 1000,
+      "content_eligible_positions": 193,
+      "status": "scored",
+      "routes": {
+        "content": {
+          "top50_positions": [
+            937,
+            951,
+            950,
+            949,
+            948,
+            947,
+            946,
+            945,
+            965,
+            935,
+            932,
+            930,
+            929,
+            964,
+            938,
+            934,
+            933,
+            931,
+            789,
+            971,
+            913,
+            662,
+            659,
+            532,
+            121,
+            668,
+            653,
+            533,
+            428,
+            425,
+            432,
+            431,
+            429,
+            427,
+            426,
+            925,
+            916,
+            909,
+            203,
+            286,
+            915,
+            914,
+            853,
+            674,
+            592,
+            591,
+            568,
+            567,
+            566,
+            791
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 937,
+              "item": "Item094",
+              "category": "Category051",
+              "retrieval_score": 0.39222609996795654,
+              "content_cosine": 0.39222609996795654
+            },
+            {
+              "rank": 2,
+              "position": 951,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": 0.30721476674079895,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 3,
+              "position": 950,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": 0.30721476674079895,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 4,
+              "position": 949,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": 0.30721476674079895,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 5,
+              "position": 948,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": 0.30721476674079895,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 6,
+              "position": 947,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": 0.30721476674079895,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 7,
+              "position": 946,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": 0.30721476674079895,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 8,
+              "position": 945,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": 0.30721476674079895,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 9,
+              "position": 965,
+              "item": "Item099",
+              "category": "Category040",
+              "retrieval_score": 0.296597957611084,
+              "content_cosine": 0.296597957611084
+            },
+            {
+              "rank": 10,
+              "position": 935,
+              "item": "Item091",
+              "category": "Category050",
+              "retrieval_score": 0.28779205679893494,
+              "content_cosine": 0.28779205679893494
+            }
+          ]
+        },
+        "g1": {
+          "top50_positions": [
+            782,
+            915,
+            914,
+            52,
+            284,
+            937,
+            29,
+            311,
+            781,
+            780,
+            779,
+            643,
+            53,
+            51,
+            286,
+            204,
+            377,
+            925,
+            916,
+            23,
+            49,
+            983,
+            980,
+            979,
+            978,
+            515,
+            513,
+            511,
+            506,
+            655,
+            985,
+            964,
+            789,
+            530,
+            380,
+            379,
+            28,
+            909,
+            942,
+            940,
+            939,
+            770,
+            740,
+            438,
+            416,
+            903,
+            528,
+            453,
+            404,
+            449
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 782,
+              "item": "Item070",
+              "category": "Category012",
+              "retrieval_score": 0.7601317763328552,
+              "content_cosine": 0.19009892642498016
+            },
+            {
+              "rank": 2,
+              "position": 915,
+              "item": "Item086",
+              "category": "Category012",
+              "retrieval_score": 0.7363016605377197,
+              "content_cosine": 0.20973800122737885
+            },
+            {
+              "rank": 3,
+              "position": 914,
+              "item": "Item086",
+              "category": "Category012",
+              "retrieval_score": 0.7363016605377197,
+              "content_cosine": 0.20973800122737885
+            },
+            {
+              "rank": 4,
+              "position": 52,
+              "item": "Item014",
+              "category": "Category012",
+              "retrieval_score": 0.7305120825767517,
+              "content_cosine": 0.1652853637933731
+            },
+            {
+              "rank": 5,
+              "position": 284,
+              "item": "Item025",
+              "category": "Category018",
+              "retrieval_score": 0.7259373068809509,
+              "content_cosine": 0.15065035223960876
+            },
+            {
+              "rank": 6,
+              "position": 937,
+              "item": "Item094",
+              "category": "Category051",
+              "retrieval_score": 0.7125144004821777,
+              "content_cosine": 0.39222609996795654
+            },
+            {
+              "rank": 7,
+              "position": 29,
+              "item": "Item008",
+              "category": "Category007",
+              "retrieval_score": 0.7087193727493286,
+              "content_cosine": 0.16172096133232117
+            },
+            {
+              "rank": 8,
+              "position": 311,
+              "item": "Item027",
+              "category": "Category018",
+              "retrieval_score": 0.6972315907478333,
+              "content_cosine": 0.07099378108978271
+            },
+            {
+              "rank": 9,
+              "position": 781,
+              "item": "Item001",
+              "category": "Category020",
+              "retrieval_score": 0.6963455080986023,
+              "content_cosine": 0.19099029898643494
+            },
+            {
+              "rank": 10,
+              "position": 780,
+              "item": "Item001",
+              "category": "Category020",
+              "retrieval_score": 0.6963455080986023,
+              "content_cosine": 0.19099029898643494
+            }
+          ]
+        },
+        "g3": {
+          "top50_positions": [
+            937,
+            965,
+            951,
+            950,
+            949,
+            948,
+            947,
+            946,
+            945,
+            935,
+            932,
+            930,
+            929,
+            789,
+            989,
+            964,
+            938,
+            934,
+            933,
+            931,
+            913,
+            662,
+            659,
+            532,
+            121,
+            432,
+            431,
+            429,
+            427,
+            426,
+            925,
+            916,
+            286,
+            983,
+            980,
+            979,
+            978,
+            971,
+            853,
+            674,
+            592,
+            591,
+            568,
+            567,
+            566,
+            915,
+            914,
+            668,
+            653,
+            533
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 937,
+              "item": "Item094",
+              "category": "Category051",
+              "retrieval_score": -0.7510372400283813,
+              "content_cosine": 0.39222609996795654
+            },
+            {
+              "rank": 2,
+              "position": 965,
+              "item": "Item099",
+              "category": "Category040",
+              "retrieval_score": -0.8950898051261902,
+              "content_cosine": 0.296597957611084
+            },
+            {
+              "rank": 3,
+              "position": 951,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": -0.8955483436584473,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 4,
+              "position": 950,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": -0.8955483436584473,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 5,
+              "position": 949,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": -0.8955483436584473,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 6,
+              "position": 948,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": -0.8955483436584473,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 7,
+              "position": 947,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": -0.8955483436584473,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 8,
+              "position": 946,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": -0.8955483436584473,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 9,
+              "position": 945,
+              "item": "Item095",
+              "category": "Category054",
+              "retrieval_score": -0.8955483436584473,
+              "content_cosine": 0.30721476674079895
+            },
+            {
+              "rank": 10,
+              "position": 935,
+              "item": "Item091",
+              "category": "Category050",
+              "retrieval_score": -0.9057797193527222,
+              "content_cosine": 0.28779205679893494
+            }
+          ]
+        }
+      },
+      "overlap_with_content": {
+        "g1": {
+          "shared_positions": 9,
+          "selected_positions": 50
+        },
+        "g3": {
+          "shared_positions": 45,
+          "selected_positions": 50
+        }
+      }
+    },
+    {
+      "case": 4,
+      "selection_index": 329473,
+      "valid_history_positions": 1000,
+      "content_eligible_positions": 964,
+      "status": "scored",
+      "routes": {
+        "content": {
+          "top50_positions": [
+            571,
+            714,
+            702,
+            548,
+            542,
+            541,
+            540,
+            792,
+            690,
+            689,
+            570,
+            693,
+            698,
+            527,
+            547,
+            543,
+            485,
+            448,
+            420,
+            402,
+            400,
+            399,
+            398,
+            573,
+            491,
+            496,
+            427,
+            489,
+            832,
+            494,
+            479,
+            476,
+            697,
+            585,
+            826,
+            715,
+            692,
+            684,
+            503,
+            500,
+            545,
+            840,
+            488,
+            769,
+            767,
+            601,
+            599,
+            592,
+            591,
+            590
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 571,
+              "item": "Item314",
+              "category": "Category131",
+              "retrieval_score": 0.6279410123825073,
+              "content_cosine": 0.6279410123825073
+            },
+            {
+              "rank": 2,
+              "position": 714,
+              "item": "Item389",
+              "category": "TargetCategory",
+              "retrieval_score": 0.6224496364593506,
+              "content_cosine": 0.6224496364593506
+            },
+            {
+              "rank": 3,
+              "position": 702,
+              "item": "Item389",
+              "category": "TargetCategory",
+              "retrieval_score": 0.6224496364593506,
+              "content_cosine": 0.6224496364593506
+            },
+            {
+              "rank": 4,
+              "position": 548,
+              "item": "Item298",
+              "category": "TargetCategory",
+              "retrieval_score": 0.6093688011169434,
+              "content_cosine": 0.6093688011169434
+            },
+            {
+              "rank": 5,
+              "position": 542,
+              "item": "Item298",
+              "category": "TargetCategory",
+              "retrieval_score": 0.6093688011169434,
+              "content_cosine": 0.6093688011169434
+            },
+            {
+              "rank": 6,
+              "position": 541,
+              "item": "Item298",
+              "category": "TargetCategory",
+              "retrieval_score": 0.6093688011169434,
+              "content_cosine": 0.6093688011169434
+            },
+            {
+              "rank": 7,
+              "position": 540,
+              "item": "Item298",
+              "category": "TargetCategory",
+              "retrieval_score": 0.6093688011169434,
+              "content_cosine": 0.6093688011169434
+            },
+            {
+              "rank": 8,
+              "position": 792,
+              "item": "Item381",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5969082713127136,
+              "content_cosine": 0.5969082713127136
+            },
+            {
+              "rank": 9,
+              "position": 690,
+              "item": "Item381",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5969082713127136,
+              "content_cosine": 0.5969082713127136
+            },
+            {
+              "rank": 10,
+              "position": 689,
+              "item": "Item381",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5969082713127136,
+              "content_cosine": 0.5969082713127136
+            }
+          ]
+        },
+        "g1": {
+          "top50_positions": [
+            121,
+            118,
+            106,
+            105,
+            714,
+            702,
+            525,
+            492,
+            479,
+            476,
+            791,
+            431,
+            430,
+            377,
+            442,
+            454,
+            452,
+            290,
+            325,
+            428,
+            680,
+            679,
+            693,
+            261,
+            256,
+            836,
+            783,
+            768,
+            594,
+            416,
+            977,
+            777,
+            588,
+            571,
+            566,
+            300,
+            291,
+            792,
+            690,
+            689,
+            698,
+            840,
+            488,
+            563,
+            719,
+            681,
+            423,
+            422,
+            421,
+            787
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 121,
+              "item": "Item060",
+              "category": "Category040",
+              "retrieval_score": 0.9253386855125427,
+              "content_cosine": 0.22812964022159576
+            },
+            {
+              "rank": 2,
+              "position": 118,
+              "item": "Item060",
+              "category": "Category040",
+              "retrieval_score": 0.9253386855125427,
+              "content_cosine": 0.22812964022159576
+            },
+            {
+              "rank": 3,
+              "position": 106,
+              "item": "Item060",
+              "category": "Category040",
+              "retrieval_score": 0.9253386855125427,
+              "content_cosine": 0.22812964022159576
+            },
+            {
+              "rank": 4,
+              "position": 105,
+              "item": "Item060",
+              "category": "Category040",
+              "retrieval_score": 0.9253386855125427,
+              "content_cosine": 0.22812964022159576
+            },
+            {
+              "rank": 5,
+              "position": 714,
+              "item": "Item389",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8996540307998657,
+              "content_cosine": 0.6224496364593506
+            },
+            {
+              "rank": 6,
+              "position": 702,
+              "item": "Item389",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8996540307998657,
+              "content_cosine": 0.6224496364593506
+            },
+            {
+              "rank": 7,
+              "position": 525,
+              "item": "Item290",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8726320266723633,
+              "content_cosine": 0.4371097683906555
+            },
+            {
+              "rank": 8,
+              "position": 492,
+              "item": "Item270",
+              "category": "Category130",
+              "retrieval_score": 0.8719867467880249,
+              "content_cosine": 0.2608666718006134
+            },
+            {
+              "rank": 9,
+              "position": 479,
+              "item": "Item262",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8565422296524048,
+              "content_cosine": 0.5266879200935364
+            },
+            {
+              "rank": 10,
+              "position": 476,
+              "item": "Item262",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8565422296524048,
+              "content_cosine": 0.5266879200935364
+            }
+          ]
+        },
+        "g3": {
+          "top50_positions": [
+            714,
+            702,
+            548,
+            542,
+            541,
+            540,
+            792,
+            690,
+            689,
+            489,
+            698,
+            832,
+            494,
+            571,
+            570,
+            485,
+            448,
+            420,
+            402,
+            400,
+            399,
+            398,
+            496,
+            427,
+            491,
+            527,
+            573,
+            826,
+            715,
+            692,
+            684,
+            503,
+            500,
+            585,
+            693,
+            587,
+            479,
+            476,
+            697,
+            547,
+            543,
+            686,
+            480,
+            478,
+            477,
+            769,
+            767,
+            601,
+            599,
+            592
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 714,
+              "item": "Item389",
+              "category": "TargetCategory",
+              "retrieval_score": -0.2398032546043396,
+              "content_cosine": 0.6224496364593506
+            },
+            {
+              "rank": 2,
+              "position": 702,
+              "item": "Item389",
+              "category": "TargetCategory",
+              "retrieval_score": -0.2398032546043396,
+              "content_cosine": 0.6224496364593506
+            },
+            {
+              "rank": 3,
+              "position": 548,
+              "item": "Item298",
+              "category": "TargetCategory",
+              "retrieval_score": -0.2831614017486572,
+              "content_cosine": 0.6093688011169434
+            },
+            {
+              "rank": 4,
+              "position": 542,
+              "item": "Item298",
+              "category": "TargetCategory",
+              "retrieval_score": -0.2831614017486572,
+              "content_cosine": 0.6093688011169434
+            },
+            {
+              "rank": 5,
+              "position": 541,
+              "item": "Item298",
+              "category": "TargetCategory",
+              "retrieval_score": -0.2831614017486572,
+              "content_cosine": 0.6093688011169434
+            },
+            {
+              "rank": 6,
+              "position": 540,
+              "item": "Item298",
+              "category": "TargetCategory",
+              "retrieval_score": -0.2831614017486572,
+              "content_cosine": 0.6093688011169434
+            },
+            {
+              "rank": 7,
+              "position": 792,
+              "item": "Item381",
+              "category": "TargetCategory",
+              "retrieval_score": -0.3152155876159668,
+              "content_cosine": 0.5969082713127136
+            },
+            {
+              "rank": 8,
+              "position": 690,
+              "item": "Item381",
+              "category": "TargetCategory",
+              "retrieval_score": -0.3152155876159668,
+              "content_cosine": 0.5969082713127136
+            },
+            {
+              "rank": 9,
+              "position": 689,
+              "item": "Item381",
+              "category": "TargetCategory",
+              "retrieval_score": -0.3152155876159668,
+              "content_cosine": 0.5969082713127136
+            },
+            {
+              "rank": 10,
+              "position": 489,
+              "item": "Item267",
+              "category": "TargetCategory",
+              "retrieval_score": -0.3194902539253235,
+              "content_cosine": 0.5294151306152344
+            }
+          ]
+        }
+      },
+      "overlap_with_content": {
+        "g1": {
+          "shared_positions": 12,
+          "selected_positions": 50
+        },
+        "g3": {
+          "shared_positions": 45,
+          "selected_positions": 50
+        }
+      }
+    },
+    {
+      "case": 5,
+      "selection_index": 439298,
+      "valid_history_positions": 534,
+      "content_eligible_positions": 418,
+      "status": "scored",
+      "routes": {
+        "content": {
+          "top50_positions": [
+            858,
+            948,
+            865,
+            918,
+            867,
+            868,
+            869,
+            936,
+            933,
+            950,
+            952,
+            947,
+            945,
+            955,
+            864,
+            862,
+            856,
+            917,
+            939,
+            811,
+            959,
+            860,
+            855,
+            774,
+            792,
+            861,
+            951,
+            938,
+            825,
+            781,
+            941,
+            944,
+            996,
+            794,
+            793,
+            791,
+            963,
+            783,
+            795,
+            820,
+            818,
+            813,
+            788,
+            786,
+            784,
+            946,
+            789,
+            797,
+            780,
+            859
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 858,
+              "item": "Item220",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5913875699043274,
+              "content_cosine": 0.5913875699043274
+            },
+            {
+              "rank": 2,
+              "position": 948,
+              "item": "Item279",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5812980532646179,
+              "content_cosine": 0.5812980532646179
+            },
+            {
+              "rank": 3,
+              "position": 865,
+              "item": "Item227",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5581046342849731,
+              "content_cosine": 0.5581046342849731
+            },
+            {
+              "rank": 4,
+              "position": 918,
+              "item": "Item256",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5574893951416016,
+              "content_cosine": 0.5574893951416016
+            },
+            {
+              "rank": 5,
+              "position": 867,
+              "item": "Item229",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5532484650611877,
+              "content_cosine": 0.5532484650611877
+            },
+            {
+              "rank": 6,
+              "position": 868,
+              "item": "Item001",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5447689890861511,
+              "content_cosine": 0.5447689890861511
+            },
+            {
+              "rank": 7,
+              "position": 869,
+              "item": "Item230",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5205947160720825,
+              "content_cosine": 0.5205947160720825
+            },
+            {
+              "rank": 8,
+              "position": 936,
+              "item": "Item266",
+              "category": "Category088",
+              "retrieval_score": 0.5106329917907715,
+              "content_cosine": 0.5106329917907715
+            },
+            {
+              "rank": 9,
+              "position": 933,
+              "item": "Item266",
+              "category": "Category088",
+              "retrieval_score": 0.5106329917907715,
+              "content_cosine": 0.5106329917907715
+            },
+            {
+              "rank": 10,
+              "position": 950,
+              "item": "Item280",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5008851289749146,
+              "content_cosine": 0.5008851289749146
+            }
+          ]
+        },
+        "g1": {
+          "top50_positions": [
+            864,
+            814,
+            865,
+            867,
+            858,
+            869,
+            997,
+            876,
+            868,
+            692,
+            856,
+            773,
+            918,
+            917,
+            942,
+            685,
+            964,
+            931,
+            928,
+            842,
+            727,
+            834,
+            969,
+            968,
+            967,
+            848,
+            637,
+            954,
+            894,
+            893,
+            875,
+            851,
+            959,
+            855,
+            787,
+            785,
+            843,
+            571,
+            598,
+            844,
+            941,
+            628,
+            772,
+            936,
+            933,
+            779,
+            776,
+            950,
+            963,
+            897
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 864,
+              "item": "Item226",
+              "category": "TargetCategory",
+              "retrieval_score": 0.9062110185623169,
+              "content_cosine": 0.4779416620731354
+            },
+            {
+              "rank": 2,
+              "position": 814,
+              "item": "Item189",
+              "category": "Category089",
+              "retrieval_score": 0.8772254586219788,
+              "content_cosine": 0.2025769054889679
+            },
+            {
+              "rank": 3,
+              "position": 865,
+              "item": "Item227",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8530924916267395,
+              "content_cosine": 0.5581046342849731
+            },
+            {
+              "rank": 4,
+              "position": 867,
+              "item": "Item229",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8471024036407471,
+              "content_cosine": 0.5532484650611877
+            },
+            {
+              "rank": 5,
+              "position": 858,
+              "item": "Item220",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8424393534660339,
+              "content_cosine": 0.5913875699043274
+            },
+            {
+              "rank": 6,
+              "position": 869,
+              "item": "Item230",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8403909206390381,
+              "content_cosine": 0.5205947160720825
+            },
+            {
+              "rank": 7,
+              "position": 997,
+              "item": "Item298",
+              "category": "Category118",
+              "retrieval_score": 0.8394297957420349,
+              "content_cosine": 0.28327617049217224
+            },
+            {
+              "rank": 8,
+              "position": 876,
+              "item": "Item234",
+              "category": "Category053",
+              "retrieval_score": 0.8391216993331909,
+              "content_cosine": 0.21317948400974274
+            },
+            {
+              "rank": 9,
+              "position": 868,
+              "item": "Item001",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8365465402603149,
+              "content_cosine": 0.5447689890861511
+            },
+            {
+              "rank": 10,
+              "position": 692,
+              "item": "Item001",
+              "category": "Category062",
+              "retrieval_score": 0.8278301358222961,
+              "content_cosine": 0.07237555831670761
+            }
+          ]
+        },
+        "g3": {
+          "top50_positions": [
+            948,
+            858,
+            865,
+            918,
+            868,
+            867,
+            936,
+            933,
+            869,
+            952,
+            947,
+            945,
+            950,
+            917,
+            862,
+            856,
+            955,
+            811,
+            864,
+            855,
+            860,
+            861,
+            939,
+            951,
+            783,
+            792,
+            959,
+            774,
+            938,
+            847,
+            789,
+            795,
+            996,
+            794,
+            793,
+            791,
+            941,
+            825,
+            781,
+            944,
+            820,
+            818,
+            813,
+            788,
+            786,
+            784,
+            797,
+            870,
+            866,
+            963
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 948,
+              "item": "Item279",
+              "category": "TargetCategory",
+              "retrieval_score": -0.11536133289337158,
+              "content_cosine": 0.5812980532646179
+            },
+            {
+              "rank": 2,
+              "position": 858,
+              "item": "Item220",
+              "category": "TargetCategory",
+              "retrieval_score": -0.12059533596038818,
+              "content_cosine": 0.5913875699043274
+            },
+            {
+              "rank": 3,
+              "position": 865,
+              "item": "Item227",
+              "category": "TargetCategory",
+              "retrieval_score": -0.184054434299469,
+              "content_cosine": 0.5581046342849731
+            },
+            {
+              "rank": 4,
+              "position": 918,
+              "item": "Item256",
+              "category": "TargetCategory",
+              "retrieval_score": -0.19330930709838867,
+              "content_cosine": 0.5574893951416016
+            },
+            {
+              "rank": 5,
+              "position": 868,
+              "item": "Item001",
+              "category": "TargetCategory",
+              "retrieval_score": -0.20495057106018066,
+              "content_cosine": 0.5447689890861511
+            },
+            {
+              "rank": 6,
+              "position": 867,
+              "item": "Item229",
+              "category": "TargetCategory",
+              "retrieval_score": -0.2066253423690796,
+              "content_cosine": 0.5532484650611877
+            },
+            {
+              "rank": 7,
+              "position": 936,
+              "item": "Item266",
+              "category": "Category088",
+              "retrieval_score": -0.23820191621780396,
+              "content_cosine": 0.5106329917907715
+            },
+            {
+              "rank": 8,
+              "position": 933,
+              "item": "Item266",
+              "category": "Category088",
+              "retrieval_score": -0.23820191621780396,
+              "content_cosine": 0.5106329917907715
+            },
+            {
+              "rank": 9,
+              "position": 869,
+              "item": "Item230",
+              "category": "TargetCategory",
+              "retrieval_score": -0.258481502532959,
+              "content_cosine": 0.5205947160720825
+            },
+            {
+              "rank": 10,
+              "position": 952,
+              "item": "Item277",
+              "category": "TargetCategory",
+              "retrieval_score": -0.3021243214607239,
+              "content_cosine": 0.49447542428970337
+            }
+          ]
+        }
+      },
+      "overlap_with_content": {
+        "g1": {
+          "shared_positions": 16,
+          "selected_positions": 50
+        },
+        "g3": {
+          "shared_positions": 47,
+          "selected_positions": 50
+        }
+      }
+    },
+    {
+      "case": 6,
+      "selection_index": 549122,
+      "valid_history_positions": 1000,
+      "content_eligible_positions": 935,
+      "status": "scored",
+      "routes": {
+        "content": {
+          "top50_positions": [
+            873,
+            815,
+            966,
+            817,
+            714,
+            736,
+            735,
+            923,
+            922,
+            508,
+            77,
+            76,
+            75,
+            965,
+            720,
+            924,
+            549,
+            651,
+            921,
+            287,
+            934,
+            961,
+            255,
+            14,
+            527,
+            698,
+            860,
+            859,
+            992,
+            587,
+            103,
+            624,
+            717,
+            716,
+            424,
+            408,
+            407,
+            220,
+            782,
+            599,
+            501,
+            500,
+            499,
+            487,
+            484,
+            483,
+            482,
+            762,
+            160,
+            256
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 873,
+              "item": "Item546",
+              "category": "TargetCategory",
+              "retrieval_score": 0.5274412631988525,
+              "content_cosine": 0.5274412631988525
+            },
+            {
+              "rank": 2,
+              "position": 815,
+              "item": "Item499",
+              "category": "Category216",
+              "retrieval_score": 0.3817554712295532,
+              "content_cosine": 0.3817554712295532
+            },
+            {
+              "rank": 3,
+              "position": 966,
+              "item": "Item613",
+              "category": "Category267",
+              "retrieval_score": 0.3583827614784241,
+              "content_cosine": 0.3583827614784241
+            },
+            {
+              "rank": 4,
+              "position": 817,
+              "item": "Item501",
+              "category": "Category217",
+              "retrieval_score": 0.33022499084472656,
+              "content_cosine": 0.33022499084472656
+            },
+            {
+              "rank": 5,
+              "position": 714,
+              "item": "Item438",
+              "category": "Category190",
+              "retrieval_score": 0.31287598609924316,
+              "content_cosine": 0.31287598609924316
+            },
+            {
+              "rank": 6,
+              "position": 736,
+              "item": "Item454",
+              "category": "Category198",
+              "retrieval_score": 0.3059409260749817,
+              "content_cosine": 0.3059409260749817
+            },
+            {
+              "rank": 7,
+              "position": 735,
+              "item": "Item454",
+              "category": "Category198",
+              "retrieval_score": 0.3059409260749817,
+              "content_cosine": 0.3059409260749817
+            },
+            {
+              "rank": 8,
+              "position": 923,
+              "item": "Item580",
+              "category": "Category249",
+              "retrieval_score": 0.2840285003185272,
+              "content_cosine": 0.2840285003185272
+            },
+            {
+              "rank": 9,
+              "position": 922,
+              "item": "Item580",
+              "category": "Category249",
+              "retrieval_score": 0.2840285003185272,
+              "content_cosine": 0.2840285003185272
+            },
+            {
+              "rank": 10,
+              "position": 508,
+              "item": "Item314",
+              "category": "Category066",
+              "retrieval_score": 0.27358105778694153,
+              "content_cosine": 0.27358105778694153
+            }
+          ]
+        },
+        "g1": {
+          "top50_positions": [
+            965,
+            723,
+            722,
+            220,
+            629,
+            815,
+            873,
+            20,
+            719,
+            476,
+            383,
+            708,
+            717,
+            716,
+            720,
+            68,
+            57,
+            56,
+            55,
+            415,
+            46,
+            634,
+            72,
+            299,
+            531,
+            526,
+            321,
+            992,
+            110,
+            999,
+            642,
+            561,
+            560,
+            702,
+            667,
+            14,
+            913,
+            928,
+            927,
+            926,
+            825,
+            41,
+            390,
+            816,
+            746,
+            745,
+            744,
+            167,
+            736,
+            735
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 965,
+              "item": "Item612",
+              "category": "Category267",
+              "retrieval_score": 0.8842385411262512,
+              "content_cosine": 0.2692904472351074
+            },
+            {
+              "rank": 2,
+              "position": 723,
+              "item": "Item445",
+              "category": "Category191",
+              "retrieval_score": 0.8840240240097046,
+              "content_cosine": 0.171980619430542
+            },
+            {
+              "rank": 3,
+              "position": 722,
+              "item": "Item445",
+              "category": "Category191",
+              "retrieval_score": 0.8840240240097046,
+              "content_cosine": 0.171980619430542
+            },
+            {
+              "rank": 4,
+              "position": 220,
+              "item": "Item137",
+              "category": "Category075",
+              "retrieval_score": 0.8838160037994385,
+              "content_cosine": 0.21555620431900024
+            },
+            {
+              "rank": 5,
+              "position": 629,
+              "item": "Item386",
+              "category": "Category176",
+              "retrieval_score": 0.8763913512229919,
+              "content_cosine": 0.1859472543001175
+            },
+            {
+              "rank": 6,
+              "position": 815,
+              "item": "Item499",
+              "category": "Category216",
+              "retrieval_score": 0.874882698059082,
+              "content_cosine": 0.3817554712295532
+            },
+            {
+              "rank": 7,
+              "position": 873,
+              "item": "Item546",
+              "category": "TargetCategory",
+              "retrieval_score": 0.8605321049690247,
+              "content_cosine": 0.5274412631988525
+            },
+            {
+              "rank": 8,
+              "position": 20,
+              "item": "Item018",
+              "category": "Category015",
+              "retrieval_score": 0.8603702783584595,
+              "content_cosine": 0.11498856544494629
+            },
+            {
+              "rank": 9,
+              "position": 719,
+              "item": "Item442",
+              "category": "Category191",
+              "retrieval_score": 0.8584280014038086,
+              "content_cosine": 0.16833588480949402
+            },
+            {
+              "rank": 10,
+              "position": 476,
+              "item": "Item301",
+              "category": "Category151",
+              "retrieval_score": 0.8560585379600525,
+              "content_cosine": 0.20289377868175507
+            }
+          ]
+        },
+        "g3": {
+          "top50_positions": [
+            873,
+            966,
+            817,
+            816,
+            815,
+            934,
+            736,
+            735,
+            714,
+            77,
+            76,
+            75,
+            965,
+            782,
+            508,
+            287,
+            103,
+            424,
+            14,
+            961,
+            860,
+            859,
+            923,
+            922,
+            943,
+            942,
+            267,
+            624,
+            255,
+            549,
+            698,
+            84,
+            672,
+            408,
+            407,
+            935,
+            921,
+            874,
+            583,
+            142,
+            613,
+            476,
+            806,
+            160,
+            460,
+            720,
+            656,
+            520,
+            519,
+            297
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 873,
+              "item": "Item546",
+              "category": "TargetCategory",
+              "retrieval_score": -0.37783652544021606,
+              "content_cosine": 0.5274412631988525
+            },
+            {
+              "rank": 2,
+              "position": 966,
+              "item": "Item613",
+              "category": "Category267",
+              "retrieval_score": -0.4674883484840393,
+              "content_cosine": 0.3583827614784241
+            },
+            {
+              "rank": 3,
+              "position": 817,
+              "item": "Item501",
+              "category": "Category217",
+              "retrieval_score": -0.6419036984443665,
+              "content_cosine": 0.33022499084472656
+            },
+            {
+              "rank": 4,
+              "position": 816,
+              "item": "Item500",
+              "category": "Category092",
+              "retrieval_score": -0.651928722858429,
+              "content_cosine": 0.16016890108585358
+            },
+            {
+              "rank": 5,
+              "position": 815,
+              "item": "Item499",
+              "category": "Category216",
+              "retrieval_score": -0.6635302901268005,
+              "content_cosine": 0.3817554712295532
+            },
+            {
+              "rank": 6,
+              "position": 934,
+              "item": "Item587",
+              "category": "Category255",
+              "retrieval_score": -0.733258843421936,
+              "content_cosine": 0.2526193857192993
+            },
+            {
+              "rank": 7,
+              "position": 736,
+              "item": "Item454",
+              "category": "Category198",
+              "retrieval_score": -0.7361460328102112,
+              "content_cosine": 0.3059409260749817
+            },
+            {
+              "rank": 8,
+              "position": 735,
+              "item": "Item454",
+              "category": "Category198",
+              "retrieval_score": -0.7361460328102112,
+              "content_cosine": 0.3059409260749817
+            },
+            {
+              "rank": 9,
+              "position": 714,
+              "item": "Item438",
+              "category": "Category190",
+              "retrieval_score": -0.7405737638473511,
+              "content_cosine": 0.31287598609924316
+            },
+            {
+              "rank": 10,
+              "position": 77,
+              "item": "Item054",
+              "category": "Category043",
+              "retrieval_score": -0.7527447938919067,
+              "content_cosine": 0.27078694105148315
+            }
+          ]
+        }
+      },
+      "overlap_with_content": {
+        "g1": {
+          "shared_positions": 11,
+          "selected_positions": 50
+        },
+        "g3": {
+          "shared_positions": 32,
+          "selected_positions": 50
+        }
+      }
+    },
+    {
+      "case": 7,
+      "selection_index": 658947,
+      "valid_history_positions": 1000,
+      "content_eligible_positions": 948,
+      "status": "scored",
+      "routes": {
+        "content": {
+          "top50_positions": [
+            382,
+            727,
+            615,
+            832,
+            459,
+            831,
+            379,
+            726,
+            59,
+            443,
+            731,
+            729,
+            757,
+            756,
+            754,
+            753,
+            800,
+            590,
+            282,
+            281,
+            280,
+            623,
+            505,
+            503,
+            837,
+            510,
+            709,
+            212,
+            515,
+            180,
+            176,
+            508,
+            471,
+            470,
+            469,
+            411,
+            410,
+            409,
+            408,
+            405,
+            404,
+            403,
+            717,
+            700,
+            692,
+            501,
+            187,
+            186,
+            878,
+            836
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 382,
+              "item": "Item197",
+              "category": "Category124",
+              "retrieval_score": 0.3772009611129761,
+              "content_cosine": 0.3772009611129761
+            },
+            {
+              "rank": 2,
+              "position": 727,
+              "item": "Item373",
+              "category": "Category121",
+              "retrieval_score": 0.30920714139938354,
+              "content_cosine": 0.30920714139938354
+            },
+            {
+              "rank": 3,
+              "position": 615,
+              "item": "Item300",
+              "category": "Category132",
+              "retrieval_score": 0.3063506484031677,
+              "content_cosine": 0.3063506484031677
+            },
+            {
+              "rank": 4,
+              "position": 832,
+              "item": "Item419",
+              "category": "Category080",
+              "retrieval_score": 0.2876421809196472,
+              "content_cosine": 0.2876421809196472
+            },
+            {
+              "rank": 5,
+              "position": 459,
+              "item": "Item229",
+              "category": "Category141",
+              "retrieval_score": 0.27992430329322815,
+              "content_cosine": 0.27992430329322815
+            },
+            {
+              "rank": 6,
+              "position": 831,
+              "item": "Item194",
+              "category": "Category080",
+              "retrieval_score": 0.27881577610969543,
+              "content_cosine": 0.27881577610969543
+            },
+            {
+              "rank": 7,
+              "position": 379,
+              "item": "Item194",
+              "category": "Category080",
+              "retrieval_score": 0.27881577610969543,
+              "content_cosine": 0.27881577610969543
+            },
+            {
+              "rank": 8,
+              "position": 726,
+              "item": "Item372",
+              "category": "Category020",
+              "retrieval_score": 0.2766542136669159,
+              "content_cosine": 0.2766542136669159
+            },
+            {
+              "rank": 9,
+              "position": 59,
+              "item": "Item006",
+              "category": "Category033",
+              "retrieval_score": 0.275651216506958,
+              "content_cosine": 0.275651216506958
+            },
+            {
+              "rank": 10,
+              "position": 443,
+              "item": "Item222",
+              "category": "Category135",
+              "retrieval_score": 0.2677278220653534,
+              "content_cosine": 0.2677278220653534
+            }
+          ]
+        },
+        "g1": {
+          "top50_positions": [
+            635,
+            634,
+            633,
+            504,
+            502,
+            59,
+            800,
+            391,
+            988,
+            983,
+            982,
+            981,
+            979,
+            978,
+            977,
+            368,
+            224,
+            615,
+            933,
+            941,
+            891,
+            648,
+            75,
+            74,
+            73,
+            870,
+            869,
+            421,
+            420,
+            363,
+            623,
+            382,
+            619,
+            987,
+            703,
+            89,
+            88,
+            87,
+            23,
+            507,
+            506,
+            501,
+            632,
+            138,
+            626,
+            624,
+            864,
+            837,
+            705,
+            704
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 635,
+              "item": "Item312",
+              "category": "Category066",
+              "retrieval_score": 0.7483123540878296,
+              "content_cosine": 0.14066648483276367
+            },
+            {
+              "rank": 2,
+              "position": 634,
+              "item": "Item312",
+              "category": "Category066",
+              "retrieval_score": 0.7483123540878296,
+              "content_cosine": 0.14066648483276367
+            },
+            {
+              "rank": 3,
+              "position": 633,
+              "item": "Item312",
+              "category": "Category066",
+              "retrieval_score": 0.7483123540878296,
+              "content_cosine": 0.14066648483276367
+            },
+            {
+              "rank": 4,
+              "position": 504,
+              "item": "Item253",
+              "category": "Category132",
+              "retrieval_score": 0.7093042135238647,
+              "content_cosine": 0.19191701710224152
+            },
+            {
+              "rank": 5,
+              "position": 502,
+              "item": "Item253",
+              "category": "Category132",
+              "retrieval_score": 0.7093042135238647,
+              "content_cosine": 0.19191701710224152
+            },
+            {
+              "rank": 6,
+              "position": 59,
+              "item": "Item006",
+              "category": "Category033",
+              "retrieval_score": 0.6795069575309753,
+              "content_cosine": 0.275651216506958
+            },
+            {
+              "rank": 7,
+              "position": 800,
+              "item": "Item407",
+              "category": "Category207",
+              "retrieval_score": 0.6772098541259766,
+              "content_cosine": 0.2477981299161911
+            },
+            {
+              "rank": 8,
+              "position": 391,
+              "item": "Item201",
+              "category": "Category128",
+              "retrieval_score": 0.6729421019554138,
+              "content_cosine": -0.003466561436653137
+            },
+            {
+              "rank": 9,
+              "position": 988,
+              "item": "Item465",
+              "category": "Category100",
+              "retrieval_score": 0.6724666357040405,
+              "content_cosine": 0.20455512404441833
+            },
+            {
+              "rank": 10,
+              "position": 983,
+              "item": "Item465",
+              "category": "Category100",
+              "retrieval_score": 0.6724666357040405,
+              "content_cosine": 0.20455512404441833
+            }
+          ]
+        },
+        "g3": {
+          "top50_positions": [
+            459,
+            382,
+            384,
+            383,
+            377,
+            376,
+            373,
+            372,
+            371,
+            59,
+            282,
+            281,
+            280,
+            590,
+            726,
+            402,
+            401,
+            400,
+            832,
+            837,
+            443,
+            615,
+            526,
+            524,
+            623,
+            83,
+            562,
+            559,
+            878,
+            836,
+            835,
+            727,
+            180,
+            176,
+            800,
+            239,
+            138,
+            212,
+            505,
+            503,
+            757,
+            756,
+            754,
+            753,
+            831,
+            379,
+            508,
+            471,
+            470,
+            469
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 459,
+              "item": "Item229",
+              "category": "Category141",
+              "retrieval_score": -0.34327566623687744,
+              "content_cosine": 0.27992430329322815
+            },
+            {
+              "rank": 2,
+              "position": 382,
+              "item": "Item197",
+              "category": "Category124",
+              "retrieval_score": -0.3715793192386627,
+              "content_cosine": 0.3772009611129761
+            },
+            {
+              "rank": 3,
+              "position": 384,
+              "item": "Item190",
+              "category": "Category094",
+              "retrieval_score": -0.39348459243774414,
+              "content_cosine": 0.20537243783473969
+            },
+            {
+              "rank": 4,
+              "position": 383,
+              "item": "Item190",
+              "category": "Category094",
+              "retrieval_score": -0.39348459243774414,
+              "content_cosine": 0.20537243783473969
+            },
+            {
+              "rank": 5,
+              "position": 377,
+              "item": "Item190",
+              "category": "Category094",
+              "retrieval_score": -0.39348459243774414,
+              "content_cosine": 0.20537243783473969
+            },
+            {
+              "rank": 6,
+              "position": 376,
+              "item": "Item190",
+              "category": "Category094",
+              "retrieval_score": -0.39348459243774414,
+              "content_cosine": 0.20537243783473969
+            },
+            {
+              "rank": 7,
+              "position": 373,
+              "item": "Item190",
+              "category": "Category094",
+              "retrieval_score": -0.39348459243774414,
+              "content_cosine": 0.20537243783473969
+            },
+            {
+              "rank": 8,
+              "position": 372,
+              "item": "Item190",
+              "category": "Category094",
+              "retrieval_score": -0.39348459243774414,
+              "content_cosine": 0.20537243783473969
+            },
+            {
+              "rank": 9,
+              "position": 371,
+              "item": "Item190",
+              "category": "Category094",
+              "retrieval_score": -0.39348459243774414,
+              "content_cosine": 0.20537243783473969
+            },
+            {
+              "rank": 10,
+              "position": 59,
+              "item": "Item006",
+              "category": "Category033",
+              "retrieval_score": -0.4477090835571289,
+              "content_cosine": 0.275651216506958
+            }
+          ]
+        }
+      },
+      "overlap_with_content": {
+        "g1": {
+          "shared_positions": 7,
+          "selected_positions": 50
+        },
+        "g3": {
+          "shared_positions": 32,
+          "selected_positions": 50
+        }
+      }
+    },
+    {
+      "case": 8,
+      "selection_index": 768772,
+      "valid_history_positions": 1000,
+      "content_eligible_positions": 951,
+      "status": "scored",
+      "routes": {
+        "content": {
+          "top50_positions": [
+            415,
+            677,
+            598,
+            596,
+            585,
+            583,
+            601,
+            943,
+            936,
+            699,
+            628,
+            626,
+            624,
+            622,
+            620,
+            619,
+            387,
+            386,
+            26,
+            862,
+            861,
+            824,
+            396,
+            594,
+            831,
+            830,
+            829,
+            608,
+            607,
+            602,
+            600,
+            597,
+            595,
+            593,
+            591,
+            590,
+            589,
+            588,
+            639,
+            757,
+            860,
+            820,
+            414,
+            652,
+            904,
+            34,
+            33,
+            32,
+            684,
+            606
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 415,
+              "item": "Item238",
+              "category": "Category100",
+              "retrieval_score": 0.46181923151016235,
+              "content_cosine": 0.46181923151016235
+            },
+            {
+              "rank": 2,
+              "position": 677,
+              "item": "Item393",
+              "category": "Category001",
+              "retrieval_score": 0.4092400074005127,
+              "content_cosine": 0.4092400074005127
+            },
+            {
+              "rank": 3,
+              "position": 598,
+              "item": "Item355",
+              "category": "Category073",
+              "retrieval_score": 0.37250441312789917,
+              "content_cosine": 0.37250441312789917
+            },
+            {
+              "rank": 4,
+              "position": 596,
+              "item": "Item355",
+              "category": "Category073",
+              "retrieval_score": 0.37250441312789917,
+              "content_cosine": 0.37250441312789917
+            },
+            {
+              "rank": 5,
+              "position": 585,
+              "item": "Item350",
+              "category": "Category095",
+              "retrieval_score": 0.3365669846534729,
+              "content_cosine": 0.3365669846534729
+            },
+            {
+              "rank": 6,
+              "position": 583,
+              "item": "Item350",
+              "category": "Category095",
+              "retrieval_score": 0.3365669846534729,
+              "content_cosine": 0.3365669846534729
+            },
+            {
+              "rank": 7,
+              "position": 601,
+              "item": "Item357",
+              "category": "Category082",
+              "retrieval_score": 0.3337070643901825,
+              "content_cosine": 0.3337070643901825
+            },
+            {
+              "rank": 8,
+              "position": 943,
+              "item": "Item552",
+              "category": "Category160",
+              "retrieval_score": 0.3005043864250183,
+              "content_cosine": 0.3005043864250183
+            },
+            {
+              "rank": 9,
+              "position": 936,
+              "item": "Item547",
+              "category": "Category161",
+              "retrieval_score": 0.2950434684753418,
+              "content_cosine": 0.2950434684753418
+            },
+            {
+              "rank": 10,
+              "position": 699,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.29013291001319885,
+              "content_cosine": 0.29013291001319885
+            }
+          ]
+        },
+        "g1": {
+          "top50_positions": [
+            415,
+            699,
+            628,
+            626,
+            624,
+            622,
+            620,
+            619,
+            387,
+            386,
+            789,
+            788,
+            368,
+            537,
+            639,
+            678,
+            409,
+            478,
+            468,
+            677,
+            981,
+            831,
+            830,
+            829,
+            608,
+            607,
+            602,
+            600,
+            597,
+            595,
+            593,
+            591,
+            590,
+            589,
+            588,
+            425,
+            332,
+            606,
+            604,
+            603,
+            353,
+            404,
+            402,
+            396,
+            362,
+            369,
+            991,
+            594,
+            599,
+            340
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 415,
+              "item": "Item238",
+              "category": "Category100",
+              "retrieval_score": 0.8705885410308838,
+              "content_cosine": 0.46181923151016235
+            },
+            {
+              "rank": 2,
+              "position": 699,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            },
+            {
+              "rank": 3,
+              "position": 628,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            },
+            {
+              "rank": 4,
+              "position": 626,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            },
+            {
+              "rank": 5,
+              "position": 624,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            },
+            {
+              "rank": 6,
+              "position": 622,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            },
+            {
+              "rank": 7,
+              "position": 620,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            },
+            {
+              "rank": 8,
+              "position": 619,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            },
+            {
+              "rank": 9,
+              "position": 387,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            },
+            {
+              "rank": 10,
+              "position": 386,
+              "item": "Item218",
+              "category": "Category095",
+              "retrieval_score": 0.8697713017463684,
+              "content_cosine": 0.29013291001319885
+            }
+          ]
+        },
+        "g3": {
+          "top50_positions": [
+            415,
+            677,
+            707,
+            706,
+            703,
+            702,
+            598,
+            596,
+            396,
+            936,
+            601,
+            585,
+            583,
+            699,
+            628,
+            626,
+            624,
+            622,
+            620,
+            619,
+            387,
+            386,
+            904,
+            862,
+            861,
+            943,
+            639,
+            31,
+            30,
+            29,
+            26,
+            313,
+            594,
+            693,
+            684,
+            340,
+            838,
+            571,
+            570,
+            527,
+            13,
+            824,
+            860,
+            757,
+            299,
+            705,
+            202,
+            584,
+            545,
+            711
+          ],
+          "top10": [
+            {
+              "rank": 1,
+              "position": 415,
+              "item": "Item238",
+              "category": "Category100",
+              "retrieval_score": -0.5333178043365479,
+              "content_cosine": 0.46181923151016235
+            },
+            {
+              "rank": 2,
+              "position": 677,
+              "item": "Item393",
+              "category": "Category001",
+              "retrieval_score": -0.5854793190956116,
+              "content_cosine": 0.4092400074005127
+            },
+            {
+              "rank": 3,
+              "position": 707,
+              "item": "Item405",
+              "category": "Category128",
+              "retrieval_score": -0.6102693676948547,
+              "content_cosine": 0.23573291301727295
+            },
+            {
+              "rank": 4,
+              "position": 706,
+              "item": "Item405",
+              "category": "Category128",
+              "retrieval_score": -0.6102693676948547,
+              "content_cosine": 0.23573291301727295
+            },
+            {
+              "rank": 5,
+              "position": 703,
+              "item": "Item405",
+              "category": "Category128",
+              "retrieval_score": -0.6102693676948547,
+              "content_cosine": 0.23573291301727295
+            },
+            {
+              "rank": 6,
+              "position": 702,
+              "item": "Item405",
+              "category": "Category128",
+              "retrieval_score": -0.6102693676948547,
+              "content_cosine": 0.23573291301727295
+            },
+            {
+              "rank": 7,
+              "position": 598,
+              "item": "Item355",
+              "category": "Category073",
+              "retrieval_score": -0.6599938869476318,
+              "content_cosine": 0.37250441312789917
+            },
+            {
+              "rank": 8,
+              "position": 596,
+              "item": "Item355",
+              "category": "Category073",
+              "retrieval_score": -0.6599938869476318,
+              "content_cosine": 0.37250441312789917
+            },
+            {
+              "rank": 9,
+              "position": 396,
+              "item": "Item224",
+              "category": "Category096",
+              "retrieval_score": -0.671694278717041,
+              "content_cosine": 0.2629394829273224
+            },
+            {
+              "rank": 10,
+              "position": 936,
+              "item": "Item547",
+              "category": "Category161",
+              "retrieval_score": -0.7068401575088501,
+              "content_cosine": 0.2950434684753418
+            }
+          ]
+        }
+      },
+      "overlap_with_content": {
+        "g1": {
+          "shared_positions": 29,
+          "selected_positions": 50
+        },
+        "g3": {
+          "shared_positions": 29,
+          "selected_positions": 50
+        }
+      }
+    }
+  ],
+  "test_evaluated": false
+}
