@@ -47,7 +47,7 @@ def main():
     for row in rows:
         m = row['mean_metrics']
         lines.append(f"|{row['label']}|{row['budget']}|{m['auc']:.6f}|{m['gauc']:.6f}|{m['logloss']:.6f}|")
-    lines += ['', '不同结构、参数量和候选历史预算同时存在差异；均值不能证明因果或显著优胜。原工业模型细节并未完整复现，机制解释应优先参考各方法内部的配对控制。', '',
+    lines += ['', '不同结构、参数量和候选历史预算同时存在差异；均值用于比较总体效果，配对区间用于判断具体差值的统计证据。原工业模型细节并未完整复现，机制解释应优先参考各方法内部的配对控制。', '',
               '测试耗时不列入性能比较。本次存在并行外部负载，无法把运行记录解释为受控算法效率。', '',
               '[各种子指标与来源指纹](../reports/adapted-baseline-test-comparison.json) · [原验证表与适配边界](adapted-baseline-comparison.md) · [追加测试结论](supplementary-test-results.md)']
     (root / 'docs/adapted-baseline-test-comparison.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
