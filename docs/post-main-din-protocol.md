@@ -1,5 +1,7 @@
 # DIN mechanism extension: fixed validation protocol
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 This post-main-study extension tests whether the recent-history attention mechanism affects the common-backbone baseline. The original 54-model test study remains frozen. These additional runs use validation only; their design was specified after the original test results were available.
 
 ## Architecture and comparison

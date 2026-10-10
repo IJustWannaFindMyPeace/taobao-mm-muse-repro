@@ -1,5 +1,7 @@
 # 增强 ESU：SA-TA 与可学习 SimTier
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 ## 方法来源与适配
 
 [论文 §4.3，式 4–5](https://arxiv.org/html/2512.07216v1#S4.SS3) 在 softmax 前融合 ID 注意力分数 `d` 与检索结果的多模态余弦 `r`：

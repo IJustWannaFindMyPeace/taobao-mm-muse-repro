@@ -1,5 +1,7 @@
 # R0–R5 核心效果对照
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 ## 实验矩阵
 
 各组统一使用阶段 2 的 `MUSEModel`，短历史分支和公共预测网络保持一致。

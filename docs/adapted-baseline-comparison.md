@@ -1,5 +1,7 @@
 # 适配基线：统一验证集比较
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 > 对应模型的[统一测试表](adapted-baseline-test-comparison.md)已发布；本文保留原验证证据与训练资源记录。
 
 

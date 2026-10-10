@@ -1,5 +1,7 @@
 # 多模态余弦与多模态表示＋ID 余弦检索对照
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 目的：检验在固定增强 ESU 的条件下，额外引入 ID 检索分数是否改善效果，以及代价是否值得。对应 [MUSE §3.1 表 2](https://arxiv.org/html/2512.07216v1) 的余弦融合思路；这是明确缺失策略的本地适配，不覆盖所有复杂检索器。
 
 ## 运行前固定的规格

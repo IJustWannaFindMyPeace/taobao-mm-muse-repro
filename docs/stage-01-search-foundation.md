@@ -1,5 +1,7 @@
 # 共享主干迁移与 GSU 检索检查
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 ## 来源与衔接
 
 依据 [MUSE §4.2](https://arxiv.org/html/2512.07216v1#S4.SS2) 和[官方检索函数](https://github.com/alimama-tech/MUSE/blob/main/utils/utils.py)，GSU 使用固定多模态表示的余弦相似度选取 Top-K 历史。本项目先实现 R0（最近 K 条）和 R1（多模态表示 Top-K），二者使用相同的 ID 目标注意力作为长历史 ESU。

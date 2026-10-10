@@ -1,5 +1,7 @@
 # 阶段 8：独立基线的检索契约与规模约束
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 ## 版本区分
 
 [MUSE §7.1.2](https://arxiv.org/html/2512.07216v1#S7.SS1.SSS2) 的 SIM-hard 与 SIM-soft 采用 MUSE 的 SA-TA + SimTier ESU。它们不能与原始 SIM 完整模型混称。本地参考归档中的 `trainer.py`、`model/muse.py` 与 `config/sim_*.json` 也采用共享增强 ESU 的路径。DIN 分支屏蔽长历史输出；短历史仍由公共模块处理。原始 DIN 的局部激活网络版本如实现，须另标，不能把现有点积注意力命名为原始 DIN 完整复现。

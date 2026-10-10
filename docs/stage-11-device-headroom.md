@@ -1,5 +1,7 @@
 # 阶段 11：基于实际显存余量的资源复测
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 ## 门槛修正
 
 原 9 GiB PyTorch 分配量是保守预算，不是 RTX 5070 的硬件容量。本轮将其作为提醒线，允许探索至 10.5 GiB，同时要求 CUDA 报告的剩余显存不少于 1 GiB；CPU 门槛继续为进程 RSS 24 GiB、系统可用内存 4 GiB。探测脚本通过显式参数启用本轮策略，旧报告和已有训练配置不会被追溯改写。

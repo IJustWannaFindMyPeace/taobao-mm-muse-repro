@@ -1,5 +1,7 @@
 # 共同协议下的长历史与检索策略对照
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 核心 L200 三种子已完成，见[三种子汇总](shared-core-three-seed-results.md)。本阶段保持同一 5% 队列、batch=256、两类学习率 0.001、单轮预算、K=50，将候选历史扩大为 L1000。先执行 seed=42 并审计，再补其他种子。
 
 |方法|用途|

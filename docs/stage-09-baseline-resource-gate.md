@@ -1,5 +1,7 @@
 # 阶段 9：基线整模型接入与资源准入
 
+> 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
+
 ## 已完成的工程验证
 
 四个本地适配基线已接入 `train_muse.py`：B0-short（只使用最近 50 条的公共注意力）、B1-hard-enhanced（同类目检索）、B2-soft-enhanced（共享商品与类目拼接向量余弦检索）、G-ID-item（共享商品 ID 余弦检索）。后三者保持与 R4 一致的增强 ESU；B0-short 不应称原始 DIN 完整复现。
