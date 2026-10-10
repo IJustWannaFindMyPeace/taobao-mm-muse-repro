@@ -1,39 +1,91 @@
-# TAOBAO-MM · MUSE
+# 面向终身用户兴趣建模的多模态两阶段推荐
 
-研究固定多模态表示如何选择长历史，并通过统计与语义注意力聚合兴趣。
+基于 PyTorch 与 TAOBAO-MM 的长历史点击率预测项目。通过“目标相关历史检索 → 精细兴趣聚合”处理较长行为序列，将多模态语义同时用于历史筛选和兴趣建模，在固定 Top-K 预算下研究检索方式、聚合模块及历史窗口的作用。
 
-两个项目共同复现CIKM 2024与MUSE的下游研究问题，采用TAOBAO-MM固定5%用户队列和三个训练种子。主实验54份模型及追加73份检查点已完成统一测试，159项配对比较已归档。这是公共协议下的适配与机制验证，不是原工业系统的原样复刻。
+项目提供多模态检索、语义感知目标注意力、相似度分布统计及对应的受控实验。当前实验覆盖最多 1,000 条候选历史，筛选最多 50 条有效行为进入长历史聚合分支。
 
-## 从研究问题开始阅读
+## 模型流程
 
-1. [研究叙事](docs/research-narrative.md)：问题、方法、证据与解释。
-2. [论文对照与差异分析](docs/paper-comparison-and-analysis.md)：哪些结论一致，哪些不同，原因证据支持到哪里。
-3. [图表与数据](docs/storyline-figures.md)：12张PNG/SVG图及三种子原始数值。
-4. [PPT内容计划](docs/presentation-plan.md)：正文、附录与学习顺序。
+```text
+目标商品与最多 1,000 条历史的固定多模态向量
+                        ↓
+             GSU：余弦相似度检索 Top-50
+                        ↓
+             ESU：精细兴趣建模
+          ┌─────────────┴─────────────┐
+      SA-TA 语义注意力          SimTier 相似度统计
+          └─────────────┬─────────────┘
+                        ↓
+       与用户、商品字段及短历史分支共同预测
+                        ↓
+                   广告点击概率
+```
 
-[关联项目](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration)共享数据与评估协议；两个项目衔接的是研究问题，不是将所有模块串接成一个模型。
+- **GSU（General Search Unit，历史检索）**：按目标与历史商品的多模态余弦相似度选择行为。真实历史、补齐位置和缺失多模态表示分别处理；目标表示不可用时回退到近期有效历史。
+- **SA-TA（Semantic-Aware Target Attention，语义感知目标注意力）**：可学习融合 ID 注意力分数、多模态相似度及二者交互项，再归一化权重并聚合历史表示。
+- **SimTier（相似度分桶统计）**：统计有效历史的相似度分布，经 `log1p` 与可学习缩放后接入预测网络。
+- **公共预测主干**：保留用户与商品字段、最近 50 条历史分支以及检索后的长历史分支，使用点击标签训练。
 
-[数据字段字典](docs/dataset-fields.md)：官方字段含义、模型输入顺序与本地索引约定。
+GSU 与 ESU 分别回答“选择哪些历史”和“如何使用历史”。检索出的行为用于当前目标商品的点击预测，不是最终推荐商品列表。
 
-[正式抽样与划分](docs/sampling-and-splits.md)：5% 用户规则、训练/验证/测试来源与评估边界。
+## 主要结果
 
-## 完整实验与审计
+以下为固定测试集上三个训练种子的均值，候选历史窗口 `L=1000`、检索预算 `K=50`。完整聚合包含 SA-TA 与 SimTier。
 
-- [主测试结果](docs/final-test-results.md)与[追加测试结果](docs/supplementary-test-results.md)。追加测试发生在主测试已查看之后，单独标注。
-- [当前覆盖范围](docs/current-reproduction-status.md)、[整体实验审计](docs/cross-project-completion-audit.md)与[叙事及展示就绪审计](docs/narrative-readiness-audit.md)。
-- [全部追加配对表](docs/supplementary-test-comparisons.md)、[公共下游配置](configs/shared-downstream-protocol-v1.json)与[执行协议](docs/supplementary-test-protocol.md)。
-- [方法覆盖与适配边界](docs/reproduction-scope.md)、[实施路线](docs/roadmap.md)。阶段文档保留历史条件，不替代当前正式结果。
+|历史检索|长历史聚合|AUC ↑|GAUC ↑|LogLoss ↓|
+|---|---|---:|---:|---:|
+|多模态余弦|普通目标注意力|0.606280|0.576960|0.391905|
+|商品 ID|完整聚合|0.612480|0.587225|0.390768|
+|类目|完整聚合|0.612869|0.589523|0.390583|
+|商品与类目 ID|完整聚合|0.613921|0.590532|0.390450|
+|多模态＋ID 等权融合|完整聚合|0.615825|0.590843|0.390154|
+|**多模态余弦**|**完整聚合**|**0.618785**|**0.595488**|**0.389512**|
 
-数据文件、预测数组与权重保留在本地，不提交到仓库；公开代码、配置、指标和来源指纹。图表数据与统计图绘制说明见展示计划，工程调试记录不作为研究主线。
+- 固定多模态检索，完整聚合较普通目标注意力的 GAUC **相对提升 3.21%**。
+- 固定完整聚合，多模态余弦检索较商品 ID 检索的 GAUC **相对提升 1.41%**。
+- 在 `L=200` 的模块消融中，SimTier 与 SA-TA 单独加入均有收益；已有 SimTier 后再叠加 SA-TA 的额外收益不明确。
+- 固定 `K=50`，历史窗口从 50 扩大到 200、再到 500 带来收益；500 到 1,000 的增量较弱，存在种子差异。
 
-## 结论边界
+相对提升按 `(方法指标 − 对照指标) / 对照指标` 计算。表中比较检索与聚合方案；DIN、SIM、TWIN、MISS 的本地适配及其他检索扩展另见[补充结果](docs/supplementary-test-results.md)，不据此表宣称优于所有基线。
 
-多模态表示与训练策略有价值，但组合、更多预训练和更复杂检索并不始终带来增量。正结果、负结果与跨零区间一并保留；AUC、GAUC与LogLoss分别解释。
+[完整主测试结果](docs/final-test-results.md) · [结果分析](docs/research-narrative.md) · [逐种子指标](reports/final-test-model-metrics.csv)
 
-没有重训SCL编码器或补齐CLIP/OpenCLIP/I2I原表示对照，没有完成全量数据、100K历史或线上试验。5%不是显卡最大规模；适配模型的结论不能直接外推到原工业网络。
+## 实验设计
 
-## 研究表达
+|研究问题|控制方式|
+|---|---|
+|历史检索是否有效|固定后续聚合模型，比较类目、ID、多模态及融合检索|
+|多模态聚合是否有效|固定检索，分别加入统计、语义注意力及二者组合|
+|更长历史是否有价值|保持 `K=50`，比较 `L=50/200/500/1000`|
+|与其他模型如何比较|在公共数据与训练设置下实现 DIN、SIM、TWIN、MISS 对照|
 
-以受控实验明确回答方法是否有效，以结构与行为诊断解释结果；保留影响判断的适配范围和统计信息。细部机制的唯一归因属于可选扩展，不作为现有结论的前置条件。教学问答不纳入公开研究正文。见[表达审计](docs/research-expression-audit.md)。
+采用名义 5% 的固定用户抽样规则：训练 3,052,475 条、验证 768,773 条、测试 923,211 条曝光。保留官方 train/test 来源，并从官方 train 按用户划分验证集；验证用户排除于本地训练与测试。多模态输入为固定的 128 维 SCL 向量，下游 batch size 为 256、训练 1 轮，训练种子为 42、2026、3407。
 
-[论文术语与实现命名](docs/paper-terminology.md)：区分多模态数据、表示及两种预训练阶段。
+评估报告 AUC、GAUC 和 LogLoss；GAUC 对同时具有正负样本的用户按曝光记录数加权。三个种子共享数据划分。主测试与后续追加测试分别归档，配对区间采用 2,000 次用户 bootstrap。
+
+[数据字段](docs/dataset-fields.md) · [抽样与划分](docs/sampling-and-splits.md) · [公共下游配置](configs/shared-downstream-protocol-v1.json)
+
+## 代码与运行入口
+
+|目录／入口|用途|
+|---|---|
+|[`src/retrieval.py`](src/retrieval.py)|带有效性掩码的确定性 Top-K 历史选择|
+|[`src/enhanced_esu.py`](src/enhanced_esu.py)|语义注意力与可学习相似度统计|
+|[`src/muse_model.py`](src/muse_model.py)|完整预测模型及模块开关|
+|[`scripts/train_muse.py`](scripts/train_muse.py)|单配置训练与验证|
+|[`configs/`](configs/)|检索、聚合及历史长度实验配置|
+|[`reports/`](reports/)|逐种子指标、配对比较与产物摘要|
+|[`tests/`](tests/)|检索、掩码、聚合及指标检查|
+
+数据从 [TAOBAO-MM 官方入口](https://taobao-mm.github.io/)获取。数据准备与特征存储流程、Python／CUDA 依赖快照见[配套数据处理项目](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration#代码与运行入口)。两项目使用相同的数据字段与划分协议。
+
+准备特征存储后，使用 `scripts/train_muse.py` 的 `--store`、`--config`、`--output-dir` 参数启动指定模型；训练与验证完成后，再通过独立评估脚本生成测试指标。原始数据、特征存储及权重不包含在仓库中。实验调度脚本包含数据摘要校验，重建数据后需使用与本地数据一致的配置。
+
+## 方法来源与范围
+
+本项目基于 **MUSE: A Simple Yet Effective Multimodal Search-Based Framework for Lifelong User Interest Modeling**，实现其两阶段多模态建模思想，并在公开数据上比较检索、聚合及历史长度。公共主干和部分对照网络采用本地适配，详见[方法范围](docs/reproduction-scope.md)与[论文对照](docs/paper-comparison-and-analysis.md)。
+
+当前结果对应固定用户队列上的离线实验；未重训上游 SCL 编码器，不包含工业十万条历史或线上 A/B 测试。
+
+- [论文](https://arxiv.org/abs/2512.07216)
+- [关联项目：多模态特征增强的广告点击率预测](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration)，研究多模态表示接入与预训练迁移。
