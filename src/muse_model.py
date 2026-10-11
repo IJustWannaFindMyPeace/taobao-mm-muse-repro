@@ -4,7 +4,7 @@ from torch import nn
 from c0 import C0
 from feature_store import FIELDS
 from retrieval import select_history,gather_history
-from enhanced_esu import LearnedSimTier,semantic_scores,semantic_attention
+from enhanced_esu import LearnedSimTier,SimTierProjection,semantic_scores,semantic_attention
 
 
 class MUSEModel(C0):
@@ -19,7 +19,7 @@ class MUSEModel(C0):
         self.gamma=nn.Parameter(torch.tensor([1.,0.,0.])) if semantic else None
         self.histogram=LearnedSimTier() if histogram else None
         if histogram:
-            self.histogram_projection=nn.Linear(22,128,bias=False)
+            self.histogram_projection=SimTierProjection()
             nn.init.zeros_(self.histogram_projection.weight)
 
     def forward(self,features,item,category,valid,target_content,history_content,target_available,history_available):

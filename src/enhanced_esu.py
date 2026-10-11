@@ -27,12 +27,29 @@ def semantic_attention(attention,value,target,history,valid,similarity,gamma):
 class LearnedSimTier(nn.Module):
     def __init__(self):
         super().__init__()
-        self.scale=nn.Parameter(torch.ones(22))
+        self.scale=nn.Parameter(torch.ones(21))
+
+    def _load_from_state_dict(self, state_dict, prefix, *args, **kwargs):
+        key = prefix + 'scale'
+        if key in state_dict and state_dict[key].shape == (22,):
+            state_dict[key] = state_dict[key][:21].clone()
+        super()._load_from_state_dict(state_dict, prefix, *args, **kwargs)
 
     def forward(self,similarity,valid):
-        # Official eps=.1 layout has 22 allocated bins; normalized scores map
-        # to 0..20, leaving the final bin unused. Missing pairs never count.
+        # Scores map to 0..20: one endpoint bin and 20 right-closed intervals.
         indices=(torch.ceil(similarity.clamp(-1,1)*10).long()+10).clamp(0,20)
-        counts=torch.zeros((len(similarity),22),device=similarity.device)
+        counts=torch.zeros((len(similarity),21),device=similarity.device)
         counts.scatter_add_(1,indices,valid.float())
         return torch.log1p(counts)*self.scale
+
+
+class SimTierProjection(nn.Linear):
+    """Accept legacy weights whose last input column multiplied an unused bin."""
+    def __init__(self):
+        super().__init__(21, 128, bias=False)
+
+    def _load_from_state_dict(self, state_dict, prefix, *args, **kwargs):
+        key = prefix + 'weight'
+        if key in state_dict and state_dict[key].shape == (128, 22):
+            state_dict[key] = state_dict[key][:, :21].clone()
+        super()._load_from_state_dict(state_dict, prefix, *args, **kwargs)

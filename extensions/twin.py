@@ -4,7 +4,7 @@ from torch import nn
 from c0 import C0
 from feature_store import FIELDS
 from retrieval import select_history, gather_history
-from enhanced_esu import LearnedSimTier, semantic_scores
+from enhanced_esu import LearnedSimTier, SimTierProjection, semantic_scores
 
 
 def masked_topk(scores,valid,k):
@@ -53,7 +53,7 @@ class TwinAdaptation(C0):
         self.k=k;self.retrieval=retrieval
         self.long_attention=FourHeadAttention(width*2)
         self.histogram=LearnedSimTier()
-        self.histogram_projection=nn.Linear(22,128,bias=False)
+        self.histogram_projection=SimTierProjection()
         nn.init.zeros_(self.histogram_projection.weight)
 
     def history_vectors(self,item,category):

@@ -4,6 +4,8 @@
 
 ## 项目概览与方法
 
+- [SimTier 统计布局与检查点兼容性](simtier-layout.md)
+
 - [从多模态表示到长历史兴趣：研究叙事](research-narrative.md)
 - [从多模态表示到长历史兴趣：结果阅读指南](storyline-reading-guide.md)
 - [论文术语与实现命名](paper-terminology.md)

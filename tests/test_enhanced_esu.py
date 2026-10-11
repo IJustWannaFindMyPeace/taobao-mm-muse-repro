@@ -48,10 +48,50 @@ class ESUContracts(unittest.TestCase):
     def test_bins_endpoints_missing_and_gradients(self):
         model=LearnedSimTier();s=torch.tensor([[-1.,0.,1.,1.]])
         out=model(s,torch.tensor([[True,True,True,False]]))
-        self.assertEqual(out.shape,(1,22));self.assertEqual(torch.count_nonzero(out).item(),3)
+        self.assertEqual(out.shape,(1,21));self.assertEqual(torch.count_nonzero(out).item(),3)
         torch.testing.assert_close(out[0,[0,10,20]],torch.log(torch.tensor([2.,2.,2.])))
-        self.assertEqual(out[0,21].item(),0);out.sum().backward()
+        out.sum().backward()
         self.assertGreater(model.scale.grad.abs().sum().item(),0)
+
+    def test_legacy_checkpoint_preserves_predictions(self):
+        import copy
+        class LegacyHistogram(torch.nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.scale = torch.nn.Parameter(torch.randn(22))
+            def forward(self, similarity, valid):
+                index = (torch.ceil(similarity.clamp(-1, 1)*10).long()+10).clamp(0, 20)
+                counts = torch.zeros((len(similarity), 22), device=similarity.device)
+                counts.scatter_add_(1, index, valid.float())
+                return torch.log1p(counts)*self.scale
+        for long_id, semantic in [(True, True), (True, False), (False, False)]:
+            old = MUSEModel({f:12 for f in FIELDS}, k=3,
+                            long_id=long_id, semantic=semantic)
+            old.histogram = LegacyHistogram()
+            old.histogram_projection = torch.nn.Linear(22, 128, bias=False)
+            state = copy.deepcopy(old.state_dict())
+            new = MUSEModel({f:12 for f in FIELDS}, k=3,
+                            long_id=long_id, semantic=semantic)
+            new.load_state_dict(state, strict=True)
+            # Loading must not mutate the caller's checkpoint tensors.
+            self.assertEqual(state['histogram.scale'].shape, (22,))
+            self.assertEqual(state['histogram_projection.weight'].shape, (128,22))
+            features = torch.full((3,10), 2, dtype=torch.long)
+            item = torch.tensor([[2,3,4,5],[2,3,0,0],[0,0,0,0]])
+            valid = item != 0
+            args = (features,item,item,valid,torch.randn(3,128),
+                    torch.randn(3,4,128),torch.tensor([True,False,True]),valid)
+            torch.testing.assert_close(new(*args), old(*args), rtol=1e-6, atol=1e-7)
+            new(*args).sum().backward()
+            self.assertEqual(new.histogram.scale.grad.shape, (21,))
+            self.assertEqual(new.histogram_projection.weight.grad.shape, (128,21))
+
+    def test_unexpected_histogram_shapes_still_fail(self):
+        model = MUSEModel({f:12 for f in FIELDS})
+        state = model.state_dict()
+        state['histogram.scale'] = torch.ones(20)
+        with self.assertRaises(RuntimeError):
+            model.load_state_dict(state, strict=True)
 
     def test_common_initial_predictions_and_learning(self):
         sizes={f:12 for f in FIELDS};f=torch.full((2,10),2,dtype=torch.long)
