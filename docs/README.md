@@ -21,6 +21,8 @@
 
 ## 测试结果与诊断
 
+- [L1000 ESU 四组消融：2026-10-16 补充实验](esu-l1000-completion.md)
+
 - [最终保留测试集结果](final-test-results.md)
 - [适配基线：统一测试集比较](adapted-baseline-test-comparison.md)
 - [统一追加测试：结果与故事线](supplementary-test-results.md)
