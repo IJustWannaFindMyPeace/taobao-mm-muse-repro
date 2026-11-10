@@ -37,7 +37,13 @@ def main():
             models[job]={'report':r,'report_sha256':sha(folder/'report.json')}
         comparisons[str(seed)]=c
     means={role:{k:statistics.mean(c[role][k] for c in comparisons.values()) for k in ('auc','gauc','logloss')} for role in ('baseline','candidate')}
-    result=dict(scope='post_main_validation_extension',test_evaluated=False,models=models,comparisons=comparisons,three_seed_means=means,reused_controls=plan['reused_controls'])
+    # Publish portable run locations without exposing the local workspace path.
+    public_controls = {}
+    for seed, control in plan['reused_controls'].items():
+        public_controls[seed] = dict(control)
+        run_path = Path(control['run'])
+        public_controls[seed]['run'] = (Path('work') / run_path.parent.name / run_path.name).as_posix()
+    result=dict(scope='post_main_validation_extension',test_evaluated=False,models=models,comparisons=comparisons,three_seed_means=means,reused_controls=public_controls)
     (root/'reports/post-main-g1-validation.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     text='''# G1 可学习内容检索：三种子结果
 

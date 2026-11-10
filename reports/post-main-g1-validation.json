@@ -934,17 +934,17 @@
   },
   "reused_controls": {
     "42": {
-      "run": "C:\\Users\\75469\\Documents\\Codex\\2026-09-09\\new-chat\\work\\post-main-g3-extension-v1\\content-seed42",
+      "run": "work/post-main-g3-extension-v1/content-seed42",
       "report_sha256": "de7bd0bbc80dc85c15260c512f9bb42a321940726fcb57bf9f9492cf3aa1a2da",
       "predictions_sha256": "b8d4efa8b2212468a52e63fd01935551d261bd01f8a999740b0a8039dfd599bc"
     },
     "2026": {
-      "run": "C:\\Users\\75469\\Documents\\Codex\\2026-09-09\\new-chat\\work\\post-main-g3-extension-v1\\content-seed2026",
+      "run": "work/post-main-g3-extension-v1/content-seed2026",
       "report_sha256": "cf4f27dc836910731b9a272a418cab089b96ece6ef9ab2115d364823295865a1",
       "predictions_sha256": "63c1a39b41858f411e90ec2071863363cc956cd2b8f2db983a90df385bb6e6f3"
     },
     "3407": {
-      "run": "C:\\Users\\75469\\Documents\\Codex\\2026-09-09\\new-chat\\work\\post-main-g3-extension-v1\\content-seed3407",
+      "run": "work/post-main-g3-extension-v1/content-seed3407",
       "report_sha256": "14911cbc944cd7dcc6f597317f9d85e9fd5b23ce2d411a510a3dcee5358d2127",
       "predictions_sha256": "dcd9f12c926a2afd4ac92eae7049d46e0f259e7b158c8c5266c32eadc7c71c4f"
     }
