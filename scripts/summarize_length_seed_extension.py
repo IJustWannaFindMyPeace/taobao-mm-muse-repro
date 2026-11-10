@@ -44,7 +44,7 @@ def main():
    for lo,hi in ((50,200),(200,500),(500,1000)):
     c=comparisons[f'{f}-l{hi}-vs-l{lo}-seed{seed}'];lower,upper=c['gauc_delta_user_bootstrap_95_percentile'];text+=f"|{f.upper()}|{seed}|{lo}→{hi}|{c['candidate_minus_baseline']['gauc']:+.6f}|[{lower:+.6f}, {upper:+.6f}]|\n"
  text+='''
-## 故事线与局限
+## 结果分析与局限
 
 更多历史提供额外可检索信息，但收益取决于模型如何利用它。本地完整 MUSE 的前三点呈现较稳定的相邻改善，最后一步未显示明确收益。普通目标注意力仅在 200→500 的两个种子上有正向区间。两条曲线不能替代正式的“模型×长度”交互检验，也不能证明差异由某个单独模块造成。
 
