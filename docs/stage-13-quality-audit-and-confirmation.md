@@ -55,4 +55,4 @@ R4 第二种子检查训练随机性，C6 检查参数选择的跨模型适用�
 
 旧协议与候选同时改变 batch 和 dense LR，收益不能单独归因于 batch。256 与 512 的其他训练配置一致。配对区间使用 2000 次用户 bootstrap，条件于已训练模型及同一验证人群，未做六次比较的多重校正；不能替代训练种子波动或独立测试证据。MAKE 推荐预训练仍使用原检查点，结果仅涉及下游训练。
 
-本轮属于训练方案选择，不新增方法贡献。后续应同时考虑排序与概率预测质量，不以验证集单个最高 GAUC 冻结方案。当前仍使用 5% 用户队列，最终数据规模、统一训练协议及保留测试结果尚未确定。方法故事线与编号说明见[实验导读](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/experiment-guide.md)。
+本轮属于训练方案选择，不新增方法贡献。后续应同时考虑排序与概率预测质量，不以验证集单个最高 GAUC 冻结方案。当前仍使用 5% 用户队列，最终数据规模、统一训练协议及保留测试结果尚未确定。方法研究主线与编号说明见[实验导读](https://github.com/IJustWannaFindMyPeace/taobao-mm-content-integration/blob/main/docs/experiment-guide.md)。

@@ -6,8 +6,8 @@
 
 - [SimTier 统计布局与检查点兼容性](simtier-layout.md)
 
-- [从多模态表示到长历史兴趣：研究叙事](research-narrative.md)
-- [从多模态表示到长历史兴趣：结果阅读指南](storyline-reading-guide.md)
+- [从多模态表示到长历史兴趣：研究概览](research-narrative.md)
+- [从多模态表示到长历史兴趣：结果阅读指南](results-reading-guide.md)
 - [论文术语与实现命名](paper-terminology.md)
 - [方法来源、实现差异与覆盖范围](reproduction-scope.md)
 - [两篇论文对照与结果差异分析](paper-comparison-and-analysis.md)
@@ -25,12 +25,12 @@
 
 - [最终保留测试集结果](final-test-results.md)
 - [适配基线：统一测试集比较](adapted-baseline-test-comparison.md)
-- [统一追加测试：结果与故事线](supplementary-test-results.md)
+- [统一追加测试：结果与分析](supplementary-test-results.md)
 - [追加测试：完整配对结果](supplementary-test-comparisons.md)
 - [测试集商品频次分组：主实验后的补充分析](posthoc-test-frequency-v1.md)
 - [8/9 组事后测试诊断](posthoc-paper-groups-v1.md)
 - [匿名检索案例：同一历史，三种评分](anonymous-retrieval-cases.md)
-- [故事线图表与原始数值](storyline-figures.md)
+- [实验图表与原始数值](experiment-figures.md)
 
 ## 覆盖状态与实施路线
 
@@ -44,14 +44,12 @@
 <details>
 <summary>展开协议演进、阶段实验与审计记录</summary>
 
-以下记录用于追踪实验过程。带日期的审计和展示计划只说明对应版本，不代表最新运行环境或在线演示稿状态。
+以下记录用于追踪实验过程。带日期的核验记录只说明对应实验版本，不代表最新运行状态。
 
 - [两项目整体收尾审计](cross-project-completion-audit.md)
-- [研究表达审计](research-expression-audit.md)
 - [追加测试前：设计与执行审计](supplementary-pretest-audit.md)
 - [适配基线：统一验证集比较](adapted-baseline-comparison.md)
 - [批大小与超参数选择：扩容前必做检查](batch-and-hyperparameter-selection.md)
-- [研究叙事与展示就绪审计](narrative-readiness-audit.md)
 - [论文覆盖审计：2026-09-23](paper-coverage-audit-2026-09-23.md)
 - [主实验完成后的基线补充阶段](post-main-baseline-extension.md)
 - [DIN mechanism extension: fixed validation protocol](post-main-din-protocol.md)
@@ -67,7 +65,6 @@
 - [TWIN 与 MISS：来源歧义和实施约束](post-main-retrieval-source-audit.md)
 - [四头一致性检索：固定补充协议](post-main-twin-protocol.md)
 - [四头一致性检索补充结果](post-main-twin-results.md)
-- [展示计划与材料就绪情况](presentation-plan.md)
 - [本轮复现补充：收尾核验](reproduction-closeout.md)
 - [共同协议下的核心对照矩阵](shared-core-matrix-v1.md)
 - [共同协议核心结果：三个种子的证据](shared-core-three-seed-results.md)
@@ -90,7 +87,6 @@
 - [阶段 12：批大小与学习率的训练质量筛选](stage-12-batch-quality-screen.md)
 - [阶段 13：质量筛选审计与跨种子/跨模型确认](stage-13-quality-audit-and-confirmation.md)
 - [阶段 14：多模态检索相对类目与 ID 检索的证据](stage-14-retrieval-baseline-evidence.md)
-- [两项目故事线审计 · 2026-09-22](storyline-audit-2026-09-22.md)
-- [两项目研究收尾：故事线与证据边界](study-completion.md)
+- [两项目研究收尾：研究主线与证据边界](study-completion.md)
 
 </details>
