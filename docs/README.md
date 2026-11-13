@@ -1,13 +1,12 @@
 # 项目文档
 
-建议先阅读[项目概览](../README.md)，再按方法、数据协议和测试结果查阅。历史阶段记录保留当时的配置与结论，不作为当前完成状态。
+建议先阅读[项目概览](../README.md)，再按方法、数据协议和测试结果查阅。历史实验按各自配置归档。
 
 ## 项目概览与方法
 
-- [SimTier 统计布局与检查点兼容性](simtier-layout.md)
-
 - [从多模态表示到长历史兴趣：研究概览](research-narrative.md)
 - [从多模态表示到长历史兴趣：结果阅读指南](results-reading-guide.md)
+- [SimTier 相似度统计实现](simtier-layout.md)
 - [论文术语与实现命名](paper-terminology.md)
 - [方法来源、实现差异与覆盖范围](reproduction-scope.md)
 - [两篇论文对照与结果差异分析](paper-comparison-and-analysis.md)
@@ -21,9 +20,8 @@
 
 ## 测试结果与诊断
 
-- [L1000 ESU 四组消融：2026-10-16 补充实验](esu-l1000-completion.md)
-
 - [最终保留测试集结果](final-test-results.md)
+- [ESU 四组模块消融（L1000／K50）](esu-l1000-completion.md)
 - [适配基线：统一测试集比较](adapted-baseline-test-comparison.md)
 - [统一追加测试：结果与分析](supplementary-test-results.md)
 - [追加测试：完整配对结果](supplementary-test-comparisons.md)
@@ -37,12 +35,12 @@
 - [实验覆盖与评估状态](current-reproduction-status.md)
 - [实施路线](roadmap.md)
 
-## 审计与历史记录
-
-- [仓库一致性检查 · 2026-10-11](repository-audit-2026-10-11.md)
+## 历史实验与协议记录
 
 <details>
-<summary>展开协议演进、阶段实验与审计记录</summary>
+<summary>展开历史记录</summary>
+
+- [仓库一致性检查 · 2026-10-11](repository-audit-2026-10-11.md)
 
 以下记录用于追踪实验过程。带日期的核验记录只说明对应实验版本，不代表最新运行状态。
 
