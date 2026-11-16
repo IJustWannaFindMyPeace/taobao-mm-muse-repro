@@ -44,10 +44,10 @@
 
 以下记录用于追踪实验过程。带日期的核验记录只说明对应实验版本，不代表最新运行状态。
 
-- [两项目整体收尾审计](cross-project-completion-audit.md)
-- [追加测试前：设计与执行审计](supplementary-pretest-audit.md)
+- [两项目实验一致性与覆盖核验](cross-project-completion-audit.md)
+- [追加测试：评估设计与执行核验](supplementary-pretest-audit.md)
 - [适配基线：统一验证集比较](adapted-baseline-comparison.md)
-- [批大小与超参数选择：扩容前必做检查](batch-and-hyperparameter-selection.md)
+- [批大小与超参数选择依据](batch-and-hyperparameter-selection.md)
 - [论文覆盖审计：2026-09-23](paper-coverage-audit-2026-09-23.md)
 - [主实验完成后的基线补充阶段](post-main-baseline-extension.md)
 - [DIN mechanism extension: fixed validation protocol](post-main-din-protocol.md)
