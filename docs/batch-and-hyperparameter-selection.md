@@ -1,4 +1,4 @@
-# 批大小与超参数选择：扩容前必做检查
+# 批大小与超参数选择依据
 
 > 文档性质：阶段记录／历史协议。本文中的规模、配置、验证结果及待办状态属于记录时点；当前结果以[主测试](final-test-results.md)、[补充测试](supplementary-test-results.md)和[覆盖说明](current-reproduction-status.md)为准。
 
