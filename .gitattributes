@@ -17,10 +17,10 @@ src/retrieval.py text eol=lf
 src/search_model.py text eol=lf
 
 # Stable presentation evidence and figure exports.
-reports/storyline-*.json text eol=lf
-reports/storyline-chart-data.csv text eol=lf
-reports/narrative-readiness-audit.json text eol=lf
-figures/storyline/*.svg text eol=lf
-figures/storyline/*.png binary
+reports/research-*.json text eol=lf
+reports/research-chart-data.csv text eol=lf
+reports/research-evidence-validation.json text eol=lf
+figures/experiment-figures/*.svg text eol=lf
+figures/experiment-figures/*.png binary
 reports/post-main-g3-validation.json text eol=crlf
 reports/adapted-baseline-test-comparison.json text eol=crlf
